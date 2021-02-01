@@ -1,0 +1,10 @@
+#correct {
+    display: none; 
+    /*visibility:hidden;*/
+    color: green;
+}
+
+.incorrect {
+    display: none!important; 
+    color: red;
+}
