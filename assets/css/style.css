@@ -1,10 +1,11 @@
-#correct {
+.fa-check-circle {
     display: none; 
     /*visibility:hidden;*/
     color: green;
 }
 
-.incorrect {
-    display: none!important; 
+.fa-times-circle {
+    display: none; 
     color: red;
 }
+

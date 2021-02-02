@@ -1,34 +1,17 @@
-function correctAlert() {
-        alert("Correct!"); 
-    }
-    function incorrectAlert() {
-        alert("Incorrect!"); 
-    }
+$(".correct-answer").click(function(){
+     $(".correct").show();
+});
 
-function correctAnswer() {
-  var check = document.getElementById("correct");
-  if (check.style.display === "none") {
-      check.style.display = "inline";
-    //check.style.display = check.style.display == "none" ? "inline" : "none";
-  } else {
-    check.style.display = "none";
-  }
-}
+$(".incorrect-answer1").click(function(){
+     $(".incorrect1").show();
+     $(".correct").show();
+});
 
-function incorrectAnswer() {
-  var check = document.getElementsByClassName("incorrect");
-  if (check.style.display === "none") {
-    check.style.display = "inline-block";
-  } else {
-    check.style.display = "none";
-  }
-}
-
-function myFunction() {
-  var x = document.getElementById("myDIV");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
+$(".incorrect-answer2").click(function(){
+     $(".incorrect2").show();
+     $(".correct").show();
+});
+$(".incorrect-answer3").click(function(){
+     $(".incorrect3").show();
+     $(".correct").show();
+});
