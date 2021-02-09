@@ -50,9 +50,14 @@ function randomAircraft() {
     ["F/A-18 Hornet", "<img src='assets/images/fa18.png'  alt='F/A-18 Hornet' />"], 
     ["Chengdu J-10", "<img src='assets/images/j10.png'  alt='Chengdu J-10' />"]]
 
+    var images =[]
+
     //Randomly select aircraft from array
     let aircraftToUse1 = Math.floor(Math.random() * aircraft.length);
     let aircraftChosen1 = aircraft[aircraftToUse1];
+
+    //Push to images array
+	images.push(aircraftChosen1);
 
     //Remove selected aircraft from array
     aircraft.splice(aircraftToUse1, 1); 
@@ -61,12 +66,18 @@ function randomAircraft() {
     let aircraftToUse2 = Math.floor(Math.random() * aircraft.length);
     let aircraftChosen2 = aircraft[aircraftToUse2];
 
+    //Push to images array
+	images.push(aircraftChosen2);
+
     //Remove another aircraft from array
     aircraft.splice(aircraftToUse2, 1); 
 
     //Randomly select another aircraft from array
     let aircraftToUse3 = Math.floor(Math.random() * aircraft.length);
     let aircraftChosen3 = aircraft[aircraftToUse3];
+
+    //Push to images array
+	images.push(aircraftChosen3);
 
     //Remove a third aircraft from array
     aircraft.splice(aircraftToUse3, 1); 
@@ -75,11 +86,14 @@ function randomAircraft() {
     let aircraftToUse4 = Math.floor(Math.random() * aircraft.length);
     let aircraftChosen4 = aircraft[aircraftToUse4];
 
+    //Push to images array
+	images.push(aircraftChosen4);
+
     //Remove a third aircraft from array
     aircraft.splice(aircraftToUse4, 1); 
 
     // Add aircraft image to paragraph element
-    document.getElementById("demo").innerHTML = aircraftChosen1[1];
+    //document.getElementById("demo").innerHTML = aircraftChosen1[1];
 
     // Add aircraft name to button
     document.getElementById("correct-answer").innerHTML = aircraftChosen1[0];
@@ -92,5 +106,35 @@ function randomAircraft() {
     
      // Add aircraft name to button
     document.getElementById("incorrect-answer3").innerHTML = aircraftChosen4[0];
-    };
+
+    //Select random image from images array and display in HTML
+    let imageToUse = Math.floor(Math.random() * images.length);
+    let imageChosen = images[imageToUse];
+    document.getElementById("demo").innerHTML = imageChosen[1];
+    
 // Code for randomly selecting from array from: https://stackoverflow.com/questions/57059564/how-to-exclude-an-array-element-from-a-random-pick
+
+$("#incorrect-answer3").click(function () {
+   // if ($(this).siblings("#correct-answer") == imageChosen[0]){
+       if ($('#incorrect-answer3') == imageChosen[0]){
+        //console.log($(this).siblings("#correct-answer"))
+        console.log($('#incorrect-answer3'));
+        console.log(imageChosen[0]);
+        $(".correct3").show();
+    }
+    else {
+        //console.log($(this).siblings("#correct-answer"))
+        console.log($('#incorrect-answer3'));
+        console.log(imageChosen[0]);
+        $(".incorrect3").show();
+    }
+});
+};
+
+//function answer(){
+    //if 
+    //var images = ["aircraftChosen1", "aircraftChosen2", "aircraftChosen3", "aircraftChosen4"]
+    //let imageToUse = Math.floor(Math.random() * images.length);
+    //let imageChosen = images[imageToUse];
+    //document.getElementById("demo").innerHTML = imageChosen[1];
+//};
