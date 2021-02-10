@@ -20,18 +20,21 @@
   <body>
     <div>
         <h1>Military aircraft recognition quiz</h1>
-        <button onclick="randomAircraft()">start</button>
+        <button id="next" onclick="randomAircraft()">start</button>
         <!--<img src="assets/images/f35.png"  alt="F35 Lightning II" />-->
         <p>What is the aircraft?</p>
-        <button id="correct-answer"></button>
-        <i class="correct fas fa-check-circle"></i>
-        <button id="incorrect-answer1"></button>
-        <i class="incorrect1 fas fa-times-circle"></i>
-        <button id="incorrect-answer2"></button>
-        <i class="incorrect2 fas fa-times-circle"></i>
-        <button id="incorrect-answer3"></button>
-        <i class="correct3 fas fa-check-circle"></i>
-        <i class="incorrect3 fas fa-times-circle"></i>
+        <button id="answer1"></button>
+        <i class="hide correct1 fas fa-check-circle fa-check-circle-hide"></i>
+        <i class="hide incorrect1 fas fa-times-circle fa-times-circle-hide"></i>
+        <button id="answer2"></button>
+        <i class="hide correct2 fas fa-check-circle"></i>
+        <i class="hide incorrect2 fas fa-times-circle"></i>
+        <button id="answer3"></button>
+        <i class="hide correct3 fas fa-check-circle"></i>
+        <i class="hide incorrect3 fas fa-times-circle"></i>
+        <button id="answer4"></button>
+        <i class="hide correct4 fas fa-check-circle"></i>
+        <i class="hide incorrect4 fas fa-times-circle"></i>
         <p id="demo"></p>
         <button onclick="randomAircraft()">Next</button>
    </div>

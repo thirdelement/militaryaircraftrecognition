@@ -4,8 +4,18 @@
     color: green;
 }
 
+.fa-check-circle-hide {
+    display: none; 
+    /*visibility:hidden;*/
+    color: green;
+}
+
 .fa-times-circle {
     display: none; 
     color: red;
 }
 
+.fa-times-circle-hide {
+    display: none; 
+    color: red;
+}
