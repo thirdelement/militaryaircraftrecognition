@@ -1,31 +1,37 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
-     <!-- FontAwesome -->
-    <script src="https://kit.fontawesome.com/0d3dc6dda0.js" crossorigin="anonymous"></script> 
-    
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/0d3dc6dda0.js" crossorigin="anonymous"></script>
+
     <!-- CSS-->
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
 
     <title>Military aircraft recognition quiz</title>
-    
-  </head>
-  <body>
-    <div>
+
+</head>
+
+<body>
+    <div id="quiz-document">
         <h1>Military aircraft recognition quiz</h1>
         <button id="next" onclick="randomAircraft()">start</button>
         <!--<img src="assets/images/f35.png"  alt="F35 Lightning II" />-->
         <p>What is the aircraft?</p>
         <button id="answer1"></button>
-        <i class="hide correct1 fas fa-check-circle fa-check-circle-hide"></i>
-        <i class="hide incorrect1 fas fa-times-circle fa-times-circle-hide"></i>
+        <!--<p id="checkmark1"></p>-->
+        <!--<form id="button-form1">-->
+        <i id="correct1" class="hide correct1 fas fa-check-circle fa-check-circle-hide"></i>
+        <i id="incorrect1" class="hide incorrect1 fas fa-times-circle fa-times-circle-hide"></i>
+        <!--</form>-->
         <button id="answer2"></button>
         <i class="hide correct2 fas fa-check-circle"></i>
         <i class="hide incorrect2 fas fa-times-circle"></i>
@@ -37,15 +43,20 @@
         <i class="hide incorrect4 fas fa-times-circle"></i>
         <p id="demo"></p>
         <button onclick="randomAircraft()">Next</button>
-   </div>
+    </div>
+
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+
     <!-- JQuery-->
-    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 
     <!-- Javascript -->
     <script type="text/javascript" src="scripts/aircraftrecognition.js"></script>
-    
-  </body>
+
+</body>
+
 </html>
