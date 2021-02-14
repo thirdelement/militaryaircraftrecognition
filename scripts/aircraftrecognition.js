@@ -1,12 +1,34 @@
-function randomAircraft() {
+//Progress bar - Code from https://www.youtube.com/watch?v=QxQRtwAtqKE
+class progressBar {
+    constructor (element, initialValue = 0){
+        this.valueElem = element.querySelector('.progress-bar-value');
+        this.fillElem = element.querySelector('.progress-bar-fill');
+        this.setValue(initialValue);
+    }
+    setValue (newValue) {
+        if (newValue < 0) {
+            newValue = 0;
+        }
+        if (newValue > 100) {
+            newValue = 100;
+        }
+        this.value = newValue;
+        this.update();
+    }
+    update() {
+        const percentage = this.value + '%'; //50%, 60%, etc.
 
+        this.fillElem.style.width = percentage;
+        this.valueElem.textContent = percentage;
+    }
+}
+const pb1 = new progressBar(document.querySelector('.progress-bar'))
+
+//Function for displaying quiz questions, alternative options and answers 
+function randomAircraft() {
     //Hide correct & incorrect checks from previous question
     $(document).ready(function () {
         $("#next").click(function () {
-            //let checkcorrect = document.getElementById("correct1");
-            //let checkincorrect = document.getElementById("incorrect1");
-            // checkcorrect.style.display = "none"
-            //checkincorrect.style.display = "none"
             $(".hide").hide();
         });
 
