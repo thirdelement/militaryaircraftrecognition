@@ -1,36 +1,83 @@
-//Progress bar - Code from https://www.youtube.com/watch?v=QxQRtwAtqKE
-class progressBar {
-    constructor (element, initialValue = 0){
-        this.valueElem = element.querySelector('.progress-bar-value');
-        this.fillElem = element.querySelector('.progress-bar-fill');
-        this.setValue(initialValue);
-    }
-    setValue (newValue) {
-        if (newValue < 0) {
-            newValue = 0;
-        }
-        if (newValue > 100) {
-            newValue = 100;
-        }
-        this.value = newValue;
-        this.update();
-    }
-    update() {
-        const percentage = this.value + '%'; //50%, 60%, etc.
 
-        this.fillElem.style.width = percentage;
-        this.valueElem.textContent = percentage;
-    }
+//Count number of clicks on Next button - code from Code Institute Local Storage module
+function questionCounter() {
+    // set questionCounter variable to the contents of "counter" or 1 if "counter" doesn't exist yet
+    let questionCounter = sessionStorage.getItem("counter") || 0;
+    // increment questionCounter and store it in sessionStorage with the name "counter"
+    sessionStorage.setItem("counter", ++questionCounter);
+    //console.log("counter")
+    // pb1.setItem(pb1, ++questionCounter);
+    //}
+
+    // function showCounter() {
+    // set currentCounter variable to the contents of "counter" or 1 if "counter" doesn't exist yet
+    // let currentCounter = sessionStorage.getItem("counter") || 1;
+    // display the current count in an alert
+    console.log("You clicked the button: " + questionCounter + " times.");
+    // }
+    //function incrementCounter() {
+    // set currentCounter variable to the contents of "counter" or 0 if "counter" doesn't exist yet
+    // let currentCounter = sessionStorage.getItem("counter") || 0;
+    // increment currentCounter and store it in sessionStorage with the name "counter"
+    // sessionStorage.setItem("counter", ++currentCounter);
+    //}
+    //function showCounter() {
+    // set currentCounter variable to the contents of "counter" or 0 if "counter" doesn't exist yet
+    //let currentCounter = sessionStorage.getItem("counter") || 0;
+    // display the current count in an alert
+    //for (let count = 1; count <= 10; count++) {
+    // (count);
+
+    //}
+    //alert("You clicked the button: " + currentCounter + " times.");
 }
-const pb1 = new progressBar(document.querySelector('.progress-bar'))
+
+  //Clear count from previous quiz
+  function start(){
+        $("#start").on("click", function () {
+            sessionStorage.clear();
+            let questionCounter = sessionStorage.getItem("counter") || 0;
+            sessionStorage.setItem("counter", ++questionCounter);
+            //sessionStorage.setItem("counter", ++questionCounter);
+            console.log("####questionCounter is: " + questionCounter);
+        });
+        }
 
 //Function for displaying quiz questions, alternative options and answers 
 function randomAircraft() {
-    //Hide correct & incorrect checks from previous question
     $(document).ready(function () {
+      
+        //Hide correct & incorrect checks from previous question
         $("#next").click(function () {
             $(".hide").hide();
+
+            //Progress bar - Code from https://www.youtube.com/watch?v=QxQRtwAtqKE
+            class progressBar {
+                constructor(element, initialValue = 0) {
+                    this.valueElem = element.querySelector('.progress-bar-value');
+                    this.fillElem = element.querySelector('.progress-bar-fill');
+                    this.setValue(initialValue);
+                }
+                setValue(newValue) {
+                    if (newValue < 0) {
+                        newValue = 0;
+                    }
+                    if (newValue > 100) {
+                        newValue = 100;
+                    }
+                    this.value = newValue;
+                    this.update();
+                }
+                update() {
+                    const percentage = this.value + '0%'; //50%, 60%, etc.
+
+                    this.fillElem.style.width = percentage;
+                    this.valueElem.textContent = percentage;
+                }
+            }
+            const pb1 = new progressBar(document.querySelector('.progress-bar'), sessionStorage.getItem("counter"))
         });
+
 
         let aircraft = [["F-35 Lightning II", "<img src='assets/images/f35.png'  alt='F35 Lightning II' />"],
         ["F-22 Raptor", "<img src='assets/images/f22.png'  alt='F22 Raptor' />"],
