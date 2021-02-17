@@ -1,10 +1,10 @@
 
 //Count number of clicks on Next button - code from Code Institute Local Storage module
-function questionCounter() {
+//3function questionCounter() {
     // set questionCounter variable to the contents of "counter" or 1 if "counter" doesn't exist yet
-    let questionCounter = sessionStorage.getItem("counter") || 0;
+    //3let questionCounter = sessionStorage.getItem("counter") || 0;
     // increment questionCounter and store it in sessionStorage with the name "counter"
-    sessionStorage.setItem("counter", ++questionCounter);
+   //3 sessionStorage.setItem("counter", ++questionCounter);
     //console.log("counter")
     // pb1.setItem(pb1, ++questionCounter);
     //}
@@ -13,7 +13,7 @@ function questionCounter() {
     // set currentCounter variable to the contents of "counter" or 1 if "counter" doesn't exist yet
     // let currentCounter = sessionStorage.getItem("counter") || 1;
     // display the current count in an alert
-    console.log("You clicked the button: " + questionCounter + " times.");
+    //3console.log("You clicked the button: " + questionCounter + " times.");
     // }
     //function incrementCounter() {
     // set currentCounter variable to the contents of "counter" or 0 if "counter" doesn't exist yet
@@ -30,18 +30,62 @@ function questionCounter() {
 
     //}
     //alert("You clicked the button: " + currentCounter + " times.");
-}
+//3}
 
   //Clear count from previous quiz
-  function start(){
-        $("#start").on("click", function () {
-            sessionStorage.clear();
-            let questionCounter = sessionStorage.getItem("counter") || 0;
-            sessionStorage.setItem("counter", ++questionCounter);
+  //2function start(){
+        //Progress bar - Code from https://www.youtube.com/watch?v=QxQRtwAtqKE
+            //2class progressBar {
+                //2constructor(element, initialValue = 0) {
+                    // set questionCounter variable to the contents of "counter" or 0 if "counter" doesn't exist yet
+                   //2this.valueElem = element.querySelector('.progress-bar-value');
+                    // increment questionCounter and store it in sessionStorage with the name "counter"
+                    //2this.fillElem = element.querySelector('.progress-bar-fill');
+                   //0this.setValue(initialValue);
+                //2}
+                //0setValue(newValue) {
+                   //0 if (newValue < 0) {
+                     //0   newValue = 0;
+                   //0 }
+                   //0 if (newValue > 100) {
+                   //0    newValue = 100;
+                   //0 }
+                  //0this.value = newValue;
+                   //0 this.update();
+              //0 }
+                //0update() {
+                   //0const percentage = this.value + '0%'; //50%, 60%, etc.
+
+                  //0  this.fillElem.style.width = percentage;
+                 //0this.valueElem.textContent = percentage;
+                //0}
+           //0 }
+            //2}
+            //2const pb1 = new progressBar(document.querySelector('.progress-bar'), sessionStorage.getItem("counter"))
+  
+  
+       // $("#start").on("click", function () {
+           //2$(".hide").hide();
+            //2sessionStorage.clear();
+            //2let questionCounter = sessionStorage.getItem("counter") || 0;
+            //2sessionStorage.setItem("counter", ++questionCounter);
             //sessionStorage.setItem("counter", ++questionCounter);
-            console.log("####questionCounter is: " + questionCounter);
-        });
-        }
+            //2console.log("####questionCounter is: " + questionCounter);
+       // });
+        //2}
+//$("#start").on("click", function () {  
+function incrementProgress(){
+    //Progress Bar - Code from https://www.youtube.com/watch?v=vXwk9tq4Voc
+    let progressBar = $('.progress-bar');
+    let progressNumber = 0;
+    progressNumber+=10;
+    //$('.progressBar')+=10;
+    //$('.progressBar').css('width', progressNumber + '%');
+    progressBar.css('width', progressNumber + '%');
+    //progressBar.css('width').progressNumber + '%';
+    //}
+    //progressBar.attr('aria-valuenow', progressNumber)
+    }
 
 //Function for displaying quiz questions, alternative options and answers 
 function randomAircraft() {
@@ -52,31 +96,31 @@ function randomAircraft() {
             $(".hide").hide();
 
             //Progress bar - Code from https://www.youtube.com/watch?v=QxQRtwAtqKE
-            class progressBar {
-                constructor(element, initialValue = 0) {
-                    this.valueElem = element.querySelector('.progress-bar-value');
-                    this.fillElem = element.querySelector('.progress-bar-fill');
-                    this.setValue(initialValue);
-                }
-                setValue(newValue) {
-                    if (newValue < 0) {
-                        newValue = 0;
-                    }
-                    if (newValue > 100) {
-                        newValue = 100;
-                    }
-                    this.value = newValue;
-                    this.update();
-                }
-                update() {
-                    const percentage = this.value + '0%'; //50%, 60%, etc.
+            //1class progressBar {
+                //1constructor(element, initialValue = 0) {
+                    //1this.valueElem = element.querySelector('.progress-bar-value');
+                    //1this.fillElem = element.querySelector('.progress-bar-fill');
+                    //1this.setValue(initialValue);
+                //1}
+                //1setValue(newValue) {
+                    //1if (newValue < 0) {
+                        //1newValue = 0;
+                    //1}
+                    //1if (newValue > 100) {
+                        //1newValue = 100;
+                    //1}
+                    //1this.value = newValue;
+                    //1this.update();
+                //1}
+                //1update() {
+                    //1const percentage = this.value + '0%'; //50%, 60%, etc.
 
-                    this.fillElem.style.width = percentage;
-                    this.valueElem.textContent = percentage;
-                }
-            }
-            const pb1 = new progressBar(document.querySelector('.progress-bar'), sessionStorage.getItem("counter"))
-        });
+                    //1this.fillElem.style.width = percentage;
+                    //1this.valueElem.textContent = percentage;
+                //1}
+            //1}
+            //1var pb1 = new progressBar(document.querySelector('.progress-bar'), sessionStorage.getItem("counter"))
+        //1});
 
 
         let aircraft = [["F-35 Lightning II", "<img src='assets/images/f35.png'  alt='F35 Lightning II' />"],
@@ -88,8 +132,8 @@ function randomAircraft() {
 
         //Remove existing elements in images array
         images.splice(0, 4);
-        console.log("After clearing images:", images);
-        console.log("Aircraft array:", aircraft);
+        //console.log("After clearing images:", images);
+        //console.log("Aircraft array:", aircraft);
 
         //Randomly select aircraft from array
         let aircraftToUse1 = Math.floor(Math.random() * aircraft.length);
@@ -97,11 +141,11 @@ function randomAircraft() {
 
         //Push to images array
         images.push(aircraftChosen1);
-        console.log("After pushing first ac to images:", images);
+        //console.log("After pushing first ac to images:", images);
 
         //Remove selected aircraft from array
         aircraft.splice(aircraftToUse1, 1);
-        console.log("Aircraft array after first splice:", aircraft);
+        //console.log("Aircraft array after first splice:", aircraft);
 
         //Randomly select another aircraft from array
         let aircraftToUse2 = Math.floor(Math.random() * aircraft.length);
@@ -109,11 +153,11 @@ function randomAircraft() {
 
         //Push to images array
         images.push(aircraftChosen2);
-        console.log("After pushing 2nd ac to images:", images);
+        //console.log("After pushing 2nd ac to images:", images);
 
         //Remove another aircraft from array
         aircraft.splice(aircraftToUse2, 1);
-        console.log("Aircraft array after 2nd splice:", aircraft);
+        //console.log("Aircraft array after 2nd splice:", aircraft);
 
         //Randomly select another aircraft from array
         let aircraftToUse3 = Math.floor(Math.random() * aircraft.length);
@@ -121,11 +165,11 @@ function randomAircraft() {
 
         //Push to images array
         images.push(aircraftChosen3);
-        console.log("After pushing 3rd ac to images:", images);
+        //console.log("After pushing 3rd ac to images:", images);
 
         //Remove a third aircraft from array
         aircraft.splice(aircraftToUse3, 1);
-        console.log("Aircraft array after 3rd splice:", aircraft);
+        //console.log("Aircraft array after 3rd splice:", aircraft);
 
         //Randomly select another aircraft from array
         let aircraftToUse4 = Math.floor(Math.random() * aircraft.length);
@@ -133,27 +177,27 @@ function randomAircraft() {
 
         //Push to images array
         images.push(aircraftChosen4);
-        console.log("After pushing 4th ac to images:", images);
+        //console.log("After pushing 4th ac to images:", images);
 
         //Remove a third aircraft from array
         aircraft.splice(aircraftToUse4, 1);
-        console.log("Aircraft array after 4th splice:", aircraft);
+        //console.log("Aircraft array after 4th splice:", aircraft);
 
         // Add aircraft image to paragraph element
         //document.getElementById("demo").innerHTML = aircraftChosen1[1];
 
         // Add aircraft name to button
         document.getElementById("answer1").innerHTML = aircraftChosen1[0];
-        console.log("Answer1:", document.getElementById("answer1").innerHTML);
+        //console.log("Answer1:", document.getElementById("answer1").innerHTML);
         // Add aircraft name to button
         document.getElementById("answer2").innerHTML = aircraftChosen2[0];
-        console.log("Answer2:", aircraftChosen2[0]);
+        //console.log("Answer2:", aircraftChosen2[0]);
         // Add aircraft name to button
         document.getElementById("answer3").innerHTML = aircraftChosen3[0];
-        console.log("Answer3:", aircraftChosen3[0]);
+        //console.log("Answer3:", aircraftChosen3[0]);
         // Add aircraft name to button
         document.getElementById("answer4").innerHTML = aircraftChosen4[0];
-        console.log("Answer4:", aircraftChosen4[0]);
+       // console.log("Answer4:", aircraftChosen4[0]);
 
         //Select random image from images array and display in HTML
         let imageToUse = Math.floor(Math.random() * images.length);
@@ -371,3 +415,4 @@ function randomAircraft() {
         });
     });
 }
+    )};
