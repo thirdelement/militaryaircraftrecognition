@@ -1,12 +1,20 @@
-/*-- Progress bar - Code from https://www.youtube.com/watch?v=QxQRtwAtqKE --*/
+
+
+/*-- Progress bar --*/
 .progress-bar {
+    display: block;
+}
+
+
+/*-- Progress bar - Code from https://www.youtube.com/watch?v=QxQRtwAtqKE --*/
+/*-- .progress-bar {
     position: relative;
     width: 300px;
     height: 15px;
     border: 1px solid #000;
-}
+}--*/
 
-.progress-bar-fill {
+/*--.progress-bar-fill {
     height: 100%;
     background: #ec4235;
     transition: width 0.5s;
@@ -20,7 +28,7 @@
     align-items: center;
     justify-content: left;
     font-weight: bold;
-}
+}--*/
 
 .fa-check-circle {
     display: none; 
@@ -28,18 +36,18 @@
     color: green;
 }
 
-.fa-check-circle-hide {
+/*-- .fa-check-circle-hide {
     display: none; 
-    /*visibility:hidden;*/
+    /*visibility:hidden;
     color: green;
-}
+} --*/
 
 .fa-times-circle {
     display: none; 
     color: red;
 }
 
-.fa-times-circle-hide {
+/*--.fa-times-circle-hide {
     display: none; 
     color: red;
-}
+}--*/

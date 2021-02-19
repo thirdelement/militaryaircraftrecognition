@@ -116,11 +116,32 @@ function randomAircraft() {
     $(document).ready(function () {
 
         //Increment progress bar by 10% on each Next button click.  Code ideas from https://www.youtube.com/watch?v=vXwk9tq4Voc & Stack Overflow
-        let count = 0;
+        let count = document.getElementById("sr-only").innerText;
+        //console.log("sr-only is:" +document.getElementById("sr-only").innerText);
+        //let count = $("#score");
         let button = document.getElementById("next");
+        //let button = $("#next");
         button.onclick = function () {
-            count += 10;
-            $('.progress-bar').css('width', count + '%');
+            //count += 10;
+            //$('.progress-bar').css('width', count + '%');
+           // console.log("The click count is:", count)
+        //When count reaches 10 clear sessionStorage and return count to 0
+        if (count === 10) {
+            sessionStorage.clear();
+            return count = 0;
+        } else {
+            //count += 10;
+            //$('.progress-bar').css('width', count + '%');
+            //Increment count
+            count ++;
+           //document.getElementById("sr-only").innerText === count++;
+           //Increase width of progress bar fill by incremented count
+            $('.progress-bar').css('width', count + '0%');
+            //Display count in progress bar
+            $("#sr-only").text(count);
+            //document.getElementById("sr-only").innerText === ++count;
+            //console.log("The click count is:", count)
+        }
         }
 
         //Hide correct & incorrect checks from previous question
@@ -259,9 +280,16 @@ function randomAircraft() {
                     $(".incorrect3").hide();
                     $(".correct4").hide();
                     $(".incorrect4").hide();
+                    // set scoreCounter variable to the contents of "score" or 0 if "score" doesn't exist yet
+                    let scoreCounter = sessionStorage.getItem("score") || 0;
+                    // increment scoreCounter and store it in sessionStorage with the name "score"
+                    sessionStorage.setItem("score", ++scoreCounter);
                     //document.getElementById("demo").innerHTML = imageChosen[1];
                     //checkcorrect.style.display = "inline"
                     //document.getElementById("correct1").innerHTML 
+                    //$("#score").html("score");
+                    //alert("You clicked the button: " + scoreCounter + " times.");
+                    console.log("Your score is" +scoreCounter);
                 }
                 else if (aircraftChosen2[0] == imageChosen[0]) {
                     console.log("Aircraft2:", aircraftChosen2[0]);
@@ -327,6 +355,11 @@ function randomAircraft() {
                     $(".incorrect3").hide();
                     $(".correct4").hide();
                     $(".incorrect4").hide();
+                    // set scoreCounter variable to the contents of "score" or 0 if "score" doesn't exist yet
+                    let scoreCounter = sessionStorage.getItem("score") || 0;
+                    // increment scoreCounter and store it in sessionStorage with the name "score"
+                    sessionStorage.setItem("score", ++scoreCounter);
+                    console.log("Your score is" +scoreCounter);
                 }
                 else if (aircraftChosen1[0] == imageChosen[0]) {
                     $(".correct1").show();
@@ -373,6 +406,11 @@ function randomAircraft() {
                     $(".incorrect3").hide();
                     $(".correct4").hide();
                     $(".incorrect4").hide();
+                    // set scoreCounter variable to the contents of "score" or 0 if "score" doesn't exist yet
+                    let scoreCounter = sessionStorage.getItem("score") || 0;
+                    // increment scoreCounter and store it in sessionStorage with the name "score"
+                    sessionStorage.setItem("score", ++scoreCounter);
+                    console.log("Your score is" +scoreCounter);
                 }
                 else if (aircraftChosen1[0] == imageChosen[0]) {
                     $(".correct1").show();
@@ -419,6 +457,11 @@ function randomAircraft() {
                     $(".incorrect3").hide();
                     $(".correct3").hide();
                     $(".incorrect4").hide();
+                    // set scoreCounter variable to the contents of "score" or 0 if "score" doesn't exist yet
+                    let scoreCounter = sessionStorage.getItem("score") || 0;
+                    // increment scoreCounter and store it in sessionStorage with the name "score"
+                    sessionStorage.setItem("score", ++scoreCounter);
+                    console.log("Your score is" +scoreCounter);
                 }
                 else if (aircraftChosen1[0] == imageChosen[0]) {
                     $(".correct1").show();
