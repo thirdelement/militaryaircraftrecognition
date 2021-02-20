@@ -111,6 +111,17 @@
 //});
 //});
 
+$("#reset").on("click", function () {
+    $(document).ready(function () {
+        // sessionStorage.clear();
+        if (document.getElementById("sr-only").innerText > 0) {
+            return document.getElementById("sr-only").innerText = 0;
+            $('.progress-bar').css('width', document.getElementById("sr-only").innerText + '0%'); //Reset progress bar fill width
+            //$("#sr-only").text(count); //Reset display count in progress bar
+        }
+    });
+});
+
 //Function for displaying quiz questions, alternative options and answers 
 function randomAircraft() {
     $(document).ready(function () {
@@ -119,30 +130,32 @@ function randomAircraft() {
         let count = document.getElementById("sr-only").innerText;
         //console.log("sr-only is:" +document.getElementById("sr-only").innerText);
         //let count = $("#score");
-        let button = document.getElementById("next");
-        //let button = $("#next");
-        button.onclick = function () {
-            //count += 10;
-            //$('.progress-bar').css('width', count + '%');
-           // console.log("The click count is:", count)
-        //When count reaches 10 clear sessionStorage and return count to 0
-        if (count === 10) {
-            sessionStorage.clear();
-            return count = 0;
-        } else {
-            //count += 10;
-            //$('.progress-bar').css('width', count + '%');
-            //Increment count
-            count ++;
-           //document.getElementById("sr-only").innerText === count++;
-           //Increase width of progress bar fill by incremented count
-            $('.progress-bar').css('width', count + '0%');
-            //Display count in progress bar
-            $("#sr-only").text(count);
-            //document.getElementById("sr-only").innerText === ++count;
-            //console.log("The click count is:", count)
+        let next = document.getElementById("next");
+        let reset = document.getElementById("reset");
+        //let next = $("#next");
+        next.onclick = function () {
+            //When count reaches 10 clear sessionStorage and return count to 0
+            if (count === 10) {
+                //sessionStorage.clear();
+                return count = 0;
+            } else {
+                count++; //Increment count
+                $('.progress-bar').css('width', count + '0%'); //Increase width of progress bar fill width by incremented count
+                $("#sr-only").text(count); //Display count in progress bar
+            }
         }
-        }
+        //8reset.onclick = function () {
+        //8if (count > 0) {
+        //sessionStorage.clear();
+        //8console.log("Reset button If statement activated: Yes")
+        //return document.getElementById("score").innerText = 0;
+        // return count === 0;
+        // $('.progress-bar').css('width', count === 0 + '0%'); //Reset progress bar fill width
+        // $("#sr-only").text(count); //Reset display count in progress bar
+        //8}
+        //8console.log("Reset button If statement activated: No")
+        //8}
+
 
         //Hide correct & incorrect checks from previous question
         $("#next").click(function () {
@@ -186,7 +199,22 @@ function randomAircraft() {
             let aircraft = [["F-35 Lightning II", "<img src='assets/images/f35.png'  alt='F35 Lightning II' />"],
             ["F-22 Raptor", "<img src='assets/images/f22.png'  alt='F22 Raptor' />"],
             ["F/A-18 Hornet", "<img src='assets/images/fa18.png'  alt='F/A-18 Hornet' />"],
-            ["Chengdu J-10", "<img src='assets/images/j10.png'  alt='Chengdu J-10' />"]]
+            ["Chengdu J-10", "<img src='assets/images/j10.png'  alt='Chengdu J-10' />"],
+            ["A-10 Thunderbolt II", "<img src='assets/images/a10.png'  alt='A-10 Thunderbolt II' />"],
+            ["A400M Atlas", "<img src='assets/images/a400.png'  alt='A400M Atlas' />"],
+            ["Beriev A-50 (MAINSTAY)", "<img src='assets/images/a50.png'  alt='Beriev A-50 (MAINSTAY)' />"],
+            ["C-130 Hercules", "<img src='assets/images/c130.png'  alt='C-130 Hercules' />"],
+            ["C-17 Globemaster III", "<img src='assets/images/c17.png'  alt='C-17 Globemaster III' />"],
+            ["Dassault Rafale", "<img src='assets/images/rafale.png'  alt='Dassault Rafale' />"],
+            ["F-15 Eagle", "<img src='assets/images/f15.png'  alt='F-15 Eagle' />"],
+            ["F-16 Fighting Falcon", "<img src='assets/images/f16.png'  alt='F-16 Fighting Falcon' />"],
+            ["IL-76 (CANDID)", "<img src='assets/images/il76.png'  alt='Ilyushin IL-76 (CANDID)' />"],
+            ["MiG-31 (FOXHOUND)", "<img src='assets/images/mig31.png'  alt='MiG-31 (FOXHOUND)' />"],
+            ["MQ-9 Reaper", "<img src='assets/images/f15.png'  alt='MQ-9 Reaper' />"],
+            ["Su-27 (FLANKER)", "<img src='assets/images/su27.png'  alt='Sukhoi Su-27 (FLANKER)' />"],
+            ["Tu-160 (BLACKJACK)", "<img src='assets/images/tu160.png'  alt='Tu-160 (BLACKJACK)' />"],
+            ["Tu-22M (BACKFIRE)", "<img src='assets/images/tu22m.png'  alt='Tu-22M (BACKFIRE)' />"],
+            ["Tu-95 (BEAR)", "<img src='assets/images/tu95.png'  alt='Tu-95 (BEAR)' />"]]
 
             let images = []
 
@@ -280,16 +308,31 @@ function randomAircraft() {
                     $(".incorrect3").hide();
                     $(".correct4").hide();
                     $(".incorrect4").hide();
+                    ++document.getElementById("score").innerText
+                    //document.getElementById("score").innerText = score;
+                    //score++;
+                    //console.log(score);
+                    // el = document.getElementById("score");
+                    //scoreCount = el.innerText 
+                    console.log(document.getElementById("score").innerText)
+                    //$("#score").text = score;
+                    //score++;
+                    //console.log(score);
+                    //$("#score").html++
+
                     // set scoreCounter variable to the contents of "score" or 0 if "score" doesn't exist yet
-                    let scoreCounter = sessionStorage.getItem("score") || 0;
+                    //0let scoreCounter = sessionStorage.getItem("score") || 0;
                     // increment scoreCounter and store it in sessionStorage with the name "score"
-                    sessionStorage.setItem("score", ++scoreCounter);
+                    //0sessionStorage.setItem("score", ++scoreCounter);
                     //document.getElementById("demo").innerHTML = imageChosen[1];
                     //checkcorrect.style.display = "inline"
                     //document.getElementById("correct1").innerHTML 
                     //$("#score").html("score");
                     //alert("You clicked the button: " + scoreCounter + " times.");
-                    console.log("Your score is" +scoreCounter);
+                    //0console.log("Your score is " + scoreCounter);
+                    //$("#score").innerText("scoreCounter");
+                    //document.getElementById("score").innerHTML = scoreCounter;
+                    //0$("#score").html(scoreCounter);
                 }
                 else if (aircraftChosen2[0] == imageChosen[0]) {
                     console.log("Aircraft2:", aircraftChosen2[0]);
@@ -355,11 +398,19 @@ function randomAircraft() {
                     $(".incorrect3").hide();
                     $(".correct4").hide();
                     $(".incorrect4").hide();
+                    ++document.getElementById("score").innerText
+                    console.log(document.getElementById("score").innerText)
+                    //$("#score").text++;
+                    //console.log($("#score").text);
+                    //$("#score").text = score;
+                    // score++;
+                    //console.log(score);
                     // set scoreCounter variable to the contents of "score" or 0 if "score" doesn't exist yet
-                    let scoreCounter = sessionStorage.getItem("score") || 0;
+                    //0let scoreCounter = sessionStorage.getItem("score") || 0;
                     // increment scoreCounter and store it in sessionStorage with the name "score"
-                    sessionStorage.setItem("score", ++scoreCounter);
-                    console.log("Your score is" +scoreCounter);
+                    //0sessionStorage.setItem("score", ++scoreCounter);
+                    //0console.log("Your score is" + scoreCounter);
+                    //0$("#score").html(scoreCounter);
                 }
                 else if (aircraftChosen1[0] == imageChosen[0]) {
                     $(".correct1").show();
@@ -406,11 +457,19 @@ function randomAircraft() {
                     $(".incorrect3").hide();
                     $(".correct4").hide();
                     $(".incorrect4").hide();
+                    ++document.getElementById("score").innerText
+                    console.log(document.getElementById("score").innerText)
+                    //$("#score").text++;
+                    //console.log($("#score").text);
+                    //$("#score").text = score;
+                    //score++;
+                    //console.log(score);
                     // set scoreCounter variable to the contents of "score" or 0 if "score" doesn't exist yet
-                    let scoreCounter = sessionStorage.getItem("score") || 0;
+                    //0let scoreCounter = sessionStorage.getItem("score") || 0;
                     // increment scoreCounter and store it in sessionStorage with the name "score"
-                    sessionStorage.setItem("score", ++scoreCounter);
-                    console.log("Your score is" +scoreCounter);
+                    //0sessionStorage.setItem("score", ++scoreCounter);
+                    //0console.log("Your score is" + scoreCounter);
+                    //0$("#score").html(scoreCounter);
                 }
                 else if (aircraftChosen1[0] == imageChosen[0]) {
                     $(".correct1").show();
@@ -457,11 +516,19 @@ function randomAircraft() {
                     $(".incorrect3").hide();
                     $(".correct3").hide();
                     $(".incorrect4").hide();
+                    ++document.getElementById("score").innerText
+                    console.log(document.getElementById("score").innerText)
+                    //$("#score").text++;
+                    //console.log($("#score").text);
+                    // $("#score").text = score;
+                    //score++;
+                    //console.log(score);
                     // set scoreCounter variable to the contents of "score" or 0 if "score" doesn't exist yet
-                    let scoreCounter = sessionStorage.getItem("score") || 0;
+                    //0let scoreCounter = sessionStorage.getItem("score") || 0;
                     // increment scoreCounter and store it in sessionStorage with the name "score"
-                    sessionStorage.setItem("score", ++scoreCounter);
-                    console.log("Your score is" +scoreCounter);
+                    //0sessionStorage.setItem("score", ++scoreCounter);
+                    //0console.log("Your score is" + scoreCounter);
+                    //0$("#score").html(scoreCounter);
                 }
                 else if (aircraftChosen1[0] == imageChosen[0]) {
                     $(".correct1").show();
