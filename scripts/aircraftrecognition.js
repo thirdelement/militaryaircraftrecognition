@@ -1,116 +1,3 @@
-
-//Count number of clicks on Next button - code from Code Institute Local Storage module
-//3function questionCounter() {
-// set questionCounter variable to the contents of "counter" or 1 if "counter" doesn't exist yet
-//3let questionCounter = sessionStorage.getItem("counter") || 0;
-// increment questionCounter and store it in sessionStorage with the name "counter"
-//3 sessionStorage.setItem("counter", ++questionCounter);
-//console.log("counter")
-// pb1.setItem(pb1, ++questionCounter);
-//}
-
-// function showCounter() {
-// set currentCounter variable to the contents of "counter" or 1 if "counter" doesn't exist yet
-// let currentCounter = sessionStorage.getItem("counter") || 1;
-// display the current count in an alert
-//3console.log("You clicked the button: " + questionCounter + " times.");
-// }
-//function incrementCounter() {
-// set currentCounter variable to the contents of "counter" or 0 if "counter" doesn't exist yet
-// let currentCounter = sessionStorage.getItem("counter") || 0;
-// increment currentCounter and store it in sessionStorage with the name "counter"
-// sessionStorage.setItem("counter", ++currentCounter);
-//}
-//function showCounter() {
-// set currentCounter variable to the contents of "counter" or 0 if "counter" doesn't exist yet
-//let currentCounter = sessionStorage.getItem("counter") || 0;
-// display the current count in an alert
-//for (let count = 1; count <= 10; count++) {
-// (count);
-
-//}
-//alert("You clicked the button: " + currentCounter + " times.");
-//3}
-
-//Clear count from previous quiz
-//2function start(){
-//Progress bar - Code from https://www.youtube.com/watch?v=QxQRtwAtqKE
-//2class progressBar {
-//2constructor(element, initialValue = 0) {
-// set questionCounter variable to the contents of "counter" or 0 if "counter" doesn't exist yet
-//2this.valueElem = element.querySelector('.progress-bar-value');
-// increment questionCounter and store it in sessionStorage with the name "counter"
-//2this.fillElem = element.querySelector('.progress-bar-fill');
-//0this.setValue(initialValue);
-//2}
-//0setValue(newValue) {
-//0 if (newValue < 0) {
-//0   newValue = 0;
-//0 }
-//0 if (newValue > 100) {
-//0    newValue = 100;
-//0 }
-//0this.value = newValue;
-//0 this.update();
-//0 }
-//0update() {
-//0const percentage = this.value + '0%'; //50%, 60%, etc.
-
-//0  this.fillElem.style.width = percentage;
-//0this.valueElem.textContent = percentage;
-//0}
-//0 }
-//2}
-//2const pb1 = new progressBar(document.querySelector('.progress-bar'), sessionStorage.getItem("counter"))
-
-
-// $("#start").on("click", function () {
-//2$(".hide").hide();
-//2sessionStorage.clear();
-//2let questionCounter = sessionStorage.getItem("counter") || 0;
-//2sessionStorage.setItem("counter", ++questionCounter);
-//sessionStorage.setItem("counter", ++questionCounter);
-//2console.log("####questionCounter is: " + questionCounter);
-// });
-//2}
-//$("#start").on("click", function () {  
-//4function incrementProgress() {
-//Progress Bar - Code from https://www.youtube.com/watch?v=vXwk9tq4Voc
-//4 var progressBar = $('.progress-bar');
-//4 var progressNumber = 0;
-
-//$('.progressBar')+=10;
-//$('.progressBar').css('width', progressNumber + '%');
-
-//progressBar.css('width').progressNumber + '%';
-//}
-//progressBar.attr('aria-valuenow', progressNumber)
-//4 progressNumber += 10;
-//4progressBar.css('width', progressNumber + '%');
-//4console.log("incrementProgress called with progressNumber:" + progressNumber)
-//4}
-
-//$(document).ready(function () {
-//$("#start").on("click", function () {
-//5 let progressBar = $('.progress-bar');
-// set progressCounter variable to the contents of "counter" or 0 if "counter" doesn't exist yet
-//let progressCounter = sessionStorage.getItem("counter") || 0;
-// increment progressCounter and store it in sessionStorage with the name "counter"
-//sessionStorage.setItem("counter", ++progressCounter);
-//let value = parseInt(document.getElementsByClassName('.progress-bar').width, 10)
-//5let value = parseInt($(".progress-bar").css('width', 'value', 10));
-//5value = isNaN(value) ? 0 : value;
-//5 value +=10;
-//let progressCounter = 0;
-//progressCounter += 10;
-//5progressBar.css('width', value + '%');
-//5console.log("Progress Bar value:" + value)
-
-
-
-//});
-//});
-
 $("#reset").on("click", function () {
     $(document).ready(function () {
         // sessionStorage.clear();
@@ -122,21 +9,19 @@ $("#reset").on("click", function () {
     });
 });
 
+
+
 //Function for displaying quiz questions, alternative options and answers 
 function randomAircraft() {
     $(document).ready(function () {
 
         //Increment progress bar by 10% on each Next button click.  Code ideas from https://www.youtube.com/watch?v=vXwk9tq4Voc & Stack Overflow
-        let count = document.getElementById("sr-only").innerText;
-        //console.log("sr-only is:" +document.getElementById("sr-only").innerText);
-        //let count = $("#score");
-        let next = document.getElementById("next");
-        let reset = document.getElementById("reset");
-        //let next = $("#next");
+        let count = document.getElementById("sr-only").innerText
+        //let next = document.getElementById("next");
+        //let reset = document.getElementById("reset");
         next.onclick = function () {
             //When count reaches 10 clear sessionStorage and return count to 0
             if (count === 10) {
-                //sessionStorage.clear();
                 return count = 0;
             } else {
                 count++; //Increment count
@@ -144,62 +29,28 @@ function randomAircraft() {
                 $("#sr-only").text(count); //Display count in progress bar
             }
         }
-        //8reset.onclick = function () {
-        //8if (count > 0) {
-        //sessionStorage.clear();
-        //8console.log("Reset button If statement activated: Yes")
-        //return document.getElementById("score").innerText = 0;
-        // return count === 0;
-        // $('.progress-bar').css('width', count === 0 + '0%'); //Reset progress bar fill width
-        // $("#sr-only").text(count); //Reset display count in progress bar
-        //8}
-        //8console.log("Reset button If statement activated: No")
-        //8}
 
 
+        //let aircraftUsed = [];
+        var aircraftUsed = [];
+        //console.log("aircraftUsed before Next:", aircraftUsed)
+        //console.log("aircraftAvailable before Next:", aircraftAvailable);
         //Hide correct & incorrect checks from previous question
         $("#next").click(function () {
+
             $(".hide").hide();
 
-            //6 var count = 0;
-            //6 var button = document.getElementById("next");
-            //6 function countProgress() {
-            //6 count += 10;	       
-            //6 $('.progress-bar').css('width', count + '%');
-            //6 }
+            function getKey(array) {
+                return [0]
+                    .map(function (i) { return array[i]; })
+                    .join('|');
+            }
 
-            //Progress bar - Code from https://www.youtube.com/watch?v=QxQRtwAtqKE
-            //1class progressBar {
-            //1constructor(element, initialValue = 0) {
-            //1this.valueElem = element.querySelector('.progress-bar-value');
-            //1this.fillElem = element.querySelector('.progress-bar-fill');
-            //1this.setValue(initialValue);
-            //1}
-            //1setValue(newValue) {
-            //1if (newValue < 0) {
-            //1newValue = 0;
-            //1}
-            //1if (newValue > 100) {
-            //1newValue = 100;
-            //1}
-            //1this.value = newValue;
-            //1this.update();
-            //1}
-            //1update() {
-            //1const percentage = this.value + '0%'; //50%, 60%, etc.
-
-            //1this.fillElem.style.width = percentage;
-            //1this.valueElem.textContent = percentage;
-            //1}
-            //1}
-            //1var pb1 = new progressBar(document.querySelector('.progress-bar'), sessionStorage.getItem("counter"))
-            //1});
-
-
-            let aircraft = [["F-35 Lightning II", "<img src='assets/images/f35.png'  alt='F35 Lightning II' />"],
+            var aircraft = [["F-35 Lightning II", "<img src='assets/images/f35.png'  alt='F35 Lightning II' />"],
             ["F-22 Raptor", "<img src='assets/images/f22.png'  alt='F22 Raptor' />"],
             ["F/A-18 Hornet", "<img src='assets/images/fa18.png'  alt='F/A-18 Hornet' />"],
             ["Chengdu J-10", "<img src='assets/images/j10.png'  alt='Chengdu J-10' />"],
+            ["Chengdu J-20", "<img src='assets/images/j20.png'  alt='Chengdu J-20' />"],
             ["A-10 Thunderbolt II", "<img src='assets/images/a10.png'  alt='A-10 Thunderbolt II' />"],
             ["A400M Atlas", "<img src='assets/images/a400.png'  alt='A400M Atlas' />"],
             ["Beriev A-50 (MAINSTAY)", "<img src='assets/images/a50.png'  alt='Beriev A-50 (MAINSTAY)' />"],
@@ -210,46 +61,75 @@ function randomAircraft() {
             ["F-16 Fighting Falcon", "<img src='assets/images/f16.png'  alt='F-16 Fighting Falcon' />"],
             ["IL-76 (CANDID)", "<img src='assets/images/il76.png'  alt='Ilyushin IL-76 (CANDID)' />"],
             ["MiG-31 (FOXHOUND)", "<img src='assets/images/mig31.png'  alt='MiG-31 (FOXHOUND)' />"],
-            ["MQ-9 Reaper", "<img src='assets/images/f15.png'  alt='MQ-9 Reaper' />"],
+            ["MQ-9 Reaper", "<img src='assets/images/mq9.png'  alt='MQ-9 Reaper' />"],
             ["Su-27 (FLANKER)", "<img src='assets/images/su27.png'  alt='Sukhoi Su-27 (FLANKER)' />"],
             ["Tu-160 (BLACKJACK)", "<img src='assets/images/tu160.png'  alt='Tu-160 (BLACKJACK)' />"],
             ["Tu-22M (BACKFIRE)", "<img src='assets/images/tu22m.png'  alt='Tu-22M (BACKFIRE)' />"],
-            ["Tu-95 (BEAR)", "<img src='assets/images/tu95.png'  alt='Tu-95 (BEAR)' />"]]
+            ["Tu-95 (BEAR)", "<img src='assets/images/tu95.png'  alt='Tu-95 (BEAR)' />"]],
+                
 
-            let images = []
+
+                hash = Object.create(null),
+
+                aircraftAvailable = [];
+            
+
+            aircraftUsed.forEach(function (a) {
+                hash[getKey(a)] = true;
+            });
+
+            aircraftAvailable = aircraft.filter(function (a) {
+                return !hash[getKey(a)];
+            });
+
+            
+
+            let images = [];
+            console.log("aircraftAvailable after Next:", aircraftAvailable);
+            //console.log("aircraftUsed after let:", aircraftUsed);
 
             //Remove existing elements in images array
-            images.splice(0, 4);
+            // images.splice(0, 4);
+            //Remote aircraft used in previous questions from aircraft array
+            // aircraft.splice(sessionStorage.getItem("aircraftUsed"))
             //console.log("After clearing images:", images);
             //console.log("Aircraft array:", aircraft);
 
             //Randomly select aircraft from array
-            let aircraftToUse1 = Math.floor(Math.random() * aircraft.length);
-            let aircraftChosen1 = aircraft[aircraftToUse1];
+            //function checkAircraft(unused) {
+            //return unused != aircraftUsed;
+            //}
+
+            //function filteraircraft() {
+            //console.log("Unused ac:", aircraft.filter(checkAircraft));
+            // }
+
+            let aircraftToUse1 = Math.floor(Math.random() * aircraftAvailable.length);
+            let aircraftChosen1 = aircraftAvailable[aircraftToUse1];
 
             //Push to images array
             images.push(aircraftChosen1);
-            //console.log("After pushing first ac to images:", images);
+            console.log("images after pushing first ac:", images);
 
-            //Remove selected aircraft from array
-            aircraft.splice(aircraftToUse1, 1);
-            //console.log("Aircraft array after first splice:", aircraft);
+            //Remove selected aircraft from array - Code from: https://stackoverflow.com/questions/57059564/how-to-exclude-an-array-element-from-a-random-pick
+            aircraftAvailable.splice(aircraftToUse1, 1);
+            console.log("aircraftAvailable array after 1st splice:", aircraftAvailable);
 
             //Randomly select another aircraft from array
             let aircraftToUse2 = Math.floor(Math.random() * aircraft.length);
-            let aircraftChosen2 = aircraft[aircraftToUse2];
+            let aircraftChosen2 = aircraftAvailable[aircraftToUse2];
 
             //Push to images array
             images.push(aircraftChosen2);
             //console.log("After pushing 2nd ac to images:", images);
 
             //Remove another aircraft from array
-            aircraft.splice(aircraftToUse2, 1);
+            aircraftAvailable.splice(aircraftToUse2, 1);
             //console.log("Aircraft array after 2nd splice:", aircraft);
 
             //Randomly select another aircraft from array
-            let aircraftToUse3 = Math.floor(Math.random() * aircraft.length);
-            let aircraftChosen3 = aircraft[aircraftToUse3];
+            let aircraftToUse3 = Math.floor(Math.random() * aircraftAvailable.length);
+            let aircraftChosen3 = aircraftAvailable[aircraftToUse3];
 
             //Push to images array
             images.push(aircraftChosen3);
@@ -257,18 +137,18 @@ function randomAircraft() {
 
             //Remove a third aircraft from array
             aircraft.splice(aircraftToUse3, 1);
-            //console.log("Aircraft array after 3rd splice:", aircraft);
+            // console.log("Aircraft array after 3rd splice:", aircraft);
 
             //Randomly select another aircraft from array
-            let aircraftToUse4 = Math.floor(Math.random() * aircraft.length);
-            let aircraftChosen4 = aircraft[aircraftToUse4];
+            let aircraftToUse4 = Math.floor(Math.random() * aircraftAvailable.length);
+            let aircraftChosen4 = aircraftAvailable[aircraftToUse4];
 
             //Push to images array
             images.push(aircraftChosen4);
             //console.log("After pushing 4th ac to images:", images);
 
-            //Remove a third aircraft from array
-            aircraft.splice(aircraftToUse4, 1);
+            //Remove a fourth aircraft from array
+            aircraftAvailable.splice(aircraftToUse4, 1);
             //console.log("Aircraft array after 4th splice:", aircraft);
 
             // Add aircraft image to paragraph element
@@ -289,10 +169,23 @@ function randomAircraft() {
 
             //Select random image from images array and display in HTML
             let imageToUse = Math.floor(Math.random() * images.length);
-            let imageChosen = images[imageToUse];
+            var imageChosen = images[imageToUse];
             document.getElementById("demo").innerHTML = imageChosen[1];
 
-            // Code for randomly selecting from array from: https://stackoverflow.com/questions/57059564/how-to-exclude-an-array-element-from-a-random-pick
+
+            //0aircraftUsed.push(imageChosen);
+
+            //console.log("aircraftUsed after image push:", aircraftUsed);
+            //0 localStorage.setItem("aircraftUsed", JSON.stringify(aircraftUsed))
+            //0let storedAircraft = JSON.parse(localStorage.getItem("aircraftUsed"));
+            //console.log("localStorage aircraftUsed:", storedAircraft);
+            //0  var i;
+            //0console.log("local storage");
+            //0or (i = 0; i < localStorage.length; i++) {
+            //0console.log(localStorage.key(i) + "=[" + localStorage.getItem(localStorage.key(i)) + "]");
+            //0}
+
+
 
             $("#answer1").click(function () {
                 //let checkcorrect = document.getElementById("correct1");
@@ -309,30 +202,7 @@ function randomAircraft() {
                     $(".correct4").hide();
                     $(".incorrect4").hide();
                     ++document.getElementById("score").innerText
-                    //document.getElementById("score").innerText = score;
-                    //score++;
-                    //console.log(score);
-                    // el = document.getElementById("score");
-                    //scoreCount = el.innerText 
                     console.log(document.getElementById("score").innerText)
-                    //$("#score").text = score;
-                    //score++;
-                    //console.log(score);
-                    //$("#score").html++
-
-                    // set scoreCounter variable to the contents of "score" or 0 if "score" doesn't exist yet
-                    //0let scoreCounter = sessionStorage.getItem("score") || 0;
-                    // increment scoreCounter and store it in sessionStorage with the name "score"
-                    //0sessionStorage.setItem("score", ++scoreCounter);
-                    //document.getElementById("demo").innerHTML = imageChosen[1];
-                    //checkcorrect.style.display = "inline"
-                    //document.getElementById("correct1").innerHTML 
-                    //$("#score").html("score");
-                    //alert("You clicked the button: " + scoreCounter + " times.");
-                    //0console.log("Your score is " + scoreCounter);
-                    //$("#score").innerText("scoreCounter");
-                    //document.getElementById("score").innerHTML = scoreCounter;
-                    //0$("#score").html(scoreCounter);
                 }
                 else if (aircraftChosen2[0] == imageChosen[0]) {
                     console.log("Aircraft2:", aircraftChosen2[0]);
@@ -400,17 +270,6 @@ function randomAircraft() {
                     $(".incorrect4").hide();
                     ++document.getElementById("score").innerText
                     console.log(document.getElementById("score").innerText)
-                    //$("#score").text++;
-                    //console.log($("#score").text);
-                    //$("#score").text = score;
-                    // score++;
-                    //console.log(score);
-                    // set scoreCounter variable to the contents of "score" or 0 if "score" doesn't exist yet
-                    //0let scoreCounter = sessionStorage.getItem("score") || 0;
-                    // increment scoreCounter and store it in sessionStorage with the name "score"
-                    //0sessionStorage.setItem("score", ++scoreCounter);
-                    //0console.log("Your score is" + scoreCounter);
-                    //0$("#score").html(scoreCounter);
                 }
                 else if (aircraftChosen1[0] == imageChosen[0]) {
                     $(".correct1").show();
@@ -459,17 +318,6 @@ function randomAircraft() {
                     $(".incorrect4").hide();
                     ++document.getElementById("score").innerText
                     console.log(document.getElementById("score").innerText)
-                    //$("#score").text++;
-                    //console.log($("#score").text);
-                    //$("#score").text = score;
-                    //score++;
-                    //console.log(score);
-                    // set scoreCounter variable to the contents of "score" or 0 if "score" doesn't exist yet
-                    //0let scoreCounter = sessionStorage.getItem("score") || 0;
-                    // increment scoreCounter and store it in sessionStorage with the name "score"
-                    //0sessionStorage.setItem("score", ++scoreCounter);
-                    //0console.log("Your score is" + scoreCounter);
-                    //0$("#score").html(scoreCounter);
                 }
                 else if (aircraftChosen1[0] == imageChosen[0]) {
                     $(".correct1").show();
@@ -518,17 +366,6 @@ function randomAircraft() {
                     $(".incorrect4").hide();
                     ++document.getElementById("score").innerText
                     console.log(document.getElementById("score").innerText)
-                    //$("#score").text++;
-                    //console.log($("#score").text);
-                    // $("#score").text = score;
-                    //score++;
-                    //console.log(score);
-                    // set scoreCounter variable to the contents of "score" or 0 if "score" doesn't exist yet
-                    //0let scoreCounter = sessionStorage.getItem("score") || 0;
-                    // increment scoreCounter and store it in sessionStorage with the name "score"
-                    //0sessionStorage.setItem("score", ++scoreCounter);
-                    //0console.log("Your score is" + scoreCounter);
-                    //0$("#score").html(scoreCounter);
                 }
                 else if (aircraftChosen1[0] == imageChosen[0]) {
                     $(".correct1").show();
@@ -562,7 +399,27 @@ function randomAircraft() {
                     $(".correct4").hide();
                 }
             });
+            //aircraftUsed = aircraft.filter()
+            aircraftUsed.push(imageChosen);
+            console.log("aircraftUsed array after image push:", aircraftUsed);
+            console.log("images array after image push", images);
+            console.log("aircraftUsed:", aircraftUsed)
         });
     }
+
     )
+
 };
+
+//function removeUsedAircraft(){
+    //let aircraftUsed = [];
+
+            //sessionStorage.setItem("aircraftUsed", JSON.stringify(aircraftUsed))
+            //let storedAircraft = JSON.parse(sessionStorage.getItem("aircraftUsed"));
+            //console.log("sessionStorage aircraftUsed:", storedAircraft);
+            //var i;
+            //console.log("session storage");
+//for (i = 0; i < sessionStorage.length; i++) {
+    //console.log(sessionStorage.key(i) + "=[" + sessionStorage.getItem(sessionStorage.key(i)) + "]");
+
+
