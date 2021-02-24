@@ -31,7 +31,7 @@ function randomAircraft() {
         }
 
 
-        //let aircraftUsed = [];
+        //Array for aircraft used in previous questions.  It is located outside the Next click function so it does not refresh.
         var aircraftUsed = [];
         //console.log("aircraftUsed before Next:", aircraftUsed)
         //console.log("aircraftAvailable before Next:", aircraftAvailable);
@@ -39,9 +39,10 @@ function randomAircraft() {
         $("#next").click(function () {
 
             $(".hide").hide();
-
+        
+        //Function to compare aircraft and usedAircraft arrays and return to difference to aircraftAvailable array.  Code from https://stackoverflow.com/questions/46998798/comparing-2d-arrays-finding-unique-items
             function getKey(array) {
-                return [0]
+                return [0, 1]
                     .map(function (i) { return array[i]; })
                     .join('|');
             }
@@ -116,7 +117,7 @@ function randomAircraft() {
             console.log("aircraftAvailable array after 1st splice:", aircraftAvailable);
 
             //Randomly select another aircraft from array
-            let aircraftToUse2 = Math.floor(Math.random() * aircraft.length);
+            let aircraftToUse2 = Math.floor(Math.random() * aircraftAvailable.length);
             let aircraftChosen2 = aircraftAvailable[aircraftToUse2];
 
             //Push to images array
@@ -186,13 +187,13 @@ function randomAircraft() {
             //0}
 
 
-
-            $("#answer1").click(function () {
+            //from just below here
+            $("#answer1").one("click", function () {
                 //let checkcorrect = document.getElementById("correct1");
                 // let checkincorrect = document.getElementById("incorrect1");
-                if (aircraftChosen1[0] == imageChosen[0]) {
-                    console.log("Aircraft1:", aircraftChosen1[0]);
-                    console.log("Image chosen:", imageChosen[0]);
+                if (aircraftChosen1[0] === imageChosen[0]) {
+                    //console.log("Aircraft1:", aircraftChosen1[0]);
+                    //console.log("Image chosen:", imageChosen[0]);
                     $(".correct1").show();
                     $(".incorrect1").hide();
                     $(".correct2").hide();
@@ -202,11 +203,11 @@ function randomAircraft() {
                     $(".correct4").hide();
                     $(".incorrect4").hide();
                     ++document.getElementById("score").innerText
-                    console.log(document.getElementById("score").innerText)
+                    //console.log(document.getElementById("score").innerText)
                 }
                 else if (aircraftChosen2[0] == imageChosen[0]) {
-                    console.log("Aircraft2:", aircraftChosen2[0]);
-                    console.log("Image chosen:", imageChosen[0]);
+                    //console.log("Aircraft2:", aircraftChosen2[0]);
+                    //console.log("Image chosen:", imageChosen[0]);
                     $(".correct2").show();
                     $(".incorrect1").show();
                     $(".correct1").hide();
@@ -220,8 +221,8 @@ function randomAircraft() {
                     //document.getElementsByClassName("incorrect1").innerHTML 
                 }
                 else if (aircraftChosen3[0] == imageChosen[0]) {
-                    console.log("Aircraft3:", aircraftChosen3[0]);
-                    console.log("Image chosen:", imageChosen[0]);
+                   // console.log("Aircraft3:", aircraftChosen3[0]);
+                   // console.log("Image chosen:", imageChosen[0]);
                     $(".correct3").show();
                     $(".incorrect1").show();
                     $(".correct1").hide();
@@ -237,9 +238,9 @@ function randomAircraft() {
                     //document.getElementsByClassName("incorrect1").innerHTML
                 }
                 else {
-                    (aircraftChosen4[0] == imageChosen[0])
-                    console.log("Aircraft4:", aircraftChosen4[0]);
-                    console.log("Image chosen:", imageChosen[0]);
+                    (aircraftChosen4[0] === imageChosen[0])
+                   // console.log("Aircraft4:", aircraftChosen4[0]);
+                   // console.log("Image chosen:", imageChosen[0]);
                     $(".correct4").show();
                     $(".incorrect1").show();
                     $(".correct1").hide();
@@ -256,10 +257,11 @@ function randomAircraft() {
                 }
             });
 
-            $("#answer2").click(function () {
-                if (aircraftChosen2[0] == imageChosen[0]) {
-                    console.log(aircraftChosen2[0]);
-                    console.log(imageChosen[0]);
+            //$("#answer2").click(function () {
+                $("#answer2").one("click", function () {
+                if (aircraftChosen2[0] === imageChosen[0]) {
+                   // console.log(aircraftChosen2[0]);
+                   // console.log(imageChosen[0]);
                     $(".correct2").show();
                     $(".correct1").hide();
                     $(".incorrect1").hide();
@@ -269,7 +271,7 @@ function randomAircraft() {
                     $(".correct4").hide();
                     $(".incorrect4").hide();
                     ++document.getElementById("score").innerText
-                    console.log(document.getElementById("score").innerText)
+                   // console.log(document.getElementById("score").innerText)
                 }
                 else if (aircraftChosen1[0] == imageChosen[0]) {
                     $(".correct1").show();
@@ -304,10 +306,10 @@ function randomAircraft() {
                 }
             });
 
-            $("#answer3").click(function () {
-                if (aircraftChosen3[0] == imageChosen[0]) {
-                    console.log(aircraftChosen3[0]);
-                    console.log(imageChosen[0]);
+            $("#answer3").one("click", function () {
+                if (aircraftChosen3[0] === imageChosen[0]) {
+                   // console.log(aircraftChosen3[0]);
+                  //  console.log(imageChosen[0]);
                     $(".correct3").show();
                     $(".correct1").hide();
                     $(".incorrect1").hide();
@@ -317,7 +319,7 @@ function randomAircraft() {
                     $(".correct4").hide();
                     $(".incorrect4").hide();
                     ++document.getElementById("score").innerText
-                    console.log(document.getElementById("score").innerText)
+                   // console.log(document.getElementById("score").innerText)
                 }
                 else if (aircraftChosen1[0] == imageChosen[0]) {
                     $(".correct1").show();
@@ -352,10 +354,10 @@ function randomAircraft() {
                 }
             });
 
-            $("#answer4").click(function () {
-                if (aircraftChosen4[0] == imageChosen[0]) {
-                    console.log(aircraftChosen4[0]);
-                    console.log(imageChosen[0]);
+            $("#answer4").one("click", function () {
+                if (aircraftChosen4[0] === imageChosen[0]) {
+                   // console.log(aircraftChosen4[0]);
+                   // console.log(imageChosen[0]);
                     $(".correct4").show();
                     $(".correct1").hide();
                     $(".incorrect1").hide();
@@ -365,7 +367,7 @@ function randomAircraft() {
                     $(".correct3").hide();
                     $(".incorrect4").hide();
                     ++document.getElementById("score").innerText
-                    console.log(document.getElementById("score").innerText)
+                    //console.log(document.getElementById("score").innerText)
                 }
                 else if (aircraftChosen1[0] == imageChosen[0]) {
                     $(".correct1").show();
@@ -405,6 +407,7 @@ function randomAircraft() {
             console.log("images array after image push", images);
             console.log("aircraftUsed:", aircraftUsed)
         });
+        //here
     }
 
     )
