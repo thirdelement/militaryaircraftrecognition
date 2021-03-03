@@ -23,14 +23,7 @@
 <body>
     <div id="quiz-document">
         <h1>Military aircraft recognition quiz</h1>
-        <!--<div class="progress">
-  <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="10"></div>
-</div>-->
         <!-- Progress bar - Code from https://www.youtube.com/watch?v=QxQRtwAtqKE -->
-        <!--<div class="progress-bar">
-            <div class="progress-bar-value"></div>
-            <div class="progress-bar-fill"></div>
-        </div>-->
         <div class="container">
             <!--<h2>Basic Progress Bar</h2>-->
             <div class="progress">
@@ -45,23 +38,25 @@
         <button id="next">Next</button>
         <!--<img src="assets/images/f35.png"  alt="F35 Lightning II" />-->
         <p>Score: <span id="score">0</span></p>
+        <!--<p>Other Score: <span id="other-score">0</span></p>-->
         <p>What is the aircraft?</p>
-        <button id="answer1"></button>
+        <button class=".answer" id="answer1"></button>
         <!--<p id="checkmark1"></p>-->
         <!--<form id="button-form1">-->
         <i id="correct1" class="hide correct1 fas fa-check-circle fa-check-circle-hide"></i>
         <i id="incorrect1" class="hide incorrect1 fas fa-times-circle fa-times-circle-hide"></i>
         <!--</form>-->
-        <button id="answer2"></button>
+        <button class=".answer" id="answer2"></button>
         <i class="hide correct2 fas fa-check-circle"></i>
         <i class="hide incorrect2 fas fa-times-circle"></i>
-        <button id="answer3"></button>
+        <button class=".answer" id="answer3"></button>
         <i class="hide correct3 fas fa-check-circle"></i>
         <i class="hide incorrect3 fas fa-times-circle"></i>
-        <button id="answer4"></button>
+        <button class=".answer" id="answer4"></button>
         <i class="hide correct4 fas fa-check-circle"></i>
         <i class="hide incorrect4 fas fa-times-circle"></i>
-        <p id="demo"></p>
+        <!--<p id="demo"></p>-->
+        <img id="aircraftImage">
 
     </div>
 
