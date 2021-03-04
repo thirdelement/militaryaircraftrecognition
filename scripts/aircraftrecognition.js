@@ -9,16 +9,12 @@ $("#reset").on("click", function () {
     });
 });
 
-//Function for displaying quiz questions, alternative options and answers 
-function randomAircraft() {
-    $(document).ready(function () {
-
-        //Increment progress bar by 10% on each Next button click.  Code ideas from https://www.youtube.com/watch?v=vXwk9tq4Voc & Stack Overflow
+ //Increment progress bar by 10% on each Next button click.  Code ideas from https://www.youtube.com/watch?v=vXwk9tq4Voc & Stack Overflow
         let count = document.getElementById("sr-only").innerText
         next.onclick = function () {
-            //When count reaches 10 clear sessionStorage and return count to 0
+            //When count reaches 10 return count to 0
             if (count === 10) {
-                return count = 0;
+                //return count = 0;
             } else {
                 count++; //Increment count
                 $('.progress-bar').css('width', count + '0%'); //Increase width of progress bar fill width by incremented count
@@ -26,12 +22,18 @@ function randomAircraft() {
             }
         }
 
+    var resultImages= [["single-aerobatic-aircraft", "1point.png"]];
+
+//Function for displaying quiz questions, alternative options and answers 
+function randomAircraft() {
+    $(document).ready(function () {
+
         //Array for aircraft used in previous questions.  It is located outside the Next click function so it does not refresh.
         var aircraftUsed = [];
 
         $("#next").click(function () {
+            $(this).attr('disabled', true);
             $(".hide").hide();
-            //$(".answer").off();
 
             //Function to compare aircraft and usedAircraft arrays and return to difference to aircraftAvailable array.  Code from https://stackoverflow.com/questions/46998798/comparing-2d-arrays-finding-unique-items
             function getKey(array) {
@@ -40,6 +42,7 @@ function randomAircraft() {
                     .join('|');
             }
 
+            //Array code format from https://stackoverflow.com/questions/66413208/how-can-i-stop-an-if-condition-comparing-two-array-items-from-being-met-by-pre?noredirect=1#comment117411539_66413208
             var aircraft = [["F-35 Lightning II", "f35.png"],
             ["F-22 Raptor", "f22.png"],
             ["F/A-18 Hornet", "fa18.png"],
@@ -59,7 +62,8 @@ function randomAircraft() {
             ["Su-27 (FLANKER)", "su27.png"],
             ["Tu-160 (BLACKJACK)", "tu160.png"],
             ["Tu-22M (BACKFIRE)", "tu22m.png"],
-            ["Tu-95 (BEAR)", "tu95.png"]]
+            ["Tu-95 (BEAR)", "tu95.png"]
+            ]
 
             hash = Object.create(null),
                 aircraftAvailable = [];
@@ -72,6 +76,7 @@ function randomAircraft() {
                 return !hash[getKey(a)];
             });
 
+            //Images array for keeping quiz round potential answers which are added to buttons 
             let images = [];
             let aircraftToUse1 = Math.floor(Math.random() * aircraftAvailable.length);
             let aircraftChosen1 = aircraftAvailable[aircraftToUse1];
@@ -124,23 +129,28 @@ function randomAircraft() {
             //Select random image from images array and display in HTML
             let imageToUse = Math.floor(Math.random() * images.length);
             var imageChosen = images[imageToUse];
-
-           // document.getElementById("demo").innerHTML = imageChosen[1];
-           // console.log("imageChosen:", imageChosen[0])
-
+            console.log("Count:", count, "score:", $("#score")[0].innerHTML)
+           // console.log("1point image:", 'alt', resultImages[0]).attr('src', 'assets/images/' + resultImages[0],)
+            console.log('alt', resultImages[0][0],'"<img src=',"assets/images/" + resultImages[0][1],'/>"')
+            console.log(count === 10, $("#score")[0].innerHTML === "1")
+            console.log(".answer", $(".answer"))
+            if (count === 10 && $("#score")[0].innerHTML === "1") {
+                
+                $('#aircraftImage').attr('alt', resultImages[0][0]).attr('src', 'assets/images/' + resultImages[0][1]);
+                $(".answer, #question").hide();
+                   
+            } else {
+               
+           //Add alt and src tags for aircraft image
              $('#aircraftImage').attr('alt', imageChosen[1]).attr('src', 'assets/images/' + imageChosen[1]);
-            //console.log('alt', fourItems[pick][0],'src', "assets/images/" + fourItems[pick][1])
             console.log('alt', imageChosen[1],'"<img src=',"assets/images/" + imageChosen[1],'/>"')
+             } 
 
-
+            //answer button with off click to turn off event handlers from previous question rounds
             $("#answer1").off("click").one("click", function () {
 
                 if (aircraftChosen1[0] === imageChosen[0])
-                // if ((aircraftChosen1[0] === imageChosen[0]) && !($(this).hasClass("correct2, correct3, correct4")))
-
                 {
-                    //1$score+=1;
-                    //1$("#score")[0].innerHTML = score;
                     console.log("Ans1 - aircraftChosen1:", aircraftChosen1[0]);
                     $(".correct1").show();
                     $(".incorrect1").hide();
@@ -191,6 +201,7 @@ function randomAircraft() {
                     $(".incorrect4").hide();
                 }
                 // $('.answer').attr("disabled", true);
+                $('#next').attr('disabled', null);
             });
 
             $("#answer2").off("click").one("click", function () {
@@ -241,7 +252,8 @@ function randomAircraft() {
                     $(".incorrect4").hide();
                     console.log("Ans2 - aircraftChosen4:", aircraftChosen4[0]);
                 }
-                $('.answer').attr("disabled", true);
+                //$('.answer').attr("disabled", true);
+                $('#next').attr('disabled', null);
             });
 
             $("#answer3").off("click").one("click", function () {
@@ -292,7 +304,8 @@ function randomAircraft() {
                     $(".incorrect4").hide();
                     console.log("Ans3 - aircraftChosen4:", aircraftChosen4[0]);
                 }
-                $('.answer').attr("disabled", true);
+               // $('.answer').attr("disabled", true);
+               $('#next').attr('disabled', null);
             });
 
 
@@ -310,7 +323,7 @@ function randomAircraft() {
                     document.getElementById("score").innerText++
                     console.log("Ans4 - aircraftChosen4:", aircraftChosen4[0]);
                     console.log("#score")
-
+                    $('#next').attr('disabled', null);
                 }
                 else if (aircraftChosen1[0] === imageChosen[0]) {
                     $(".correct1").show();
@@ -345,9 +358,9 @@ function randomAircraft() {
                     $(".incorrect3").hide();
                     $(".correct4").hide();
                     console.log("Ans4 - aircraftChosen3:", aircraftChosen3[0]);
-
                 }
-                $('.answer').attr("disabled", true);
+                //$('.answer').attr("disabled", true);
+                $('#next').attr('disabled', null);
             });
 
             //aircraftUsed = aircraft.filter()
@@ -358,7 +371,9 @@ function randomAircraft() {
 
             // $("#answer4").off("click")
             // $('#next').attr('disabled', null);
+            
         });
+        
     }
 
     )
