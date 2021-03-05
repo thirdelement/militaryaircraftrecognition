@@ -47,6 +47,9 @@
     color: red;
 }
 
+#onePoint {
+    display: none;
+}
 /*-- #answers {
   display: flex;
 }--/

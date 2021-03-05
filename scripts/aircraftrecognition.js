@@ -10,6 +10,8 @@ $("#reset").on("click", function () {
     });
 });
 
+
+
 //Function for displaying quiz questions, alternative options and answers 
 function randomAircraft() {
     $(document).ready(function () {
@@ -21,27 +23,63 @@ function randomAircraft() {
         //Reset score to 0
         $("#score")[0].innerHTML = "0"
 
-        //Increment progress bar by 10% on each Next button click.  Code ideas from https://www.youtube.com/watch?v=vXwk9tq4Voc & Stack Overflow
         let count = document.getElementById("sr-only").innerText
-
+        // $("#start, #next").onclick = function () {
         next.onclick = function () {
             //function runScore(){
+
             //When count reaches 10 return count to 0
             if (count === 10) {
                 //return count = 0;
-            } else {
+            } //else {
+            // count++; //Increment count
+            //$('.progress-bar').css('width', count + '0%'); //Increase width of progress bar fill width by incremented count
+            //   $("#sr-only").text(count); //Display count in progress bar
+            // }
+            //randomAircraft.runScore = runScore
+        }
+
+        $("#next, #start").click(function () {
+            //start.onclick = next.onclick = function () {
+            // $("#start").click(function () {
+            //Increment progress bar by 10% on each Next button click.  Code ideas from https://www.youtube.com/watch?v=vXwk9tq4Voc & Stack Overflow
+
+
+            // $(document).ready(function () {
+            //function runQuiz() {
+            //this.runQuiz = function() {
+            //console.log("Does id=next.?)",(this).attr === $("#next"))
+            // console.log("What is (this).innerHTML.?)",(this).innerHTML)
+            // console.log ("Event.target id=", event.target.innerHTML)
+            //console.log("What is id?", (this).getElementsByTagName("p")[2].getAttribute("id"))
+            // console.log("What is this?", this)
+            console.log("What is count", count)
+            console.log("Does count === 1", count === 1)
+            // if ((this).getElementsByTagName("p")[2].getAttribute("id") === next)
+            if ((this).innerHTML === "Next") {
+                $(this).attr('disabled', true);
                 count++; //Increment count
                 $('.progress-bar').css('width', count + '0%'); //Increase width of progress bar fill width by incremented count
                 $("#sr-only").text(count); //Display count in progress bar
             }
-        }
+            else {
+                //return count === 0 ;
+                // $('.progress-bar').css('width', count + '0%'); //Increase width of progress bar fill width by incremented count
+                // $("#sr-only").text(count); //Display count in progress bar
+                document.getElementById("sr-only").innerText = 0;
+                //count[0] = 0; 
+                $('.progress-bar').css('width', document.getElementById("sr-only").innerText + '0%'); //Reset progress bar fill width
+            }
 
-        $("#next").click(function () {
-            // $(document).ready(function () {
-            //function runQuiz() {
-
-            $(this).attr('disabled', true);
             $(".hide").hide();
+
+            //0 if (count === 10) {
+            //return count = 0;
+            //0 }else {
+            //0    count++; //Increment count
+            //0   $('.progress-bar').css('width', count + '0%'); //Increase width of progress bar fill width by incremented count
+            //0  $("#sr-only").text(count); //Display count in progress bar
+            //0  }
 
             //Function to compare aircraft and usedAircraft arrays and return to difference to aircraftAvailable array.  Code from https://stackoverflow.com/questions/46998798/comparing-2d-arrays-finding-unique-items
             function getKey(array) {
@@ -381,7 +419,7 @@ function randomAircraft() {
             // $('#next').attr('disabled', null);
             //-un-block this//} 
             // });
-
+            //randomAircraft.runQuiz = runQuiz
         }//block this
 
         )
