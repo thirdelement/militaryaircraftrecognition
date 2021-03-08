@@ -1,61 +1,21 @@
-$("#reset").on("click", function () {
-    $(document).ready(function () {
-        // sessionStorage.clear();
-        if (document.getElementById("sr-only").innerText > 0) {
-            return document.getElementById("sr-only").innerText = 0;
-            $('.progress-bar').css('width', document.getElementById("sr-only").innerText + '0%'); //Reset progress bar fill width
-            //$("#sr-only").text(count); //Reset display count in progress bar
-            //var aircraftUsed = [];
-        }
-    });
-});
-
-
-
 //Function for displaying quiz questions, alternative options and answers 
 function randomAircraft() {
     $(document).ready(function () {
         //Array for images on results page
         var resultImages = [["single-aerobatic-aircraft", "1point.png"]];
         //Array for aircraft used in previous questions.  It is located outside the Next click function so it does not refresh.
-        var aircraftUsed = [];
+        //var aircraftUsed = [];
+        //
 
         //Reset score to 0
-        $("#score")[0].innerHTML = "0"
+        // $("#score")[0].innerHTML = "0"
 
         let count = document.getElementById("sr-only").innerText
-        // $("#start, #next").onclick = function () {
-        next.onclick = function () {
-            //function runScore(){
-
-            //When count reaches 10 return count to 0
-            if (count === 10) {
-                //return count = 0;
-            } //else {
-            // count++; //Increment count
-            //$('.progress-bar').css('width', count + '0%'); //Increase width of progress bar fill width by incremented count
-            //   $("#sr-only").text(count); //Display count in progress bar
-            // }
-            //randomAircraft.runScore = runScore
-        }
 
         $("#next, #start").click(function () {
-            //start.onclick = next.onclick = function () {
-            // $("#start").click(function () {
-            //Increment progress bar by 10% on each Next button click.  Code ideas from https://www.youtube.com/watch?v=vXwk9tq4Voc & Stack Overflow
 
+            var aircraftUsed = [];
 
-            // $(document).ready(function () {
-            //function runQuiz() {
-            //this.runQuiz = function() {
-            //console.log("Does id=next.?)",(this).attr === $("#next"))
-            // console.log("What is (this).innerHTML.?)",(this).innerHTML)
-            // console.log ("Event.target id=", event.target.innerHTML)
-            //console.log("What is id?", (this).getElementsByTagName("p")[2].getAttribute("id"))
-            // console.log("What is this?", this)
-            console.log("What is count", count)
-            console.log("Does count === 1", count === 1)
-            // if ((this).getElementsByTagName("p")[2].getAttribute("id") === next)
             if ((this).innerHTML === "Next") {
                 $(this).attr('disabled', true);
                 count++; //Increment count
@@ -63,23 +23,13 @@ function randomAircraft() {
                 $("#sr-only").text(count); //Display count in progress bar
             }
             else {
-                //return count === 0 ;
-                // $('.progress-bar').css('width', count + '0%'); //Increase width of progress bar fill width by incremented count
-                // $("#sr-only").text(count); //Display count in progress bar
-                document.getElementById("sr-only").innerText = 0;
-                //count[0] = 0; 
+                count = 0;
                 $('.progress-bar').css('width', document.getElementById("sr-only").innerText + '0%'); //Reset progress bar fill width
             }
-
+            //console.log("What is count", count)
+            //console.log("What is sr-only innerText:", document.getElementById("sr-only").innerText);
+            // console.log("Does count === 1", count === 1)
             $(".hide").hide();
-
-            //0 if (count === 10) {
-            //return count = 0;
-            //0 }else {
-            //0    count++; //Increment count
-            //0   $('.progress-bar').css('width', count + '0%'); //Increase width of progress bar fill width by incremented count
-            //0  $("#sr-only").text(count); //Display count in progress bar
-            //0  }
 
             //Function to compare aircraft and usedAircraft arrays and return to difference to aircraftAvailable array.  Code from https://stackoverflow.com/questions/46998798/comparing-2d-arrays-finding-unique-items
             function getKey(array) {
@@ -124,6 +74,8 @@ function randomAircraft() {
 
             //Images array for keeping quiz round potential answers which are added to buttons 
             let images = [];
+
+
             let aircraftToUse1 = Math.floor(Math.random() * aircraftAvailable.length);
             let aircraftChosen1 = aircraftAvailable[aircraftToUse1];
 
@@ -175,13 +127,9 @@ function randomAircraft() {
             //Select random image from images array and display in HTML
             let imageToUse = Math.floor(Math.random() * images.length);
             var imageChosen = images[imageToUse];
-            //console.log("Count:", count, "score:", $("#score")[0].innerHTML)
-            // console.log("1point image:", 'alt', resultImages[0]).attr('src', 'assets/images/' + resultImages[0],)
-            //console.log('alt', resultImages[0][0],'"<img src=',"assets/images/" + resultImages[0][1],'/>"')
-            //console.log(count === 10, $("#score")[0].innerHTML === "1")
-            //console.log(".answer", $(".answer"))
-            if (count === 10 && $("#score")[0].innerHTML === "1") {
+            //console.log("Count by If statement:", count, "score:", $("#score")[0].innerHTML)
 
+            if (count === 10 && $("#score")[0].innerHTML === "1") {
                 $("#aircraftImage").attr('alt', resultImages[0][0]).attr('src', 'assets/images/' + resultImages[0][1]);
                 $(".answer, #question").hide();
                 $("#onePoint").show();
@@ -199,13 +147,6 @@ function randomAircraft() {
                 if (aircraftChosen1[0] === imageChosen[0]) {
                     // console.log("Ans1 - aircraftChosen1:", aircraftChosen1[0]);
                     $(".correct1").show();
-                    $(".incorrect1").hide();
-                    $(".correct2").hide();
-                    $(".incorrect2").hide();
-                    $(".correct3").hide();
-                    $(".incorrect3").hide();
-                    $(".correct4").hide();
-                    $(".incorrect4").hide();
                     document.getElementById("score").innerText++
                 }
 
@@ -214,24 +155,12 @@ function randomAircraft() {
                     //console.log("Ans1 - imageChosen:", imageChosen[0]);
                     $(".correct2").show();
                     $(".incorrect1").show();
-                    $(".correct1").hide();
-                    $(".incorrect2").hide();
-                    $(".incorrect3").hide();
-                    $(".correct3").hide();
-                    $(".correct4").hide();
-                    $(".incorrect4").hide();
                 }
                 else if (aircraftChosen3[0] === imageChosen[0]) {
                     // console.log("Ans1 - aircraftChosen3:", aircraftChosen3[0]);
                     //console.log("Ans1 - imageChosen:", imageChosen[0]);
                     $(".correct3").show();
                     $(".incorrect1").show();
-                    $(".correct1").hide();
-                    $(".incorrect2").hide();
-                    $(".correct2").hide();
-                    $(".incorrect3").hide();
-                    $(".correct4").hide();
-                    $(".incorrect4").hide();
                 }
                 else {
                     (aircraftChosen4[0] === imageChosen[0])
@@ -239,12 +168,6 @@ function randomAircraft() {
                     // console.log("Ans1 - imageChosen:", imageChosen[0]);
                     $(".correct4").show();
                     $(".incorrect1").show();
-                    $(".correct1").hide();
-                    $(".incorrect2").hide();
-                    $(".correct2").hide();
-                    $(".correct3").hide();
-                    $(".incorrect3").hide();
-                    $(".incorrect4").hide();
                 }
                 // $('.answer').attr("disabled", true);
                 $('#next').attr('disabled', null);
@@ -255,48 +178,22 @@ function randomAircraft() {
                 if (aircraftChosen2[0] === imageChosen[0]) {
                     // console.log("Ans2 - aircraftChosen2:", aircraftChosen2[0]);
                     $(".correct2").show();
-                    $(".correct1").hide();
-                    $(".incorrect1").hide();
-                    $(".incorrect2").hide();
-                    $(".correct3").hide();
-                    $(".incorrect3").hide();
-                    $(".correct4").hide();
-                    $(".incorrect4").hide();
                     document.getElementById("score").innerText++
                 }
                 else if (aircraftChosen1[0] === imageChosen[0]) {
                     // console.log("Ans2 - aircraftChosen1:", aircraftChosen1[0]);
                     $(".correct1").show();
                     $(".incorrect2").show();
-                    $(".incorrect1").hide();
-                    $(".correct2").hide();
-                    $(".incorrect3").hide();
-                    $(".correct3").hide();
-                    $(".correct4").hide();
-                    $(".incorrect4").hide();
                 }
                 else if (aircraftChosen3[0] === imageChosen[0]) {
                     // console.log("Ans2 - aircraftChosen3:", aircraftChosen3[0]);
                     $(".correct3").show();
                     $(".incorrect2").show();
-                    $(".incorrect1").hide();
-                    $(".correct1").hide();
-                    $(".correct2").hide();
-                    $(".incorrect3").hide();
-                    $(".correct4").hide();
-                    $(".incorrect4").hide();
                 }
                 else {
                     (aircraftChosen4[0] === imageChosen[0])
                     $(".correct4").show();
                     $(".incorrect2").show();
-                    $(".incorrect1").hide();
-                    $(".correct1").hide();
-                    $(".correct2").hide();
-                    $(".correct3").hide();
-                    $(".incorrect3").hide();
-                    $(".incorrect4").hide();
-                    //console.log("Ans2 - aircraftChosen4:", aircraftChosen4[0]);
                 }
                 //$('.answer').attr("disabled", true);
                 $('#next').attr('disabled', null);
@@ -307,48 +204,20 @@ function randomAircraft() {
                     //console.log("Ans3 - aircraftChosen3:", aircraftChosen3[0]);
                     //  console.log(imageChosen[0]);
                     $(".correct3").show();
-                    $(".correct1").hide();
-                    $(".incorrect1").hide();
-                    $(".correct2").hide();
-                    $(".incorrect2").hide();
-                    $(".incorrect3").hide();
-                    $(".correct4").hide();
-                    $(".incorrect4").hide();
                     document.getElementById("score").innerText++
                 }
                 else if (aircraftChosen1[0] === imageChosen[0]) {
                     $(".correct1").show();
                     $(".incorrect3").show();
-                    $(".incorrect1").hide();
-                    $(".correct2").hide();
-                    $(".incorrect2").hide();
-                    $(".correct3").hide();
-                    $(".correct4").hide();
-                    $(".incorrect4").hide();
-                    //console.log("Ans3 - aircraftChosen1:", aircraftChosen1[0]);
                 }
                 else if (aircraftChosen2[0] === imageChosen[0]) {
                     $(".correct2").show();
                     $(".incorrect3").show();
-                    $(".incorrect1").hide();
-                    $(".correct1").hide();
-                    $(".incorrect2").hide();
-                    $(".correct3").hide();
-                    $(".correct4").hide();
-                    $(".incorrect4").hide();
-                    //console.log("Ans3 - aircraftChosen2:", aircraftChosen2[0]);
                 }
                 else {
                     (aircraftChosen4[0] === imageChosen[0])
                     $(".correct4").show();
                     $(".incorrect3").show();
-                    $(".incorrect1").hide();
-                    $(".correct1").hide();
-                    $(".incorrect2").hide();
-                    $(".correct2").hide();
-                    $(".correct3").hide();
-                    $(".incorrect4").hide();
-                    //console.log("Ans3 - aircraftChosen4:", aircraftChosen4[0]);
                 }
                 // $('.answer').attr("disabled", true);
                 $('#next').attr('disabled', null);
@@ -358,14 +227,6 @@ function randomAircraft() {
             $("#answer4").off("click").one("click", function () {
                 if (aircraftChosen4[0] === imageChosen[0]) {
                     $(".correct4").show();
-                    $(".correct1").hide();
-                    $(".incorrect1").hide();
-                    $(".correct2").hide();
-                    $(".incorrect2").hide();
-                    $(".incorrect3").hide();
-                    $(".correct3").hide();
-                    $(".incorrect4").hide();
-
                     document.getElementById("score").innerText++
                     //console.log("Ans4 - aircraftChosen4:", aircraftChosen4[0]);
                     //console.log("#score")
@@ -374,58 +235,81 @@ function randomAircraft() {
                 else if (aircraftChosen1[0] === imageChosen[0]) {
                     $(".correct1").show();
                     $(".incorrect4").show();
-                    $(".incorrect1").hide();
-                    $(".correct2").hide();
-                    $(".incorrect2").hide();
-                    $(".correct3").hide();
-                    $(".incorrect3").hide();
-                    $(".correct4").hide();
-                    // console.log("Ans4 - aircraftChosen1:", aircraftChosen1[0]);
                 }
                 else if (aircraftChosen2[0] === imageChosen[0]) {
                     $(".correct2").show();
                     $(".incorrect4").show();
-                    $(".incorrect1").hide();
-                    $(".correct1").hide();
-                    $(".incorrect2").hide();
-                    $(".correct3").hide();
-                    $(".incorrect3").hide();
-                    $(".correct4").hide();
-                    // console.log("Ans4 - aircraftChosen2:", aircraftChosen2[0]);
                 }
                 else {
                     (aircraftChosen3[0] === imageChosen[0])
                     $(".correct3").show();
                     $(".incorrect4").show();
-                    $(".incorrect1").hide();
-                    $(".correct1").hide();
-                    $(".incorrect2").hide();
-                    $(".correct2").hide();
-                    $(".incorrect3").hide();
-                    $(".correct4").hide();
-                    // console.log("Ans4 - aircraftChosen3:", aircraftChosen3[0]);
                 }
                 //$('.answer').attr("disabled", true);
                 $('#next').attr('disabled', null);
             });
 
-            //aircraftUsed = aircraft.filter()
+
+
+            //Push answer to aircraftUsed so it cannot be used again in current quiz
             aircraftUsed.push(imageChosen);
-            console.log("aircraftAvailable", aircraftAvailable);
-            console.log("images array after image push", images);
-            console.log("aircraftUsed:", aircraftUsed)
+            //return aircraftUsed
+            // sessionStorage.setItem("previousAnswer", JSON.stringify(imageChosen));
+            //sessionStorage.setItem('aircraftUsed1', JSON.stringify(aircraftUsed));
+            console.log("count:", count)
+            if (count === 1) {
+                sessionStorage.setItem('aircraftUsed1', JSON.stringify(aircraftUsed));
+                //sessionStorage.getItem('aircraftUsed1', JSON.stringify(aircraftUsed));
+                //var aircraftUsed1 = sessionStorage.getItem('aircraftUsed1', JSON.stringify(aircraftUsed));
+                //var aircraftUsed2 = sessionStorage.getItem('aircraftUsed2', JSON.stringify(aircraftUsed));
+                var aircraftUsed1 = sessionStorage.getItem('aircraftUsed1');
+                var aircraftUsed2 = sessionStorage.getItem('aircraftUsed2');
+                // var aircraftUsed3 = JSON.parse(aircraftUsed1)
+                console.log("var aircraftUsed1", aircraftUsed1)
+                //console.log("var aircraftUsed3", aircraftUsed3)
+                //console.log("JSON parse aircraftUsed2", JSON.parse(aircraftUsed1))
+            }
+            else {
 
-            // $("#answer4").off("click")
-            // $('#next').attr('disabled', null);
-            //-un-block this//} 
-            // });
-            //randomAircraft.runQuiz = runQuiz
+                sessionStorage.setItem('aircraftUsed2', JSON.stringify(aircraftUsed));
+                //var aircraftUsed2 = sessionStorage.getItem('aircraftUsed2', JSON.stringify(aircraftUsed));
+                var aircraftUsed2 = sessionStorage.getItem('aircraftUsed2');
+                var aircraftUsed1 = sessionStorage.getItem('aircraftUsed1');
+                //var aircraftUsed4 = JSON.parse(aircraftUsed2)
+                //var aircraftUsedAll = JSON.parse(aircraftUsed1).concat(JSON.parse(aircraftUsed2));
+                console.log("var aircraftUsed2", aircraftUsed2)
+
+                // console.log("var aircraftUsed4", JSON.parse(aircraftUsed2))
+                //console.log("var aircraftUsed4", aircraftUsed4)
+                //console.log("var aircraftUsedAll", aircraftUsedAll)
+            }
+            //console.log('aicraftUsed1Stringify:', JSON.stringify(aircraftUsed));
+            //aircraftUsed5 = aircraftUsed4.concat(aircraftUsed3)
+            aircraftUsed5 = JSON.parse(aircraftUsed2).concat(JSON.parse(aircraftUsed1))
+            console.log("aircraftUsed5:", aircraftUsed5)
+            //console.log("Concat:", JSON.parse(aircraftUsed2).concat(JSON.parse(aircraftUsed1)));
+            //console.log("Concat:", aircraftUsed3.concat(aircraftUsed4));
+            if (count > 1) {
+                //console.log("Concat:", aircraftUsed1.concat(aircraftUsed2));
+                console.log("Non-Concat aicraftUsed1 If:", aircraftUsed1);
+                console.log("Non-Concat aicraftUsed2 If:", aircraftUsed2);
+            } else {
+                console.log("Non-Concat aicraftUsed1 Else:", aircraftUsed1);
+                console.log("Non-Concat aicraftUsed2 Else:", aircraftUsed2);
+            }
+            // console.log("aircraftAvailable", aircraftAvailable);
+            // console.log("images array after image push", images);
+            // console.log("aircraftUsed:", aircraftUsed)
+
         }//block this
-
         )
-
-
     });
 
     //};
 }
+
+//function b(){
+    //var result = randomAircraft();
+   // console.log("result:", result);
+//}
+//console.log("b:", b)
