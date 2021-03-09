@@ -18,7 +18,7 @@ function randomAircraft() {
 
             if ((this).innerHTML === "Next") {
                 $(this).attr('disabled', true);
-                count++; //Increment count
+                count++ ; //Increment count
                 $('.progress-bar').css('width', count + '0%'); //Increase width of progress bar fill width by incremented count
                 $("#sr-only").text(count); //Display count in progress bar
             }
@@ -129,7 +129,7 @@ function randomAircraft() {
             var imageChosen = images[imageToUse];
             //console.log("Count by If statement:", count, "score:", $("#score")[0].innerHTML)
 
-            if (count === 10 && $("#score")[0].innerHTML === "1") {
+            if (count === 11 && $("#score")[0].innerHTML === "1") {
                 $("#aircraftImage").attr('alt', resultImages[0][0]).attr('src', 'assets/images/' + resultImages[0][1]);
                 $(".answer, #question").hide();
                 $("#onePoint").show();
@@ -269,7 +269,7 @@ function randomAircraft() {
                 //console.log("var aircraftUsed3", aircraftUsed3)
                 //console.log("JSON parse aircraftUsed2", JSON.parse(aircraftUsed1))
             }
-            else {
+            else if (count === 2) {
 
                 sessionStorage.setItem('aircraftUsed2', JSON.stringify(aircraftUsed));
                 //var aircraftUsed2 = sessionStorage.getItem('aircraftUsed2', JSON.stringify(aircraftUsed));
@@ -279,24 +279,101 @@ function randomAircraft() {
                 //var aircraftUsedAll = JSON.parse(aircraftUsed1).concat(JSON.parse(aircraftUsed2));
                 console.log("var aircraftUsed2", aircraftUsed2)
 
-                // console.log("var aircraftUsed4", JSON.parse(aircraftUsed2))
+                aircraftUsed3 = JSON.parse(aircraftUsed2).concat(JSON.parse(aircraftUsed1))
+                console.log("aircraftUsed3:", aircraftUsed3)
+
+                sessionStorage.setItem('aircraftUsed3', JSON.stringify(aircraftUsed3));
+                //console.log("var aircraftUsed4", JSON.parse(aircraftUsed2))
                 //console.log("var aircraftUsed4", aircraftUsed4)
                 //console.log("var aircraftUsedAll", aircraftUsedAll)
+            } else if (count === 3) {
+                sessionStorage.setItem('aircraftUsed2', JSON.stringify(aircraftUsed));
+                var aircraftUsed2 = sessionStorage.getItem('aircraftUsed2');
+                var aircraftUsed3 = sessionStorage.getItem('aircraftUsed3');
+                aircraftUsed4 = JSON.parse(aircraftUsed2).concat(JSON.parse(aircraftUsed3))
+                console.log("aircraftUsed4:", aircraftUsed4)
+                sessionStorage.setItem('aircraftUsed4', JSON.stringify(aircraftUsed4));
+
+            } else if (count === 4) {
+                sessionStorage.setItem('aircraftUsed2', JSON.stringify(aircraftUsed));
+                var aircraftUsed2 = sessionStorage.getItem('aircraftUsed2');
+                var aircraftUsed4 = sessionStorage.getItem('aircraftUsed4');
+                aircraftUsed5 = JSON.parse(aircraftUsed2).concat(JSON.parse(aircraftUsed4))
+                console.log("aircraftUsed5:", aircraftUsed5)
+                sessionStorage.setItem('aircraftUsed5', JSON.stringify(aircraftUsed5));
+
+            } else if (count === 5) {
+                sessionStorage.setItem('aircraftUsed2', JSON.stringify(aircraftUsed));
+                var aircraftUsed2 = sessionStorage.getItem('aircraftUsed2');
+                var aircraftUsed5 = sessionStorage.getItem('aircraftUsed5');
+                aircraftUsed6 = JSON.parse(aircraftUsed2).concat(JSON.parse(aircraftUsed5))
+                console.log("aircraftUsed6:", aircraftUsed6)
+                sessionStorage.setItem('aircraftUsed6', JSON.stringify(aircraftUsed6));
+
+            } else if (count === 6) {
+                sessionStorage.setItem('aircraftUsed2', JSON.stringify(aircraftUsed));
+                var aircraftUsed2 = sessionStorage.getItem('aircraftUsed2');
+                var aircraftUsed6 = sessionStorage.getItem('aircraftUsed6');
+                aircraftUsed7 = JSON.parse(aircraftUsed2).concat(JSON.parse(aircraftUsed6))
+                console.log("aircraftUsed7:", aircraftUsed7)
+                sessionStorage.setItem('aircraftUsed7', JSON.stringify(aircraftUsed7));
+
+            } else if (count === 7) {
+                sessionStorage.setItem('aircraftUsed2', JSON.stringify(aircraftUsed));
+                var aircraftUsed2 = sessionStorage.getItem('aircraftUsed2');
+                var aircraftUsed7 = sessionStorage.getItem('aircraftUsed7');
+                aircraftUsed8 = JSON.parse(aircraftUsed2).concat(JSON.parse(aircraftUsed7))
+                console.log("aircraftUsed8:", aircraftUsed8)
+                sessionStorage.setItem('aircraftUsed8', JSON.stringify(aircraftUsed8));
+
+            } else if (count === 8) {
+                sessionStorage.setItem('aircraftUsed2', JSON.stringify(aircraftUsed));
+                var aircraftUsed2 = sessionStorage.getItem('aircraftUsed2');
+                var aircraftUsed8 = sessionStorage.getItem('aircraftUsed8');
+                aircraftUsed9 = JSON.parse(aircraftUsed2).concat(JSON.parse(aircraftUsed8))
+                console.log("aircraftUsed9:", aircraftUsed9)
+                sessionStorage.setItem('aircraftUsed9', JSON.stringify(aircraftUsed9));
+
+            } else if (count === 9) {
+                sessionStorage.setItem('aircraftUsed2', JSON.stringify(aircraftUsed));
+                var aircraftUsed2 = sessionStorage.getItem('aircraftUsed2');
+                var aircraftUsed9 = sessionStorage.getItem('aircraftUsed9');
+                aircraftUsed10 = JSON.parse(aircraftUsed2).concat(JSON.parse(aircraftUsed9))
+                console.log("aircraftUsed10:", aircraftUsed10)
+                sessionStorage.setItem('aircraftUsed10', JSON.stringify(aircraftUsed10));
+
+            } else if (count === 10) {
+                sessionStorage.setItem('aircraftUsed2', JSON.stringify(aircraftUsed));
+                var aircraftUsed2 = sessionStorage.getItem('aircraftUsed2');
+                var aircraftUsed10 = sessionStorage.getItem('aircraftUsed10');
+                aircraftUsed11 = JSON.parse(aircraftUsed2).concat(JSON.parse(aircraftUsed10))
+                console.log("aircraftUsed11:", aircraftUsed11)
+                sessionStorage.setItem('aircraftUsed11', JSON.stringify(aircraftUsed11));
+
+            } else if (count === 11) {
+                sessionStorage.setItem('aircraftUsed2', JSON.stringify(aircraftUsed));
+                var aircraftUsed2 = sessionStorage.getItem('aircraftUsed2');
+                var aircraftUsed11 = sessionStorage.getItem('aircraftUsed11');
+                aircraftUsed12 = JSON.parse(aircraftUsed2).concat(JSON.parse(aircraftUsed11))
+                console.log("aircraftUsed12:", aircraftUsed12)
+                sessionStorage.setItem('aircraftUsed12', JSON.stringify(aircraftUsed12));
             }
             //console.log('aicraftUsed1Stringify:', JSON.stringify(aircraftUsed));
             //aircraftUsed5 = aircraftUsed4.concat(aircraftUsed3)
-            aircraftUsed5 = JSON.parse(aircraftUsed2).concat(JSON.parse(aircraftUsed1))
-            console.log("aircraftUsed5:", aircraftUsed5)
+
             //console.log("Concat:", JSON.parse(aircraftUsed2).concat(JSON.parse(aircraftUsed1)));
             //console.log("Concat:", aircraftUsed3.concat(aircraftUsed4));
-            if (count > 1) {
+            //if (count === 1) {
                 //console.log("Concat:", aircraftUsed1.concat(aircraftUsed2));
-                console.log("Non-Concat aicraftUsed1 If:", aircraftUsed1);
-                console.log("Non-Concat aicraftUsed2 If:", aircraftUsed2);
-            } else {
-                console.log("Non-Concat aicraftUsed1 Else:", aircraftUsed1);
-                console.log("Non-Concat aicraftUsed2 Else:", aircraftUsed2);
-            }
+              //  console.log("Non-Concat aicraftUsed1 If:", aircraftUsed1);
+               // console.log("Non-Concat aicraftUsed2 If:", aircraftUsed2);
+           // } else if (count ===2) {
+             //   console.log("Non-Concat aicraftUsed1 Else If:", aircraftUsed1);
+              //  console.log("Non-Concat aicraftUsed2 Else If:", aircraftUsed2);
+          //  } else {
+              //  console.log("Non-Concat aicraftUsed1 Else:", aircraftUsed1);
+               // console.log("Non-Concat aicraftUsed2 Else:", aircraftUsed2);
+            //}
             // console.log("aircraftAvailable", aircraftAvailable);
             // console.log("images array after image push", images);
             // console.log("aircraftUsed:", aircraftUsed)
