@@ -21,47 +21,63 @@
 </head>
 
 <body>
-    <div id="quiz-document">
-        <h1>Military aircraft recognition quiz</h1>
-        <!-- Progress bar - Code from https://www.youtube.com/watch?v=QxQRtwAtqKE -->
-        <div class="container">
-            <!--<h2>Basic Progress Bar</h2>-->
-            <div class="progress">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"
-                    style="width:0">
-                    <span id="sr-only">0</span><span> of 10</span>
-                </div>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Military Aircraft Recognition</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Quiz</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
             </div>
         </div>
-        <!--<button id="start" onclick="randomAircraft()">Start</button>-->
-        
-       <!-- <button id="next" onclick="randomAircraft.runScore(), randomAircraft.runQuiz()">Next</button>-->
-       <button id="next">Next</button>
-       <!-- onclick="(new outer()).inner();"-->
-        <!--<img src="assets/images/f35.png"  alt="F35 Lightning II" />-->
-        <p>Score: <span id="score">0</span></p>
-        <!--<p>Other Score: <span id="other-score">0</span></p>-->
-        <p id="question">What is the aircraft?</p>
-        <button class="answer" id="answer1"></button>
-        <!--<p id="checkmark1"></p>-->
-        <!--<form id="button-form1">-->
-        <i id="correct1" class="hide correct1 fas fa-check-circle fa-check-circle-hide"></i>
-        <i id="incorrect1" class="hide incorrect1 fas fa-times-circle fa-times-circle-hide"></i>
-        <!--</form>-->
-        <button class="answer" id="answer2"></button>
-        <i class="hide correct2 fas fa-check-circle"></i>
-        <i class="hide incorrect2 fas fa-times-circle"></i>
-        <button class="answer" id="answer3"></button>
-        <i class="hide correct3 fas fa-check-circle"></i>
-        <i class="hide incorrect3 fas fa-times-circle"></i>
-        <button class="answer" id="answer4"></button>
-        <i class="hide correct4 fas fa-check-circle"></i>
-        <i class="hide incorrect4 fas fa-times-circle"></i>
-        <!--<p id="demo"></p>-->
-        <img id="aircraftImage">
-        <p class="resultComment" id="onePoint">You scored 1 out of 10.  You're on your way up..!</p>
+    </nav>
 
-    </div>
+    <section id="home">
+
+        <div class="container-fluid container-home" id="quiz-document">
+            <!--  <h1>Military aircraft recognition quiz</h1>-->
+            <!-- Progress bar - Code from https://www.youtube.com/watch?v=QxQRtwAtqKE -->
+            <div class="container">
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+                        aria-valuemax="100" style="width:0">
+                        <span id="sr-only">0</span><span> of 10</span>
+                    </div>
+                </div>
+            </div>
+
+            <button id="next">Next</button>
+            <p>Score: <span id="score">0</span></p>
+
+            <p id="question">What is the aircraft?</p>
+            <button class="answer" id="answer1"></button>
+            <i id="correct1" class="hide correct1 fas fa-check-circle fa-check-circle-hide"></i>
+            <i id="incorrect1" class="hide incorrect1 fas fa-times-circle fa-times-circle-hide"></i>
+            <button class="answer" id="answer2"></button>
+            <i class="hide correct2 fas fa-check-circle"></i>
+            <i class="hide incorrect2 fas fa-times-circle"></i>
+            <button class="answer" id="answer3"></button>
+            <i class="hide correct3 fas fa-check-circle"></i>
+            <i class="hide incorrect3 fas fa-times-circle"></i>
+            <button class="answer" id="answer4"></button>
+            <i class="hide correct4 fas fa-check-circle"></i>
+            <i class="hide incorrect4 fas fa-times-circle"></i>
+            <!--<p id="demo"></p>-->
+            <img id="aircraftImage">
+            <p class="resultComment" id="onePoint">You scored 1 out of 10. You're on your way up..!</p>
+
+        </div>
+    </section>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
@@ -74,8 +90,6 @@
 
     <!-- Javascript -->
     <script type="text/javascript" src="scripts/aircraftrecognition.js"></script>
-
-    
 
 </body>
 
