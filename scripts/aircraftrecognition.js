@@ -1,28 +1,31 @@
 //Function for displaying quiz questions, alternative options and answers 
-function randomAircraft() {
-    $(document).ready(function () {
-        //Array for images on results page
-        var resultImages = [["single-aerobatic-aircraft", "1point.png"]];
-        //Array for aircraft used in previous questions.  It is located outside the Next click function so it does not refresh.
-        //var aircraftUsed = [];
-        //
+//function randomAircraft() {
+    //$(document).ready(function () {
+    //Array for images on results page
 
-        //Reset score to 0
-        // $("#score")[0].innerHTML = "0"
+    //Array for aircraft used in previous questions.  It is located outside the Next click function so it does not refresh.
+    //var aircraftUsed = [];
+    //console.log("aircraftUsed randomAircraft:", aircraftUsed)
+    //
 
-        let count = document.getElementById("sr-only").innerText
+    //Reset score to 0
+    // $("#score")[0].innerHTML = "0"
 
-        $("#next, #start").click(function () {
-             
-           // if (count === 1) {
+    // 
+
+    $("#next, #start").click(function () {
+       // $(document).ready(function () {
+            // if (count === 1) {
             //    aircraftUsed1 = [];
-           // }
+            // }
+            var resultImages = [["single-aerobatic-aircraft", "1point.png"]];
+            let count = document.getElementById("sr-only").innerText
+            //let count = 0 
 
-            
 
             if ((this).innerHTML === "Next") {
                 $(this).attr('disabled', true);
-                count++ ; //Increment count
+                count++; //Increment count
                 $('.progress-bar').css('width', count + '0%'); //Increase width of progress bar fill width by incremented count
                 $("#sr-only").text(count); //Display count in progress bar
             }
@@ -34,10 +37,15 @@ function randomAircraft() {
             //console.log("What is sr-only innerText:", document.getElementById("sr-only").innerText);
             // console.log("Does count === 1", count === 1)
             $(".hide").hide();
-
+            console.log("aircraftUsed13 Before VAR", aircraftUsed13)
             var aircraftUsed = [];
-            var aircraftUsed13 = [];
-             
+
+            //sessionStorage.setItem('aircraftUsed13', JSON.stringify(aircraftUsed));
+            var aircraftUsed13 = JSON.parse(sessionStorage.getItem('aircraftUsed13'));
+
+            //var aircraftUsed13 = [];
+            console.log("aircraftUsed13 After VAR", aircraftUsed13)
+
 
             //Function to compare aircraft and usedAircraft arrays and return to difference to aircraftAvailable array.  Code from https://stackoverflow.com/questions/46998798/comparing-2d-arrays-finding-unique-items
             function getKey(array) {
@@ -70,18 +78,23 @@ function randomAircraft() {
             ]
 
             hash = Object.create(null),
-            
-                aircraftAvailable = [];
 
-            if (count === 1){
-            aircraftUsed.forEach(function (a) {
-                hash[getKey(a)] = true;
-            });
-        } else {
-            aircraftUsed13.forEach(function (a) {
-                hash[getKey(a)] = true;
-            }); 
-        }
+                aircraftAvailable = [];
+            console.log("aircraftAvailable", aircraftAvailable)
+            console.log("aircraftUsed Next:", aircraftUsed)
+            // aircraftUsed13.forEach(function (a) {
+            //    hash[getKey(a)] = true;
+            //    });
+            if (count === 1) {
+                aircraftUsed.forEach(function (a) {
+                    hash[getKey(a)] = true;
+                });
+            } else {
+                aircraftUsed13.forEach(function (a) {
+                    hash[getKey(a)] = true;
+                });
+                console.log("aircraftUsed13 COMPARE FNCTIN:", aircraftUsed13)
+            }
 
             aircraftAvailable = aircraft.filter(function (a) {
                 return !hash[getKey(a)];
@@ -273,7 +286,7 @@ function randomAircraft() {
             //sessionStorage.setItem('aircraftUsed1', JSON.stringify(aircraftUsed));
             //placeholder console.log count followed by if(count === 1)
             console.log("count:", count)
-             console.log("aircraftUsed", aircraftUsed)
+            //console.log("aircraftUsed", aircraftUsed)
             if (count === 1) {
                 //sessionStorage.setItem('aircraftUsed1', JSON.stringify(aircraftUsed));
                 sessionStorage.setItem('aircraftUsed13', JSON.stringify(aircraftUsed));
@@ -284,7 +297,7 @@ function randomAircraft() {
                 //var aircraftUsed1 = sessionStorage.getItem('aircraftUsed1');
                 //var aircraftUsed2 = sessionStorage.getItem('aircraftUsed2');
                 // var aircraftUsed3 = JSON.parse(aircraftUsed1)
-                console.log("var aircraftUsed13", aircraftUsed13)
+                console.log("aircraftUsed13 IF", JSON.parse(aircraftUsed13))
                 //console.log("var aircraftUsed3", aircraftUsed3)
                 //console.log("JSON parse aircraftUsed2", JSON.parse(aircraftUsed1))
             }
@@ -294,28 +307,31 @@ function randomAircraft() {
                 //var aircraftUsed2 = sessionStorage.getItem('aircraftUsed2', JSON.stringify(aircraftUsed));
                 var aircraftUsed2 = sessionStorage.getItem('aircraftUsed2');
                 var aircraftUsed13 = sessionStorage.getItem('aircraftUsed13');
+                //sessionStorage.getItem('aircraftUsed2');
+                //sessionStorage.getItem('aircraftUsed13');
                 //var aircraftUsed1 = sessionStorage.getItem('aircraftUsed1');
                 //var aircraftUsed4 = JSON.parse(aircraftUsed2)
                 //var aircraftUsedAll = JSON.parse(aircraftUsed1).concat(JSON.parse(aircraftUsed2));
-                console.log("var aircraftUsed2", aircraftUsed2)
+                console.log("aircraftUsed2 Else", aircraftUsed2)
                 //aircraftUsed3 = JSON.parse(aircraftUsed2).concat(JSON.parse(aircraftUsed1))
                 aircraftUsed13 = JSON.parse(aircraftUsed2).concat(JSON.parse(aircraftUsed13))
-                console.log("aircraftUsed13:", aircraftUsed13)
+                console.log("aircraftUsed13 Else:", aircraftUsed13)
 
                 //sessionStorage.setItem('aircraftUsed3', JSON.stringify(aircraftUsed3));
                 sessionStorage.setItem('aircraftUsed13', JSON.stringify(aircraftUsed13));
                 //console.log("var aircraftUsed4", JSON.parse(aircraftUsed2))
                 //console.log("var aircraftUsed4", aircraftUsed4)
                 //console.log("var aircraftUsedAll", aircraftUsedAll)
-           
-            } 
-           
-        }//block this
-        )
-    });
+
+            }
+            console.log("aircraftUsed13 After Else:", aircraftUsed13)
+        //});
+    }//block this
+    )
+    //}); //document ready closure
 
     //};
-}
+//}
 
 //function b(){
     //var result = randomAircraft();
