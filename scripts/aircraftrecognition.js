@@ -1,6 +1,9 @@
 $("#next").click(function () {
 
+    //Array for holding images presented at end of quiz with score
     var resultImages = [["single-aerobatic-aircraft", "1point.png"]];
+
+    //Declare count variable for Next button clicks
     let count = document.getElementById("sr-only").innerText
     console.log("count before prog bar:", count)
     if (count === 0) {
@@ -12,21 +15,20 @@ $("#next").click(function () {
     count++; //Increment count
     $('.progress-bar').css('width', count + '0%'); //Increase width of progress bar fill width by incremented count
     $("#sr-only").text(count); //Display count in progress bar
-
+    //If count is 11 display 10 in progress bar at end of quiz
     if (count === 11) {
         $("#sr-only").text(10);
     }
 
+    //Hide answer button check and cross marks
     $(".hide").hide();
     console.log("aircraftUsed13 Before VAR", aircraftUsed13)
+    //Declare variable for array for answer from first question round
     var aircraftUsed = [];
 
-    //sessionStorage.setItem('aircraftUsed13', JSON.stringify(aircraftUsed));
+    //Declare variable for sessionStorage array for answers from subsequent rounds
     var aircraftUsed13 = JSON.parse(sessionStorage.getItem('aircraftUsed13'));
-
-    //var aircraftUsed13 = [];
     console.log("aircraftUsed13 After VAR", aircraftUsed13)
-
 
     //Function to compare aircraft and usedAircraft arrays and return to difference to aircraftAvailable array.  Code from https://stackoverflow.com/questions/46998798/comparing-2d-arrays-finding-unique-items
     function getKey(array) {
@@ -63,9 +65,7 @@ $("#next").click(function () {
         aircraftAvailable = [];
     console.log("aircraftAvailable", aircraftAvailable)
     console.log("aircraftUsed Next:", aircraftUsed)
-    // aircraftUsed13.forEach(function (a) {
-    //    hash[getKey(a)] = true;
-    //    });
+    
     if (count === 1) {
         aircraftUsed.forEach(function (a) {
             hash[getKey(a)] = true;
@@ -114,7 +114,7 @@ $("#next").click(function () {
     //Remove a third aircraft from array
     aircraftAvailable.splice(aircraftToUse3, 1);
 
-    //Randomly select another aircraft from array
+    //Randomly select a fourth aircraft from array
     let aircraftToUse4 = Math.floor(Math.random() * aircraftAvailable.length);
     let aircraftChosen4 = aircraftAvailable[aircraftToUse4];
 
@@ -133,23 +133,22 @@ $("#next").click(function () {
     // Add aircraft name to button
     document.getElementById("answer4").innerHTML = aircraftChosen4[0];
 
-    //Select random image from images array and display in HTML
+    //Select random image from images array for display in HTML
     let imageToUse = Math.floor(Math.random() * images.length);
     var imageChosen = images[imageToUse];
 
-    //If count is 11 show results images & text
+    //If count is 11 display results images & text
     if (count === 11 && $("#score")[0].innerHTML === "1") {
         $("#aircraftImage").attr('alt', resultImages[0][0]).attr('src', 'assets/images/' + resultImages[0][1]);
         $(".answer, #question").hide();
         $("#onePoint").show();
 
     } else {
-
-        //Add alt and src tags for aircraft image
+        //Display imageChosen
         $('#aircraftImage').attr('alt', imageChosen[1]).attr('src', 'assets/images/' + imageChosen[1]);
     }
 
-    //answer button with off click to turn off event handlers from previous question rounds
+    //Answer button with off click to turn off event handlers from previous question rounds
     $("#answer1").off("click").one("click", function () {
 
         if (aircraftChosen1[0] === imageChosen[0]) {
@@ -244,11 +243,13 @@ $("#next").click(function () {
 
     console.log("count:", count)
 
+    //If count is 1 store aircraftUsed array in sessionStorage
     if (count === 1) {
         sessionStorage.setItem('aircraftUsed13', JSON.stringify(aircraftUsed));
         var aircraftUsed13 = sessionStorage.getItem('aircraftUsed13');
         console.log("aircraftUsed13 IF", JSON.parse(aircraftUsed13))
     }
+    //Else concat aircraftUsed arrays to add to aircraft in sessionStorage
     else {
         sessionStorage.setItem('aircraftUsed2', JSON.stringify(aircraftUsed));
         var aircraftUsed2 = sessionStorage.getItem('aircraftUsed2');

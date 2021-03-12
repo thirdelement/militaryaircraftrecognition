@@ -54,10 +54,12 @@ img {
 
 .answer {
 width: 70%;
+margin-top: 10px;
 }
 
 #next {
 width: 70%;
+margin-top: 10px;
 }
 
 .fa-check-circle {
