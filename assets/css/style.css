@@ -23,6 +23,12 @@
 
 .container-home {
   padding: 50px 20px 85px 20px;
+  background-color: skyblue;
+  height: 100vh;
+}
+
+.row>* {
+    width: auto; 
 }
 
 
@@ -50,6 +56,15 @@
     font-weight: bold;
 }--*/
 
+/*-------------------------------------------------Quiz--*/
+
+.container-quiz {
+  padding: 20px 20px 20px 20px;
+  background-color: grey;
+  /*--display: flex;--*/
+  /*--height: 100vh;--*/
+}
+
 .fa-check-circle {
     display: none; 
     /*visibility:hidden;*/
@@ -72,4 +87,13 @@
 }
 /*-- #answers {
   display: flex;
-}--/
+}--*/
+
+/*-------------------------------------------------Media queries--*/
+
+
+@media (min-width: 992px){
+.container, .container-lg, .container-md, .container-sm {
+    max-width: 768px;
+}
+}
