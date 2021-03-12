@@ -46,16 +46,29 @@
   /*--height: 100vh;--*/
 }
 
+/* Aircraft image settings */
 img {
      width: 90%;
   height: 300px;
   object-fit: fill;
 }
 
+/* Answer button settings */
 .answer {
 width: 70%;
 margin-top: 10px;
 }
+
+/* Change colour on hover for answer buttons */
+.change-color {
+    background-color: #ffc107;
+}
+
+/* Add border on hover for answer buttons */
+.add-border {
+    border: 2px solid black;
+}
+
 
 #next {
 width: 70%;

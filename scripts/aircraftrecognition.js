@@ -65,7 +65,7 @@ $("#next").click(function () {
         aircraftAvailable = [];
     console.log("aircraftAvailable", aircraftAvailable)
     console.log("aircraftUsed Next:", aircraftUsed)
-    
+
     if (count === 1) {
         aircraftUsed.forEach(function (a) {
             hash[getKey(a)] = true;
@@ -136,6 +136,40 @@ $("#next").click(function () {
     //Select random image from images array for display in HTML
     let imageToUse = Math.floor(Math.random() * images.length);
     var imageChosen = images[imageToUse];
+
+    //Change answer button colour on hover 
+    //Code from Code Institute - Interactive Frontend module, JQuery Library, JQuery Events, Method Chaining - Challenge 1   
+    $("#answer1").mouseenter(function () {
+        $("#answer1").addClass("change-color").addClass("make-border");
+    });
+
+    $("#answer1").mouseleave(function () {
+        $("#answer1").removeClass("add-border").removeClass("change-color");
+    });
+
+    $("#answer2").mouseenter(function () {
+        $("#answer2").addClass("change-color").addClass("add-border");
+    });
+
+    $("#answer2").mouseleave(function () {
+        $("#answer2").removeClass("add-border").removeClass("change-color");
+    });
+
+    $("#answer3").mouseenter(function () {
+        $("#answer3").addClass("change-color").addClass("add-border");
+    });
+
+    $("#answer3").mouseleave(function () {
+        $("#answer3").removeClass("add-border").removeClass("change-color");
+    });
+
+    $("#answer4").mouseenter(function () {
+        $("#answer4").addClass("change-color").addClass("add-border");
+    });
+
+    $("#answer4").mouseleave(function () {
+        $("#answer4").removeClass("add-border").removeClass("change-color");
+    });
 
     //If count is 11 display results images & text
     if (count === 11 && $("#score")[0].innerHTML === "1") {
@@ -262,3 +296,8 @@ $("#next").click(function () {
     console.log("aircraftUsed13 After Else:", aircraftUsed13)
 }
 )
+
+//$("#answer").hover(function() {
+ //$("#answer").css("background", "lightblue");
+//} );  
+
