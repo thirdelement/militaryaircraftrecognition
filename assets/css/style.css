@@ -14,6 +14,10 @@
   color: yellow;
 }
 
+.bg-primary {
+    background-color: #085394!important;
+}
+
 /*-- Progress bar --*/
 .progress-bar {
     display: block;
@@ -27,42 +31,33 @@
   height: 100vh;
 }
 
-.row>* {
+/*--.row>* {
     width: auto; 
 }
+--*/
 
-
-/*-- Progress bar - Code from https://www.youtube.com/watch?v=QxQRtwAtqKE --*/
-/*-- .progress-bar {
-    position: relative;
-    width: 300px;
-    height: 15px;
-    border: 1px solid #000;
-}--*/
-
-/*--.progress-bar-fill {
-    height: 100%;
-    background: #ec4235;
-    transition: width 0.5s;
-}
-
-.progress-bar-value {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    font-weight: bold;
-}--*/
 
 /*-------------------------------------------------Quiz--*/
 
 .container-quiz {
   padding: 20px 20px 20px 20px;
-  background-color: grey;
+  background-color: rgb(94, 96, 97);
   /*--display: flex;--*/
   /*--height: 100vh;--*/
+}
+
+img {
+     width: 90%;
+  height: 300px;
+  object-fit: fill;
+}
+
+.answer {
+width: 70%;
+}
+
+#next {
+width: 70%;
 }
 
 .fa-check-circle {
@@ -96,4 +91,14 @@
 .container, .container-lg, .container-md, .container-sm {
     max-width: 768px;
 }
+
+img {
+    object-fit: cover;
+}
+}
+
+@media (min-width: 576px){
+img {
+    height: 400px
+}   
 }
