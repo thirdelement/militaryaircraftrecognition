@@ -52,11 +52,16 @@
   /*--height: 100vh;--*/
 }
 
-/* Aircraft image settings */
+/* All aircraft image settings */
 img {
-     width: 90%;
+  width: 90%;
   height: 300px;
   object-fit: fill;
+}
+
+/* Quiz aircraft image additional setting */
+#aircraftImage {
+    display:none;
 }
 
 /* Answer button settings */

@@ -1,15 +1,19 @@
 $("#next").click(function () {
 
     //Array for holding images presented at end of quiz with score
-    var resultImages = [["single-aerobatic-aircraft", "1point.png"]];
+    var resultImages = [["F35A-through-binoculars", "binos.png"], ["single-aerobatic-aircraft", "1point.png"]];
 
     //Declare count variable for Next button clicks
     let count = document.getElementById("sr-only").innerText
     console.log("count before prog bar:", count)
+    
+    //Clear sessionStorage from previous rounds
     if (count === 0) {
         sessionStorage.clear();
     }
 
+
+    
     //Disable Next button and remove classes until answer selected
     $(this).attr('disabled', true).removeClass("add-border").removeClass("next-change-color");
     
@@ -21,8 +25,10 @@ $("#next").click(function () {
         $("#sr-only").text(10);
     }
 
-    //Hide answer button check and cross marks
+    //Hide answer button check, cross marks & startImage
     $(".hide").hide();
+    $("#startImage").hide();
+
     console.log("aircraftUsed13 Before VAR", aircraftUsed13)
     //Declare variable for array for answer from first question round
     var aircraftUsed = [];
@@ -179,13 +185,13 @@ $("#next").click(function () {
 
     //If count is 11 display results images & text
     if (count === 11 && $("#score")[0].innerHTML === "1") {
-        $("#aircraftImage").attr('alt', resultImages[0][0]).attr('src', 'assets/images/' + resultImages[0][1]);
+        $("#aircraftImage").attr('alt', resultImages[0][0]).attr('src', 'assets/images/' + resultImages[0][1]).show();
         $(".answer, #question").hide();
         $("#onePoint").show();
-
-    } else {
+    }
+    else {
         //Display imageChosen
-        $('#aircraftImage').attr('alt', imageChosen[1]).attr('src', 'assets/images/' + imageChosen[1]);
+        $('#aircraftImage').attr('alt', imageChosen[1]).attr('src', 'assets/images/' + imageChosen[1]).show();
     }
 
     //Answer button with off click to turn off event handlers from previous question rounds
