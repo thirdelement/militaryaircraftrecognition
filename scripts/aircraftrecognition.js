@@ -12,8 +12,6 @@ $("#next").click(function () {
         sessionStorage.clear();
     }
 
-
-    
     //Disable Next button and remove classes until answer selected
     $(this).attr('disabled', true).removeClass("add-border").removeClass("next-change-color");
     
@@ -26,8 +24,14 @@ $("#next").click(function () {
     }
 
     //Hide answer button check, cross marks & startImage
-    $(".hide").hide();
-    $("#startImage").hide();
+    $(".hide, #startImage, #welcome").hide();
+    //$("#startImage").hide();
+
+    //Show progress bar and answer buttons
+    $(".answer, .progress").show();
+
+    //Set Next button to white
+    //$("#next").css("background-color", "white");
 
     console.log("aircraftUsed13 Before VAR", aircraftUsed13)
     //Declare variable for array for answer from first question round
@@ -131,11 +135,12 @@ $("#next").click(function () {
     //Remove a fourth aircraft from array
     aircraftAvailable.splice(aircraftToUse4, 1);
 
-    // Add aircraft names to buttons
+    // Add names to buttons
     $("#answer1-span").text(aircraftChosen1[0])
     $("#answer2-span").text(aircraftChosen2[0])
     $("#answer3-span").text(aircraftChosen3[0])
     $("#answer4-span").text(aircraftChosen4[0])
+    $("#next").text("Next")
 
     //Select random image from images array for display in HTML
     let imageToUse = Math.floor(Math.random() * images.length);
@@ -266,33 +271,20 @@ $("#next").click(function () {
     $("#answer4").off("click").one("click", function () {
         if (aircraftChosen4[0] === imageChosen[0]) {
             $(".correct4").show();
-            document.getElementById("score").innerText++
-            console.log("correct4:", $(".correct4").html);
-            console.log("correct4 JS:", document.getElementsByClassName("correct4"));
-            console.log("correct4 JQ",$(".correct4"))
-
+            document.getElementById("score").innerText++ 
         }
         else if (aircraftChosen1[0] === imageChosen[0]) {
             $(".correct1").show();
             $(".incorrect4").show();
-            console.log("correct1 JQ",$(".correct1"))
-            console.log("incorrect4:", $(".incorrect4").html);
-            console.log("incorrect4 JS:", document.getElementsByClassName("incorrect4"));
         }
         else if (aircraftChosen2[0] === imageChosen[0]) {
             $(".correct2").show();
             $(".incorrect4").show();
-            console.log("correct2 JQ",$(".correct2"))
-            console.log("incorrect4:", $(".incorrect4").html);
-            console.log("incorrect4 JS:", document.getElementsByClassName("incorrect4"));
         }
         else {
             (aircraftChosen3[0] === imageChosen[0])
             $(".correct3").show();
             $(".incorrect4").show();
-            console.log("correct3 JQ",$(".correct3"))
-            console.log("incorrect4:", $(".incorrect4").html);
-            console.log("incorrect4 JS:", document.getElementsByClassName("incorrect4"));
         }
         $('#next').attr('disabled', null);
     });
