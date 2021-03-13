@@ -63,7 +63,6 @@
 }
 
 
-
 /* All aircraft image settings */
 img {
   width: 90%;
@@ -127,8 +126,9 @@ display: none;
     color: red;
 }
 
-#onePoint {
+.resultComment {
     display: none;
+    color: yellow;
 }
 /*-- #answers {
   display: flex;

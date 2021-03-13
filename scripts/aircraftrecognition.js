@@ -1,12 +1,22 @@
 $("#next").click(function () {
 
     //Array for holding images presented at end of quiz with score
-    var resultImages = [["F35A-through-binoculars", "binos.png"], ["single-aerobatic-aircraft", "1point.png"]];
+    var resultImages = [["single-aerobatic-aircraft", "1point.png"],
+    ["Patrouille Swiss - Two F5e Tiger II", "2points.png"],
+    ["Nellis AFB - Three classic Sabers", "3points.png"],
+    ["SanFrancisco - Four Blue Angel F/A-18 Hornets", "4points.png"],
+    ["Five Blue Impulse T4s", "5points.png"],
+    ["Six PLAAF J10s", "6points.png"],
+    ["Seven Smoke Squadron T-6s", "7points.png"],
+    ["Patrouille De France Eight Alpha Jets", "8points.png"],
+    ["Nine Red Arrow Hawks", "9points.png"],
+    ["Ten Frecce Tricolori Aermacchi MB-339-A", "10points.png"]
+];
 
     //Declare count variable for Next button clicks
     let count = document.getElementById("sr-only").innerText
     console.log("count before prog bar:", count)
-    
+
     //Clear sessionStorage from previous rounds
     if (count === 0) {
         sessionStorage.clear();
@@ -14,7 +24,7 @@ $("#next").click(function () {
 
     //Disable Next button and remove classes until answer selected
     $(this).attr('disabled', true).removeClass("add-border").removeClass("next-change-color");
-    
+
     count++; //Increment count
     $('.progress-bar').css('width', count + '0%'); //Increase width of progress bar fill width by incremented count
     $("#sr-only").text(count); //Display count in progress bar
@@ -194,6 +204,51 @@ $("#next").click(function () {
         $(".answer, #question").hide();
         $("#onePoint").show();
     }
+    else if (count === 11 && $("#score")[0].innerHTML === "2") {
+        $("#aircraftImage").attr('alt', resultImages[1][0]).attr('src', 'assets/images/' + resultImages[1][1]).show();
+        $(".answer, #question").hide();
+        $("#twoPoints").show();
+    }
+    else if (count === 11 && $("#score")[0].innerHTML === "3") {
+        $("#aircraftImage").attr('alt', resultImages[2][0]).attr('src', 'assets/images/' + resultImages[2][1]).show();
+        $(".answer, #question").hide();
+        $("#threePoints").show();
+    }
+    else if (count === 11 && $("#score")[0].innerHTML === "4") {
+        $("#aircraftImage").attr('alt', resultImages[3][0]).attr('src', 'assets/images/' + resultImages[3][1]).show();
+        $(".answer, #question").hide();
+        $("#fourPoints").show();
+    }
+    else if (count === 11 && $("#score")[0].innerHTML === "5") {
+        $("#aircraftImage").attr('alt', resultImages[4][0]).attr('src', 'assets/images/' + resultImages[4][1]).show();
+        $(".answer, #question").hide();
+        $("#fivePoints").show();
+    }
+    else if (count === 11 && $("#score")[0].innerHTML === "6") {
+        $("#aircraftImage").attr('alt', resultImages[5][0]).attr('src', 'assets/images/' + resultImages[5][1]).show();
+        $(".answer, #question").hide();
+        $("#sixPoints").show();
+    }
+    else if (count === 11 && $("#score")[0].innerHTML === "7") {
+        $("#aircraftImage").attr('alt', resultImages[6][0]).attr('src', 'assets/images/' + resultImages[6][1]).show();
+        $(".answer, #question").hide();
+        $("#sevenPoints").show();
+    }
+    else if (count === 11 && $("#score")[0].innerHTML === "8") {
+        $("#aircraftImage").attr('alt', resultImages[7][0]).attr('src', 'assets/images/' + resultImages[7][1]).show();
+        $(".answer, #question").hide();
+        $("#eightPoints").show();
+    }
+    else if (count === 11 && $("#score")[0].innerHTML === "9") {
+        $("#aircraftImage").attr('alt', resultImages[8][0]).attr('src', 'assets/images/' + resultImages[8][1]).show();
+        $(".answer, #question").hide();
+        $("#ninePoints").show();
+    }
+     else if (count === 11 && $("#score")[0].innerHTML === "10") {
+        $("#aircraftImage").attr('alt', resultImages[9][0]).attr('src', 'assets/images/' + resultImages[9][1]).show();
+        $(".answer, #question").hide();
+        $("#tenPoints").show();
+    }
     else {
         //Display imageChosen
         $('#aircraftImage').attr('alt', imageChosen[1]).attr('src', 'assets/images/' + imageChosen[1]).show();
@@ -271,7 +326,7 @@ $("#next").click(function () {
     $("#answer4").off("click").one("click", function () {
         if (aircraftChosen4[0] === imageChosen[0]) {
             $(".correct4").show();
-            document.getElementById("score").innerText++ 
+            document.getElementById("score").innerText++
         }
         else if (aircraftChosen1[0] === imageChosen[0]) {
             $(".correct1").show();
