@@ -10,8 +10,9 @@ $("#next").click(function () {
         sessionStorage.clear();
     }
 
-    //Disable Next button until answer selected
-    $(this).attr('disabled', true);
+    //Disable Next button and remove classes until answer selected
+    $(this).attr('disabled', true).removeClass("add-border").removeClass("next-change-color");
+    
     count++; //Increment count
     $('.progress-bar').css('width', count + '0%'); //Increase width of progress bar fill width by incremented count
     $("#sr-only").text(count); //Display count in progress bar
@@ -124,14 +125,11 @@ $("#next").click(function () {
     //Remove a fourth aircraft from array
     aircraftAvailable.splice(aircraftToUse4, 1);
 
-    // Add aircraft name to button
-    document.getElementById("answer1").innerHTML = aircraftChosen1[0];
-    // Add aircraft name to button
-    document.getElementById("answer2").innerHTML = aircraftChosen2[0];
-    // Add aircraft name to button
-    document.getElementById("answer3").innerHTML = aircraftChosen3[0];
-    // Add aircraft name to button
-    document.getElementById("answer4").innerHTML = aircraftChosen4[0];
+    // Add aircraft names to buttons
+    $("#answer1").text(aircraftChosen1[0])
+    $("#answer2").text(aircraftChosen2[0])
+    $("#answer3").text(aircraftChosen3[0])
+    $("#answer4").text(aircraftChosen4[0])
 
     //Select random image from images array for display in HTML
     let imageToUse = Math.floor(Math.random() * images.length);
@@ -169,6 +167,14 @@ $("#next").click(function () {
 
     $("#answer4").mouseleave(function () {
         $("#answer4").removeClass("add-border").removeClass("change-color");
+    });
+
+    $("#next").mouseenter(function () {
+        $("#next").addClass("next-change-color").addClass("add-border");
+    });
+
+    $("#next").mouseleave(function () {
+        $("#next").removeClass("add-border").removeClass("next-change-color");
     });
 
     //If count is 11 display results images & text
