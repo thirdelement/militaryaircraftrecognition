@@ -11,7 +11,7 @@ $("#next").click(function () {
     ["Patrouille De France Eight Alpha Jets", "8points.png"],
     ["Nine Red Arrow Hawks", "9points.png"],
     ["Ten Frecce Tricolori Aermacchi MB-339-A", "10points.png"]
-];
+    ];
 
     //Declare count variable for Next button clicks
     let count = document.getElementById("sr-only").innerText
@@ -34,7 +34,7 @@ $("#next").click(function () {
     }
 
     //Hide answer button check, cross marks & startImage
-    $(".hide, #startImage, #welcome").hide();
+    $(".hide, #startImage, #welcome, .resultComment").hide();
     //$("#startImage").hide();
 
     //Show progress bar and answer buttons
@@ -150,7 +150,13 @@ $("#next").click(function () {
     $("#answer2-span").text(aircraftChosen2[0])
     $("#answer3-span").text(aircraftChosen3[0])
     $("#answer4-span").text(aircraftChosen4[0])
-    $("#next").text("Next")
+
+    if (count === 11) {
+        $("#next").text("Start again")
+    }
+    else {
+        $("#next").text("Next")
+    }
 
     //Select random image from images array for display in HTML
     let imageToUse = Math.floor(Math.random() * images.length);
@@ -198,56 +204,90 @@ $("#next").click(function () {
         $("#next").removeClass("add-border").removeClass("next-change-color");
     });
 
+    console.log("score check JQ:", $("#score").text(), "score check JS:", document.getElementById("score").innerText)
     //If count is 11 display results images & text
-    if (count === 11 && $("#score")[0].innerHTML === "1") {
+    if (count === 11 && $("#score").text() === 1) {
         $("#aircraftImage").attr('alt', resultImages[0][0]).attr('src', 'assets/images/' + resultImages[0][1]).show();
-        $(".answer, #question").hide();
+        $(".answer, #question, .progress").hide();
         $("#onePoint").show();
+        $('#next').attr('disabled', null);
+        $("#sr-only").text(0);
+        $("#score").text(0);
     }
-    else if (count === 11 && $("#score")[0].innerHTML === "2") {
+    else if (count === 11 && $("#score").text() === "2") {
         $("#aircraftImage").attr('alt', resultImages[1][0]).attr('src', 'assets/images/' + resultImages[1][1]).show();
-        $(".answer, #question").hide();
+        $(".answer, #question, .progress").hide();
         $("#twoPoints").show();
+        $('#next').attr('disabled', null);
+        $("#sr-only").text(0);
+        $("#score").text(0);
     }
-    else if (count === 11 && $("#score")[0].innerHTML === "3") {
+    else if (count === 11 && $("#score").text() === "3") {
         $("#aircraftImage").attr('alt', resultImages[2][0]).attr('src', 'assets/images/' + resultImages[2][1]).show();
-        $(".answer, #question").hide();
+        $(".answer, #question, .progress").hide();
         $("#threePoints").show();
+        $('#next').attr('disabled', null);
+        $("#sr-only").text(0);
+        $("#score").text(0);
     }
-    else if (count === 11 && $("#score")[0].innerHTML === "4") {
+    else if (count === 11 && $("#score").text() === "4") {
         $("#aircraftImage").attr('alt', resultImages[3][0]).attr('src', 'assets/images/' + resultImages[3][1]).show();
-        $(".answer, #question").hide();
+        $(".answer, #question, .progress").hide();
         $("#fourPoints").show();
+        $('#next').attr('disabled', null);
+        $("#sr-only").text(0);
+        $("#score").text(0);
     }
-    else if (count === 11 && $("#score")[0].innerHTML === "5") {
+    else if (count === 11 && $("#score").text() === "5") {
         $("#aircraftImage").attr('alt', resultImages[4][0]).attr('src', 'assets/images/' + resultImages[4][1]).show();
-        $(".answer, #question").hide();
+        $(".answer, #question, .progress").hide();
         $("#fivePoints").show();
+        $('#next').attr('disabled', null);
+        $("#sr-only").text(0);
+        $("#score").text(0);
     }
-    else if (count === 11 && $("#score")[0].innerHTML === "6") {
+    else if (count === 11 && $("#score").text() === "6") {
         $("#aircraftImage").attr('alt', resultImages[5][0]).attr('src', 'assets/images/' + resultImages[5][1]).show();
-        $(".answer, #question").hide();
+        $(".answer, #question, .progress").hide();
         $("#sixPoints").show();
+        $('#next').attr('disabled', null);
+        $("#sr-only").text(0);
+        $("#score").text(0);
     }
-    else if (count === 11 && $("#score")[0].innerHTML === "7") {
+    else if (count === 11 && $("#score").text() === "7") {
         $("#aircraftImage").attr('alt', resultImages[6][0]).attr('src', 'assets/images/' + resultImages[6][1]).show();
-        $(".answer, #question").hide();
+        $(".answer, #question, .progress").hide();
         $("#sevenPoints").show();
+        $('#next').attr('disabled', null);
+        $("#sr-only").text(0);
+        $("#score").text(0);
     }
-    else if (count === 11 && $("#score")[0].innerHTML === "8") {
+    else if (count === 11 && $("#score").text() === "8") {
         $("#aircraftImage").attr('alt', resultImages[7][0]).attr('src', 'assets/images/' + resultImages[7][1]).show();
-        $(".answer, #question").hide();
+        $(".answer, #question, .progress").hide();
         $("#eightPoints").show();
+        $('#next').attr('disabled', null);
+        $("#sr-only").text(0);
+        $("#score").text(0);
     }
-    else if (count === 11 && $("#score")[0].innerHTML === "9") {
+    else if (count === 11 && $("#score").text() === "9") {
         $("#aircraftImage").attr('alt', resultImages[8][0]).attr('src', 'assets/images/' + resultImages[8][1]).show();
-        $(".answer, #question").hide();
+        $(".answer, #question, .progress").hide();
         $("#ninePoints").show();
+        $('#next').attr('disabled', null);
+        $("#sr-only").text(0);
+        $("#score").text(0);
+
     }
-     else if (count === 11 && $("#score")[0].innerHTML === "10") {
+    else if (count === 11 && $("#score").text() === "10") {
         $("#aircraftImage").attr('alt', resultImages[9][0]).attr('src', 'assets/images/' + resultImages[9][1]).show();
-        $(".answer, #question").hide();
+        $(".answer, #question, .progress").hide();
         $("#tenPoints").show();
+        $('#next').attr('disabled', null);
+        $("#sr-only").text(0);
+        $("#score").text(0);
+        //document.getElementById("score").innerText=0
+        console.log("count-results:", count)
     }
     else {
         //Display imageChosen
@@ -368,8 +408,4 @@ $("#next").click(function () {
     console.log("aircraftUsed13 After Else:", aircraftUsed13)
 }
 )
-
-//$("#answer").hover(function() {
- //$("#answer").css("background", "lightblue");
-//} );  
 
