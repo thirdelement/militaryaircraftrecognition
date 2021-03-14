@@ -136,7 +136,6 @@ display: none;
 
 /*-------------------------------------------------Media queries--*/
 
-
 @media (min-width: 992px){
 .container, .container-lg, .container-md, .container-sm {
     max-width: 768px;
@@ -151,4 +150,40 @@ img {
 img {
     height: 500px
 }   
+}
+
+/*-- iPhone X, iPhone 6/7/8 Plus, iPhone 6/7/8 - Improve sizes for image, button text and layout --*/
+@media (max-width: 450px){
+.container-home {
+    padding: 50px 0px 85px 0px;
+}
+
+.answer {
+    width: 100%;
+    font-size: small;
+}
+
+#next {
+    width: 100%;
+    font-size: small;
+}
+
+.justify-content-start {
+    justify-content: flex-end!important;
+}
+}
+
+/*-- iPhone 5 - Improve sizes for image, button text and layout --*/
+@media (max-width: 350px){
+    .answer {
+    font-size: 11px;
+}
+
+#next {
+    font-size: 11px;
+}
+
+.navbar-brand {
+    font-size: 1.1rem;
+}
 }
