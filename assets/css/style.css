@@ -66,7 +66,7 @@
 /* All aircraft image settings */
 img {
   width: 90%;
-  height: 300px;
+  /*height: 300px;*/
   object-fit: fill;
 }
 
@@ -141,27 +141,45 @@ display: none;
     max-width: 768px;
 }
 
+/*-- Desktop - Hide mobile rows for answer buttons --*/
+.row-mobile {
+    display: hidden!important;
+}
+
+.row>* {
+    width: 50%;
+}
+
 img {
     object-fit: cover;
 }
 }
 
+.answer {
+width: 100%
+}
 
-@media (min-width: 576px){
+/*@media (min-width: 576px){
 img {
     height: 400px
 }   
-}
+}*/
 
-@media (min-width: 768px){
+/*@media (min-width: 768px){
 img {
     height: 500px
 }   
+}*/
+
+/*-- Mobile - Hide rows for answer buttons --*/
+@media (max-width: 992px){
+.row-desktop {
+    display: hidden!important;
+}
 }
 
 
 /*-- Mobile - Width below 768px Improve sizes for image, button text and layout --*/
-
 @media (max-width: 768px){
 .row {
     font-size: 0.9rem;
@@ -231,9 +249,9 @@ img {
 
 /*-- Mobile - Height below 620px Improve sizes for image, button text and layout --*/
 @media (max-height: 620px){
-img {
-    height: 300px;
-}
+/*img {
+    /height: 300px;
+}*/
 
 container-sm {
 max-width: 540px;
