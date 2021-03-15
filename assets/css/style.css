@@ -146,16 +146,33 @@ img {
 }
 }
 
+
 @media (min-width: 576px){
+img {
+    height: 400px
+}   
+}
+
+@media (min-width: 768px){
 img {
     height: 500px
 }   
 }
 
-/*-- iPhone X, iPhone 6/7/8 Plus, iPhone 6/7/8 - Improve sizes for image, button text and layout --*/
-@media (max-width: 450px){
-.container-home {
-    padding: 50px 0px 85px 0px;
+
+/*-- Mobile - Width below 768px Improve sizes for image, button text and layout --*/
+
+@media (max-width: 768px){
+.row {
+    font-size: 0.9rem;
+}
+}
+
+
+@media (max-width: 576px){
+
+       .row {
+    font-size: 0.8rem;
 }
 
 .answer {
@@ -167,7 +184,31 @@ img {
     width: 100%;
     font-size: small;
 }
+}
 
+
+/*-- iPhone X, iPhone 6/7/8 Plus, iPhone 6/7/8 - Improve sizes for image, button text and layout --*/
+@media (max-width: 450px){
+  
+/*-- @media (max-width: 576px){  --*/
+.container-home {
+    padding: 50px 0px 85px 0px;
+}
+
+/*--   .row {
+    font-size: 0.8rem;
+}
+
+.answer {
+    width: 100%;
+    font-size: small;
+}
+
+#next {
+    width: 100%;
+    font-size: small;
+}
+--*/
 .justify-content-start {
     justify-content: flex-end!important;
 }
@@ -185,5 +226,18 @@ img {
 
 .navbar-brand {
     font-size: 1.1rem;
+}
+}
+
+/*-- Mobile - Height below 620px Improve sizes for image, button text and layout --*/
+@media (max-height: 620px){
+img {
+    height: 300px;
+}
+
+container-sm {
+max-width: 540px;
+margin-right: 0;
+margin-left: 0;
 }
 }
