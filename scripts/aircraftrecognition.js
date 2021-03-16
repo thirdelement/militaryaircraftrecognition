@@ -204,7 +204,7 @@ $("#next").click(function () {
         $("#next").removeClass("add-border").removeClass("next-change-color");
     });
 
-    console.log("score check JQ:", $("#score").text(), "score check JS:", document.getElementById("score").innerText)
+    //console.log("score check JQ:", $("#score").text(), "score check JS:", document.getElementById("score").innerText)
     //If count is 11 display results images & text
     if (count === 11 && $("#score").text() === 1) {
         $("#aircraftImage").attr('alt', resultImages[0][0]).attr('src', 'assets/images/' + resultImages[0][1]).show();

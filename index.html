@@ -47,9 +47,9 @@
         <div class="container-fluid container-home" id="quiz-document">
             <!--  <h1>Military aircraft recognition quiz</h1>-->
             <!-- Progress bar - Code from https://www.youtube.com/watch?v=QxQRtwAtqKE -->
-            <div class="container-sm container-quiz">
+            <div class="container container-quiz">
                 <div class="row">
-                    <div class="col-sm d-flex justify-content-center">
+                    <div class="col d-flex justify-content-center">
                         <h3 id="welcome">Welcome to the Military Aircraft Recognition quiz</h3>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                     <!--</div>-->
 
                     <!--<div class="row">-->
-                    <div class="col-8 col-lg-12">
+                    <div class="col-12 col-sm-8 col-lg-12">
                         <img src="assets/images/binos.png" id="startImage" alt="F35A through binoculars" />
                         <img id="aircraftImage">
                     </div>
@@ -108,74 +108,78 @@
                     <!--</div>-->
 
                     <!--<div class="row">-->
-                    
+
                     <!-- </div>-->
                     <!--<div class="answers-next">
                     <div class="row answer-row">-->
-                        <div class="col-4 col-lg-12">
-                    <div class="row row-desktop">       
-                    <div class="row row-mobile">
-                        <button class="answer" id="answer1">
-                            <span id="answer1-span"></span>
-                            <i class="hide correct1 fas fa-check-circle fa-check-circle-hide"></i>
-                            <i class="hide incorrect1 fas fa-times-circle fa-times-circle-hide"></i>
-                        </button>
-                    </div>
-                    <div class="row  row-mobile">
-                        <button class="answer" id="answer2">
-                            <span id="answer2-span"></span>
-                            <i class="hide correct2 fas fa-check-circle"></i>
-                            <i class="hide incorrect2 fas fa-times-circle"></i>
-                        </button>
-                    </div>
-                    </div> 
-                    <!--</div>-->
+                    <div class="col-sm-4 col-lg-12">
+                        <div class="row row-desktop">
+                            <div class="row row-mobile">
+                                <button class="answer" id="answer1">
+                                    <span id="answer1-span"></span>
+                                    <i class="hide correct1 fas fa-check-circle fa-check-circle-hide"></i>
+                                    <i class="hide incorrect1 fas fa-times-circle fa-times-circle-hide"></i>
+                                </button>
+                            </div>
+                            <div class="row  row-mobile">
+                                <button class="answer" id="answer2">
+                                    <span id="answer2-span"></span>
+                                    <i class="hide correct2 fas fa-check-circle"></i>
+                                    <i class="hide incorrect2 fas fa-times-circle"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <!--</div>-->
 
-                    <!--<div class="row answer-row">-->
-                        <div class="row row-desktop"> 
-                    <div class="row  row-mobile">
-                        <button class="answer" id="answer3">
-                            <span id="answer3-span"></span>
-                            <i class="hide correct3 fas fa-check-circle"></i>
-                            <i class="hide incorrect3 fas fa-times-circle"></i>
-                        </button>
-                    </div>
-                    <div class="row row-mobile">
-                        <button class="answer" id="answer4">
-                            <span id="answer4-span"></span>
-                            <i class="hide correct4 fas fa-check-circle"></i>
-                            <i class="hide incorrect4 fas fa-times-circle"></i>
-                        </button>
+                        <!--<div class="row answer-row">-->
+                        <div class="row row-desktop">
+                            <div class="row  row-mobile">
+                                <button class="answer" id="answer3">
+                                    <span id="answer3-span"></span>
+                                    <i class="hide correct3 fas fa-check-circle"></i>
+                                    <i class="hide incorrect3 fas fa-times-circle"></i>
+                                </button>
+                            </div>
+                            <div class="row row-mobile">
+                                <button class="answer" id="answer4">
+                                    <span id="answer4-span"></span>
+                                    <i class="hide correct4 fas fa-check-circle"></i>
+                                    <i class="hide incorrect4 fas fa-times-circle"></i>
+                                </button>
 
-                    </div>
-                    </div>
-                    <!--<p id="demo"></p>-->
-                    <!-- </div>-->
-                    <!--<div class="row">-->
-                    <div class="row ">
+                            </div>
+                        </div>
+                        <!--<p id="demo"></p>-->
+                        <!-- </div>-->
+                        <!--<div class="row">-->
+                        <div class="row" id="row-score">
                         <p>Score: <span id="score">0</span></p>
                     </div>
-                    <div class="row  ">
-                        <!--<button id="next"><span id="next-span">Start</span></button>-->
-                        <button id="next">Start</button>
-                    </div>
-                    <div class="row ">
-                        <h4 class="resultComment" id="onePoint">You scored 1 out of 10. You're on the way up..!</h4>
-                        <h4 class="resultComment" id="twoPoints">You scored 2 out of 10. Not so bad..!</h4>
-                        <h4 class="resultComment" id="threePoints">You scored 3 out of 10. You have some potential..!
-                        </h4>
-                        <h4 class="resultComment" id="fourPoints">You scored 4 out of 10. Nice work..now get studying!
-                        </h4>
-                        <h4 class="resultComment" id="fivePoints">You scored 5 out of 10. Pretty good...but there's more
-                            in tank!</h4>
-                        <h4 class="resultComment" id="sixPoints">You scored 6 out of 10. Talk to me, Goose..!</h4>
-                        <h4 class="resultComment" id="sevenPoints">You scored 7 out of 10. I'll fly with you..!</h4>
-                        <h4 class="resultComment" id="eightPoints">You scored 8 out of 10. You can be my wingman any
-                            time..!</h4>
-                        <h4 class="resultComment" id="ninePoints">You scored 9 out of 10. I feel the need...the need for
-                            speed!</h4>
-                        <h4 class="resultComment" id="tenPoints">You scored 10 out of 10. TopGun!</h4>
-                    </div>
+                        <div class="row row-mobile">
+                            <!--<button id="next"><span id="next-span">Start</span></button>-->
+                            <button id="next">Start</button>
+                        </div>
+                        <div class="row row-mobile">
+                            <h4 class="resultComment" id="onePoint">You scored 1 out of 10. You're on the way up..!</h4>
+                            <h4 class="resultComment" id="twoPoints">You scored 2 out of 10. Not so bad..!</h4>
+                            <h4 class="resultComment" id="threePoints">You scored 3 out of 10. You have some
+                                potential..!
+                            </h4>
+                            <h4 class="resultComment" id="fourPoints">You scored 4 out of 10. Nice work..now get
+                                studying!
+                            </h4>
+                            <h4 class="resultComment" id="fivePoints">You scored 5 out of 10. Pretty good...but there's
+                                more
+                                in tank!</h4>
+                            <h4 class="resultComment" id="sixPoints">You scored 6 out of 10. Talk to me, Goose..!</h4>
+                            <h4 class="resultComment" id="sevenPoints">You scored 7 out of 10. I'll fly with you..!</h4>
+                            <h4 class="resultComment" id="eightPoints">You scored 8 out of 10. You can be my wingman any
+                                time..!</h4>
+                            <h4 class="resultComment" id="ninePoints">You scored 9 out of 10. I feel the need...the need
+                                for
+                                speed!</h4>
+                            <h4 class="resultComment" id="tenPoints">You scored 10 out of 10. TopGun!</h4>
+                        </div>
                     </div>
                     <!-- </div>-->
                     <!-- </div>-->

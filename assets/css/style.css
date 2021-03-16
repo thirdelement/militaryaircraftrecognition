@@ -140,6 +140,9 @@ display: none;
 /*-- #answers {
   display: flex;
 }--*/
+#row-score {
+    display: none;
+}
 
 /*-------------------------------------------------Media queries--*/
 
@@ -210,7 +213,7 @@ width: 100%
 }
 
 #next {
-    width: 100%;
+    /*width: 100%;*/
     font-size: small;
 }
 }
@@ -222,6 +225,7 @@ width: 100%
 /*-- @media (max-width: 576px){  --*/
 .container-home {
     padding: 50px 0px 85px 0px;
+}
 }
 
 /*--   .row {
@@ -238,10 +242,7 @@ width: 100%
     font-size: small;
 }
 --*/
-.justify-content-start {
-    justify-content: flex-end!important;
-}
-}
+
 
 /*-- iPhone 5 - Improve sizes for image, button text and layout --*/
 @media (max-width: 350px){
@@ -259,12 +260,12 @@ width: 100%
 }
 
 /*-- Mobile - Height below 620px Improve sizes for image, button text and layout --*/
-@media (max-height: 620px){
+/*-- @media (max-height: 620px){
 /*img {
     /height: 300px;
 }*/
 
-container-sm {
+/*-- container-sm {
 max-width: 540px;
 margin-right: 0;
 margin-left: 0;
