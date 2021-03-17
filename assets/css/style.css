@@ -66,6 +66,7 @@
 
 #welcome {
     color: yellow;
+    text-align: center;
 }
 
 /*.col-12 {
@@ -163,6 +164,11 @@ display: none;
     max-width: 768px;
 }
 
+/*-- Desktop - Ensure background colour fills screen --*/
+    .container-home {
+    height: auto;
+}
+
 /*-- Desktop - Hide mobile rows for answer buttons --*/
 .row-mobile {
     /*display: hidden!important;--*/
@@ -224,6 +230,13 @@ img {
     height: 500px
 }   
 }*/
+
+/* To centre startImage for mobile devices */
+@media (max-width: 992px) and (min-width: 576px) {
+    #startImage {
+        margin-left: 25%
+    }
+}
 
 /*-- Mobile - Hide rows for answer buttons --*/
 @media (max-width: 992px){
@@ -325,6 +338,13 @@ justify-content: center;
 
 .navbar-brand {
     font-size: 1.1rem;
+}
+}
+
+/*iPhone5 landscape - ensure background colour fills screen*/
+@media (max-height: 320px){
+    .container-home {
+    height: auto;
 }
 }
 
