@@ -61,13 +61,13 @@
                 </div>
                 <div class="row row-progress">
 
-                    <div class="col-12 col-sm-8 col-lg-12">
+                    <div class="col">
                         <!--<img src="assets/images/binos.png" id="startImage" alt="F35A through binoculars" />
                         <img id="aircraftImage">-->
                         <!-- Contact form -->
-                        <form class="contact-form" onsubmit="return sendMail(this);">
+                        <form id="contact-form" onsubmit="return sendMail(this);">
                             <!--The parameter 'this' refers to the form-->
-                            <h5>Please send any comments or development suggestions.</h5>
+                            <h6 id="sub-title">Please send any comments or development suggestions.</h6>
                             <label for="fname">First Name</label>
                             <input class="text-input form-control" id="fname" type="text" name="first_name"
                                 placeholder="First name" required />
