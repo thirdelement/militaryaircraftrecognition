@@ -159,6 +159,10 @@ display: none;
 }
 
 /*-------------------------------------------------Contact page--*/
+/*#container-contact {
+    height: auto;
+}*/
+
 #contact-form {
   color: whitesmoke;
  /* background-color: rgba(60, 60, 60, 0.9);*/
@@ -176,6 +180,14 @@ display: none;
     text-align: center;
 }
 
+.form-control {
+font-size: 0.9rem;
+padding: .175rem .75rem;
+}
+
+.join-button {
+margin-top: 10px 
+}
 /*-------------------------------------------------Media queries--*/
 
 @media (min-width: 992px){
@@ -186,6 +198,11 @@ display: none;
 /*-- Desktop - Ensure background colour fills screen --*/
     .container-home {
     height: auto;
+}
+
+/*-- Desktop - Ensure background color fills screen --*/
+#container-contact {
+    height: 100vh;
 }
 
 /*-- Desktop - Hide mobile rows for answer buttons --*/
@@ -360,6 +377,11 @@ justify-content: center;
 }
 }
 
+@media (max-height: 500px){
+   #container-contact {
+    height: auto; 
+}
+}
 /*iPhone5 landscape - ensure background colour fills screen*/
 @media (max-height: 320px){
     .container-home {
