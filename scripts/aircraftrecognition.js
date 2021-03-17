@@ -152,7 +152,7 @@ $("#next").click(function () {
     $("#answer4-span").text(aircraftChosen4[0])
 
     if (count === 11) {
-        $("#next").text("Start again")
+        $("#next").text("Start over")
     }
     else {
         $("#next").text("Next")
@@ -409,9 +409,4 @@ $("#next").click(function () {
 }
 )
 
-//$(document).ready(function(){
-  //$(".join-button").click(function(){
-   // $('.toast').toast('show');
-   // $(".toast").show();
- // });
-//});
+

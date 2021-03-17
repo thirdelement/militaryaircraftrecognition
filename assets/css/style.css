@@ -211,6 +211,11 @@ margin-top: 10px
     height: 100vh;
 }
 
+/*-- Desktop - Keep aircraft image a consistent height --*/
+#aircraftImage {
+    height: 500px;
+}
+
 /*-- Desktop - Hide mobile rows for answer buttons --*/
 .row-mobile {
     /*display: hidden!important;--*/
@@ -297,11 +302,18 @@ width: 100%
     font-size: 0.9rem;
 }
 
- 
+/*#aircraftImage {
+    height: 400px;
+}*/
 }
 
 
 @media (max-width: 576px){
+
+/*-- Desktop - Keep aircraft image a consistent height --*/
+#aircraftImage {
+    height: 250px;
+}
 
        .row {
     font-size: 0.8rem;
@@ -388,22 +400,11 @@ justify-content: center;
     height: auto; 
 }
 }
-/*iPhone5 landscape - ensure background colour fills screen*/
-@media (max-height: 320px){
+/*iPhone5 landscape - ensure background colour fills screen */
+@media (max-height: 375px){
     .container-home {
     height: auto;
+    padding: 30px 20px 85px 20px;
 }
 }
 
-/*-- Mobile - Height below 620px Improve sizes for image, button text and layout --*/
-/*-- @media (max-height: 620px){
-/*img {
-    /height: 300px;
-}*/
-
-/*-- container-sm {
-max-width: 540px;
-margin-right: 0;
-margin-left: 0;
-}
-}
