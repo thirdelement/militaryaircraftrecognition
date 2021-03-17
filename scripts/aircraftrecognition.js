@@ -409,3 +409,9 @@ $("#next").click(function () {
 }
 )
 
+//$(document).ready(function(){
+  //$(".join-button").click(function(){
+   // $('.toast').toast('show');
+   // $(".toast").show();
+ // });
+//});

@@ -188,6 +188,12 @@ padding: .175rem .75rem;
 .join-button {
 margin-top: 10px 
 }
+
+/*.toast {
+ margin-left: auto;
+  margin-right: auto;
+  display: none;
+}*/
 /*-------------------------------------------------Media queries--*/
 
 @media (min-width: 992px){
