@@ -177,11 +177,21 @@ display: none;
 #row-next {
     /*display: hidden!important;--*/
     width: 50%;
+    padding-right: 68px;
 }
 
 /*.row>* {
     width: 50%;
 }*/
+
+.row-desktop {
+    justify-content: center;
+}
+
+.row-mobile {
+    justify-content: center;
+}
+
 
 img {
     object-fit: cover;
