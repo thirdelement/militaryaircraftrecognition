@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/0d3dc6dda0.js" crossorigin="anonymous"></script>
+
+    <!-- CSS-->
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+
+    <title>Military aircraft recognition quiz</title>
+
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Military Aircraft Recognition</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Quiz</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="contact">
+        <div class="container-fluid container-home">
+            <div class="container container-quiz">
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <h3 id="welcome">Contact form</h3>
+                    </div>
+                </div>
+                <div class="row row-progress">
+
+                    <div class="col-12 col-sm-8 col-lg-12">
+                        <!--<img src="assets/images/binos.png" id="startImage" alt="F35A through binoculars" />
+                        <img id="aircraftImage">-->
+                        <!-- Contact form -->
+                        <form class="contact-form" onsubmit="">
+                            <h5>Please send any comments or development suggestions.</h5>
+                            <label for="fname">First Name</label>
+                            <input class="text-input form-control" id="fname" type="text" name="first_name"
+                                placeholder="First name" required />
+                            <label for="lname">Last Name</label>
+                            <input class="text-input form-control" id="lname" type="text" name="last_name"
+                                placeholder="Last name" required />
+                            <label for="email">Email</label>
+                            <input class="text-input form-control" id="email" type="email" name="email_address"
+                                placeholder="Email" required />
+                            <label for="message">Message</label>
+                            <textarea class="text-input form-control" id="message" rows="5" name="message"
+                                placeholder="Type message" required></textarea>
+                            <input class="join-button" type="submit" value="Submit" />
+                        </form>
+                        <!-- Code for Contact form from https://courses.codeinstitute.net/courses HTML/CSS project "Love Running" - Signup form challenge -->
+                        <!-- END Contact form -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+
+    <!-- JQuery-->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+    <!-- Javascript -->
+    <script type="text/javascript" src="scripts/aircraftrecognition.js"></script>
+
+</body>
+
+</html>
