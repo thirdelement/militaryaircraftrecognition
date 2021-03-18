@@ -1,4 +1,4 @@
-<h1 align="center">Military Aircraft Recognition quiz website</h1>https://thirdelement.github.io/militaryaircraftrecognition/
+<h1 align="center">Military Aircraft Recognition quiz website</h1>
 
 [View the live project here.](https://thirdelement.github.io/militaryaircraftrecognition/)
 
@@ -10,7 +10,9 @@ This is a website for a military aircraft recognition quiz.  It is designed so f
 
 This website is designed for military aircraft enthusiasts and those looking to improve their recognition skills.  The quiz comprises ten questions each asking the participant to select the correct name from a list of alternatives for the aircraft pictured.
 
-Currently, the quiz includes a question bank of twenty aircraft across a variety of types such as fighter, bomber and transport.  This can be further developed with separate quizzes for specific aircraft types and an increase in the number of aircraft or answer options in each quiz.  These options would increase the difficulty, likelihood of return visits by participants and enable configuration of beginner, intermediate and expert levels.  Further development could include provision of aircraft specification and visual description details on revealing an answer.  There is also more scope to provide details on aircraft recognition history, methods and links to additional resources.  Please see the wireframe links for how this might be done.
+Currently, the quiz includes a question bank of twenty aircraft across a variety of types such as fighter, bomber and transport.  This can be further developed with separate quizzes for specific aircraft types and an increase in the number of aircraft or answer options in each quiz.  These options would increase the difficulty, likelihood of return visits by participants and enable configuration of beginner, intermediate and expert levels.  
+
+Further development could include provision of aircraft specification and visual description details on revealing an answer.  There is also more scope to provide details on aircraft recognition history, methods and links to additional resources.  Please see the wireframe links for how this might be done.
 
 -   ### User stories
 
@@ -71,6 +73,7 @@ Currently, the quiz includes a question bank of twenty aircraft across a variety
     - Media queries have been used to display the aircraft image and buttons within the viewport without scrolling for both mobile portrait and landscape.  The iPhone 5 is the only exception tested where some scrolling in landscape view is required.
       <h2 align="left"><img src="assets/images/readme-images/iphone6-landscape.png"></h2>
       <h2 align="left"><img src="assets/images/readme-images/iphone6-portrait.png"></h2>
+
 -   A fully interactive aircraft recognition quiz including:
     - Ten aircraft image recognition questions.
     - Four answer alternatives for each question.
@@ -79,6 +82,7 @@ Currently, the quiz includes a question bank of twenty aircraft across a variety
     - A score displayed after the tenth question and an option to start over.
     - Random selection of questions and answers make it unlikely a participant will do the same quiz twice.
     - An image bank of twenty aircraft.
+
 -   A fully interactive aircraft recognition quiz including:
     - Contact form including on-screen and email confirmation to sender email address and clearing of form fields when successfully sent.
     - Navbar menu options.
@@ -150,28 +154,29 @@ JSHint, W3C Markup Validation Service and CSS Validation Service were used to va
         4. The inclusion of a Hint button in future versions would also be useful to encourage more learning and accessibility of the quiz.  
         5. A further development would be to hold the score in session or local storage so the participant can use this as a target to beat.  
 
-    2. As a Returning Visitor, I want to check when his next live date is.
-        1. There is a Dates navbar option which links to the Dates page containing up-coming live shows.
+    2. As a Returning Visitor, I want to do the quiz to check out a different aircraft type.
+        1. This quiz is focused on aircraft currently active in national militaries.  Therefore, the quiz is effective at improving recognition skills for these active aircraft only. There are many wonderful aircraft now retired from service that are not included.
+        2. The current quiz version contains a mix of aircraft types which is useful for comparison purposes.  Future iterations can include separate quizzes for specific types in order to test and embed knowledge.
 
-    3. As a Returning Visitor, I want to check out more of DRKS’ music and social media.
-        1. There is a Mixes navbar option which links to the Mixes page containing DRKS mixes from SoundCloud and MixCloud.
-        2. The Home page has a sign-up form for more mixes.
+    3. As a Returning Visitor, I want to do the quiz to challenge my friends.
+        1. The quiz is quick to complete and provide a score that can be shared with friends who are present physically.
+        2. Sharing links for social media can be easily added to the results page.
+
+    4. As a Returning Visitor, I want to move from Beginner to Expert levels.
+        1. There are other military aviation quizzes available; however, these tend to provide same questions and answers on successive attempts.  This quiz will keep participants’ interest significantly longer due to the built-in randomisation. 
+        2. Once additional difficulty levels and features are added this quiz will truly offer an experience above and beyond other military aircraft recognition quizzes.  
 
 -   #### Frequent User Goals
 
-    1. As a Frequent User, I want to book DRKS for my party.
-        1. There is a Contact navbar option which links to the contact page containing a message form.  
+    1. As a Frequent User, I want to do the quiz to improve my knowledge.
+        1. The quiz is designed to start easy, encourage the participant to improve their scores and progress through the levels. 
+        2. The existing beginner level caters to those wanting a brief short diversion and dip into the world of aircraft recognition.  Further features are planned so that participants can become curious about the aircraft themselves, research using the information and links provided and continue their quiz journey to Expert level and beyond.  
 
-    2. As a Frequent User, I want to sign up for news and mixes.
-        1. The Home page has a request form for news and mixes.
+    2. As a Frequent User, I am interested in the WEFT descriptions in the answers.
+        1. WEFT (Wing, Engine, Fuselage, Tail) is a widely used method of identifying and describing aircraft.  Due to time constraints, a WEFT description will be provided in future quiz iterations only.
 
-    3. As a Frequent User, I want to book for the next live date.
-        1. The Dates page shows up-coming live shows with a booking option.
-        <h2 align="left"><img src="assets/images/readme-images/booking-form.jpg"></h2>
-        <h2 align="left"><img src="assets/images/readme-images/booking-details.jpg"></h2>
-        2. Once a booking form is submitted the user receives a confirmation alert.  This can be edited with more specific details if necessary.
-        <h2 align="left"><img src="assets/images/readme-images/booking-alert.jpg"></h2>
-        3. Due to Covid-19 DRKS is offering Zoom shows only.  On receipt of a booking request DRKS will send a Zoom link to the email provided.  This is out of scope of the project.
+    3. As a Frequent User, I want to do the quiz to challenge my friends.
+        1. Please see answer in Returning Visitor Goals.
 
 ### Further Testing
 
@@ -181,9 +186,28 @@ JSHint, W3C Markup Validation Service and CSS Validation Service were used to va
 
 ### Known Bugs
 
--   At a screen width below 270px the booking form spills outside the container div.  This is below the minimum screen width of any device tested (280px – Galaxy Fold) and so no further fix was implemented.
--   In Microsoft Internet Explorer 11 the Twitter feed often does not load.  On Twitter’s website IE11 is not listed as a compatible browser (see About twitter.com supported browsers).
--   In Microsoft Internet Explorer 11 the SoundCloud banner borders are not removed.
+-   Thorough testing has been undertaken to remove any known bugs.  Currently, I am not aware of any outstanding bugs not resolved or workarounds implemented. 
+-   The bugs and development issues fixed have included the following:
+    - Comparing arrays
+        - The initial plan for this quiz was that images and buttons should be randomised.  Whilst a set number of questions that don’t change would probably have fulfilled the project brief this would make for a less interesting quiz and retain no interest for returning users. 
+        - In order to achieve this, a two-dimensional array called ‘aircraft’ was implemented with a name and image for each aircraft.  A random selection was made using code from a Stack Overflow article here: https://stackoverflow.com/questions/14422233/how-do-you-select-a-random-variable-within-a-function-in-javascript.  
+        - Each time an aircraft is randomly selected, it is pushed to another array called ‘images’.  The aircraft is then removed from the existing array using the splice method.
+        - Once four selections are made these are added to buttons using jQuery.  The same random select is done from the ‘images’ array to choose which image is used as the correct answer. 
+        - If the aircraft on the answer button clicked by the participant matches the aircraft in the image displayed then a checkmark is displayed and score incremented. 
+        - The correct answer is then pushed to another array ‘aircraftUsed’.  This array is compared to the original ‘aircraft’ array and the difference added to the ‘aircraftAvailable’ array.  It is this array that is used for all subsequent questions as it will not contain aircraft previously used as answers and so remove the chance of repetition.
+        - The various arrays were monitored via console.log to check what aircraft were moving where and ensure the setup was correct.  The most problematic issue was comparing items in two arrays.  Several methods were investigated including using indexOf (see https://stackoverflow.com/questions/24943200/javascript-2d-array-indexof) and the filter function (see https://stackoverflow.com/questions/34901593/how-to-filter-an-array-from-all-elements-of-another-array).  In the end a hash table and function were used to generate a key out of ‘aircraftUsed’, filter the ‘aircraft’ by checking the hash table and add items to ‘aircraftAvailable’ (see https://stackoverflow.com/questions/46998798/comparing-2d-arrays-finding-unique-items).  
+    - Event handlers
+        - Once all the arrays above were implemented there was an issue when the score would increment more than once when a button was clicked.  As per the array problem above, console.log was to check the arrays, ensure the buttons were matching the aircraft expected.
+        - Several different methods were used to increment the score including Javascript with .innerHTML, jQuery and variations of these including using the index (see https://stackoverflow.com/questions/46923549/need-to-increment-score-in-jquery-how-do-i-change-the-text), .one(), using attr() to disable the attribute and adding if conditions to ensure the score is incremented only if these are met.  Research was done into the use of Google Diagnostics for more specific troubleshooting information beyond console.log (see https://medium.datadriveninvestor.com/stopping-using-console-log-and-start-using-your-browsers-debugger-62bc893d93ff).  
+        - The diagnostics helped to go through the code step-by-step but the behaviour remained a mystery.  There appeared to be no pattern except the browser retained aircraft used in previous questions which could not be picked up by console.log or added to session or local storage.  I attempted moving the correct answer and selected answer to a different array and compare array values but this still did not work.  In the screenshot below there are three different values claiming to be in the same array but they are not.  The screenshot also shows there are three different ‘Correct1:’ answers from the same button click.   
+        <h2 align="left"><img src="assets/images/readme-images/console-log.png"></h2>
+        - Eventually, I asked a question on Stack Overflow (see https://stackoverflow.com/questions/66413208/how-can-i-stop-an-if-condition-comparing-two-array-items-from-being-met-by-pre).  The question was answered explaining that the click event handlers associated to the buttons were firing previous handlers.  The resolution was to add the jQuery .off() method immediately prior to .on() or one() in order to remove previous handlers.
+    - Event handlers
+        - Once all th
+        - Once all th
+        - Once all th
+        - Once all th
+
 
 ## Deployment
 
