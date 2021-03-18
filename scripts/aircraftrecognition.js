@@ -105,7 +105,7 @@ $("#next").click(function () {
     //Images array for keeping quiz round potential answers which are added to buttons 
     let images = [];
 
-    //Randomly select an aircraft from array
+    //Randomly select an aircraft from array - Code from: https://stackoverflow.com/questions/14422233/how-do-you-select-a-random-variable-within-a-function-in-javascript
     let aircraftToUse1 = Math.floor(Math.random() * aircraftAvailable.length);
     let aircraftChosen1 = aircraftAvailable[aircraftToUse1];
 
@@ -151,6 +151,7 @@ $("#next").click(function () {
     $("#answer3-span").text(aircraftChosen3[0])
     $("#answer4-span").text(aircraftChosen4[0])
 
+    //Rename the Next button to Start over if count is 11
     if (count === 11) {
         $("#next").text("Start over")
     }

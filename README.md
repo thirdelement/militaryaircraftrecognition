@@ -10,7 +10,7 @@ This is a website for a military aircraft recognition quiz.  It is designed so f
 
 This website is designed for military aircraft enthusiasts and those looking to improve their recognition skills.  The quiz comprises ten questions each asking the participant to select the correct name from a list of alternatives for the aircraft pictured.
 
-Currently, the quiz includes a question bank of twenty aircraft across a variety of types such as fighter, bomber and transport.  This can be further developed with separate quizzes for specific aircraft types and an increase in the number of aircraft or answer options in each quiz.  These options would increase the difficulty, likelihood of return visits by participants and enable configuration of beginner, intermediate and expert levels.  
+The quiz currently includes a question bank of twenty aircraft across a variety of types such as fighter, bomber and transport.  This can be further developed with separate quizzes for specific aircraft types and an increase in the number of aircraft or answer options in each quiz.  These options would increase the difficulty, likelihood of return visits by participants and enable configuration of beginner, intermediate and expert levels.  
 
 Further development could include provision of aircraft specification and visual description details on revealing an answer.  There is also more scope to provide details on aircraft recognition history, methods and links to additional resources.  Please see the wireframe links for how this might be done.
 
@@ -200,14 +200,12 @@ JSHint, W3C Markup Validation Service and CSS Validation Service were used to va
         - Once all the arrays above were implemented there was an issue when the score would increment more than once when a button was clicked.  As per the array problem above, console.log was to check the arrays, ensure the buttons were matching the aircraft expected.
         - Several different methods were used to increment the score including Javascript with .innerHTML, jQuery and variations of these including using the index (see https://stackoverflow.com/questions/46923549/need-to-increment-score-in-jquery-how-do-i-change-the-text), .one(), using attr() to disable the attribute and adding if conditions to ensure the score is incremented only if these are met.  Research was done into the use of Google Diagnostics for more specific troubleshooting information beyond console.log (see https://medium.datadriveninvestor.com/stopping-using-console-log-and-start-using-your-browsers-debugger-62bc893d93ff).  
         - The diagnostics helped to go through the code step-by-step but the behaviour remained a mystery.  There appeared to be no pattern except the browser retained aircraft used in previous questions which could not be picked up by console.log or added to session or local storage.  I attempted moving the correct answer and selected answer to a different array and compare array values but this still did not work.  In the screenshot below there are three different values claiming to be in the same array but they are not.  The screenshot also shows there are three different ‘Correct1:’ answers from the same button click.   
-        <h2 align="left"><img src="assets/images/readme-images/console-log.png"></h2>
-        - Eventually, I asked a question on Stack Overflow (see https://stackoverflow.com/questions/66413208/how-can-i-stop-an-if-condition-comparing-two-array-items-from-being-met-by-pre).  The question was answered explaining that the click event handlers associated to the buttons were firing previous handlers.  The resolution was to add the jQuery .off() method immediately prior to .on() or one() in order to remove previous handlers.
-    - Event handlers
-        - Once all th
-        - Once all th
-        - Once all th
-        - Once all th
-
+          <h2 align="left"><img src="assets/images/readme-images/console-log.png"></h2>
+        - Finally, I asked a question on Stack Overflow (see https://stackoverflow.com/questions/66413208/how-can-i-stop-an-if-condition-comparing-two-array-items-from-being-met-by-pre).  The question was answered explaining that the click event handlers associated to the buttons were firing previous handlers.  The resolution was to add the jQuery .off() method immediately prior to .on() or one() in order to remove previous handlers.
+    - Global variables
+        - There was a requirement to keep the ‘aircraftUsed’ array out of the function so that the contents did not refresh each time the function was run.  This was done by nesting the array inside a function called by clicking on a start button.  This was outside the button used to move to subsequent questions and so allowed the array to accumulate items as the quiz progressed.  Later in the development it became clear this start button was needlessly complicating the user experience and the original wireframes only showed one button.
+        - In order to avoid the use of global variables I investigated alternatives such as calling a function from inside another (see https://stackoverflow.com/questions/13218472/calling-a-function-defined-inside-another-function-in-javascript ), and returning an array with one function and calling it with another (see https://stackoverflow.com/questions/22270838/making-variables-available-outside-a-function-without-globals) , however, could not get these to work.
+        - Therefore, I referred to the Code Institute module on Local Storage in order to configure Session Storage.  As Session Storage can only store strings, it was necessary to convert the array using JSON.stringify()to save and then back again using JSON.parse() to read (see https://stackoverflow.com/questions/52409418/pushing-an-element-to-an-existing-array-stored-in-session-storage and https://stackoverflow.com/questions/22120347/creating-an-array-and-storing-it-in-sessionstorage-with-javascript).  An initial configuration appeared to show the Session Storage array being refreshed as was the issue previously.  In order to resolve this two Session Storage arrays were created of which one (‘aircraftUsed2’) was updated with the answer for each question round.  The concat() method was then used to append this answer to a second array (‘aircraftUsed13’).  This second array was then used as a comparison with the ‘aircraft’ array in order to create the ‘aircraftAvailable’ array which resolved the issue.
 
 ## Deployment
 
@@ -215,22 +213,51 @@ JSHint, W3C Markup Validation Service and CSS Validation Service were used to va
 
 The project was deployed to GitHub pages using the below procedure:
 
-1.	Log into GitHub, click on Repositories and select the [djdarks repository](https://github.com/thirdelement/djdarks). 
+1.	Log into GitHub, click on Repositories and select the [militaryaircraftrecognition repository](https://github.com/thirdelement/militaryaircraftrecognition). 
 2.	Click Settings.
 3.	In GitHub Pages, Source, select the Branch as Master and click Save.
-4.	The page will refresh and the published site [link](https://thirdelement.github.io/djdarks/) will then appear in GitHub Pages.
+4.	The page will refresh and the published site [link](https://thirdelement.github.io/militaryaircraftrecognition/) will then appear in GitHub Pages.
+
+### Forking the GitHub Repository
+
+We can make a copy of the original repository on our GitHub account by forking the GitHub Repository to view and/or make changes without affecting the original repository by using the following steps:
+
+1.	Log in to GitHub and locate the [militaryaircraftrecognition repository](https://github.com/thirdelement/militaryaircraftrecognition). 
+2.	At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
+3.	You should now have a copy of the original repository in your GitHub account.
+
+### Making a Local Clone
+
+1.	Log in to GitHub and locate the [militaryaircraftrecognition repository](https://github.com/thirdelement/militaryaircraftrecognition). 
+2.	Under the repository name, click "Clone or download".
+3.	To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.
+4.	Open Git Bash
+5.	Change the current working directory to the location where you want the cloned directory to be made.
+6.	Type git clone, and then paste the URL you copied in Step 3.
+
+    $ git clone https://github.com/thirdelement/militaryaircraftrecognition
+
+7.	Press Enter. Your local clone will be created.
+
+Please see this [link](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) for more detailed explanation.
 
 ## Credits
 
 ### Code
 
--   [Bootstrap 4.5.3](https://getbootstrap.com/docs/4.5/getting-started/introduction/): Bootstrap 4.5.3 was used throughout the site so that it is responsive to different devices and viewport sizes.
+-   [Bootstrap 5.0](https://getbootstrap.com/docs/5.0/getting-started/introduction/): Bootstrap 5.0 was used throughout the site so that it is responsive to different devices and viewport sizes.
 
 -   Code was used from external sources in the following instances:
-    - [Creating a custom navbar toggler](https://stackoverflow.com/questions/42586729/bootstrap-4-change-hamburger-toggler-color)
-    - [Changing the navbar toggle background colour and outline](https://stackoverflow.com/questions/50668594/remove-border-color-for-navbar-toggler-hamburger-icon-bootstrap-4)
-    - [Sign-up and Contact form design ](https://courses.codeinstitute.net/courses)
-    - [Form submission alerts](https://www.w3schools.com/js/js_popup.asp)
+    - [Add a Bootstrap toast component ](https://getbootstrap.com/docs/5.0/components/toasts/)
+    - [Implementation of the toast component on sendEmail.js ](https://rubysrivastava.github.io/exploregothenburg/contact.html)
+    - [Implementation of Bootstrap progress bar ](https://www.youtube.com/watch?v=QxQRtwAtqKE)
+    - [Removal of repeated tags in an array ](https://stackoverflow.com/questions/66413208/how-can-i-stop-an-if-condition-comparing-two-array-items-from-being-met-by-pre)
+    - [Comparison of two arrays  ](https://stackoverflow.com/questions/46998798/comparing-2d-arrays-finding-unique-items)
+    - [Randomly select from an array  ](https://stackoverflow.com/questions/14422233/how-do-you-select-a-random-variable-within-a-function-in-javascript)
+    - [Remove item from an array  ](https://stackoverflow.com/questions/57059564/how-to-exclude-an-array-element-from-a-random-pick)
+    - [Storing an array in Session Storage  ](https://stackoverflow.com/questions/52409418/pushing-an-element-to-an-existing-array-stored-in-session-storage and https://stackoverflow.com/questions/22120347/creating-an-array-and-storing-it-in-sessionstorage-with-javascript)
+    - [Removing event handlers  ](https://stackoverflow.com/questions/66413208/how-can-i-stop-an-if-condition-comparing-two-array-items-from-being-met-by-pre)
+
 
 ### Content
 
@@ -238,15 +265,9 @@ The project was deployed to GitHub pages using the below procedure:
 
 ### Media
 
--   The background images for the Home, Mixes, Dates and Contact pages were found at https://unsplash.com/.   The image for the About page was found at https://www.deviantart.com/.  There are links to the Creator page for each below:
-    - Homepage - [Nikolai Chernichenko](https://unsplash.com/@perfectcoding?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)
-    - About - [Pulse-v2](https://www.deviantart.com/pulse-v2/art/Croydon-Skyline-16563186)
-    - Mixes - [Fred Moon](https://unsplash.com/@fwed?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)
-    - Dates - [Raphael Schaller](https://unsplash.com/@raphaelphotoch?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)
-    - Contact - [Alexander Popov](https://unsplash.com/@5tep5?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
-
-The images of DJ DRKS were provided by DJ DRKS.
+-   The aircraft images for the quiz answers were found via a Google search for images with ‘Creative Commons licences’ only.   These are from mostly popular sites such as Wikipedia, Flickr and specific locations can be provided on request.
+-   The aircraft formation images displayed with presentation of quiz scores were all sourced from https://unsplash.com/.   
 
 ### Acknowledgements
 
--   My mentor provided advice throughout the build process as well as technical and design feedback.
+-   My mentor for helpful advice and support.
