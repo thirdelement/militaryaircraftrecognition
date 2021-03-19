@@ -257,6 +257,7 @@ Please see this [link](https://docs.github.com/en/github/creating-cloning-and-ar
     - [Remove item from an array  ](https://stackoverflow.com/questions/57059564/how-to-exclude-an-array-element-from-a-random-pick)
     - [Storing an array in Session Storage  ](https://stackoverflow.com/questions/52409418/pushing-an-element-to-an-existing-array-stored-in-session-storage)
     - [Removing event handlers  ](https://stackoverflow.com/questions/66413208/how-can-i-stop-an-if-condition-comparing-two-array-items-from-being-met-by-pre)
+    - [Remove Favicon.ico 404 console error  ](https://stackoverflow.com/questions/39149846/why-am-i-seeing-a-404-not-found-error-failed-to-load-favicon-ico-when-not-usin)
 
 
 ### Content

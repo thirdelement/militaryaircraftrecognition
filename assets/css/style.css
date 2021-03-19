@@ -1,17 +1,17 @@
 /*-------------------------------------------------Nav Bar--*/
 .navbar-dark .navbar-brand {
-  color: yellow;
+    color: yellow;
 }
 
 .navbar-dark .navbar-nav .active > .nav-link,
 .navbar-dark .navbar-nav .nav-link.active,
 .navbar-dark .navbar-nav .nav-link.show,
 .navbar-dark .navbar-nav .show > .nav-link {
-  color: yellow;
+    color: yellow;
 }
 
 .navbar-dark .navbar-nav .nav-link {
-  color: yellow;
+    color: yellow;
 }
 
 .bg-primary {
@@ -34,9 +34,9 @@
 /*-------------------------------------------------Home--*/
 
 .container-home {
-  padding: 50px 20px 85px 20px;
-  background-color: #9fc5f8;
-  height: 100vh;
+    padding: 50px 20px 85px 20px;
+    background-color: #9fc5f8;
+    height: 100vh;
 }
 
 /*-------------------------------------------------Quiz--*/
@@ -59,8 +59,8 @@
 
 /* All aircraft image settings */
 img {
-  width: 100%;
-  object-fit: fill;
+    width: 100%;
+    object-fit: fill;
 }
 
 /* Quiz aircraft image additional setting */
@@ -70,9 +70,9 @@ img {
 
 /* Answer button settings */
 .answer {
-width: 70%;
-margin-top: 10px;
-display: none;
+    width: 70%;
+    margin-top: 10px;
+    display: none;
 }
 
 /* Change colour on hover for answer buttons */
@@ -117,8 +117,7 @@ display: none;
 }
 
  #row-next {
-   justify-content: flex-end;
-   
+   justify-content: flex-end;   
 }
 
 /*-------------------------------------------------Contact page--*/
@@ -136,16 +135,15 @@ display: none;
 }
 
 .form-control {
-font-size: 0.9rem;
+    font-size: 0.9rem;
 padding: .175rem .75rem;
 }
 
 .join-button {
-margin-top: 10px 
+    margin-top: 10px 
 }
 
 /*-------------------------------------------------Media queries--*/
-
 /* Desktop */
 @media (min-width: 992px){
 .container, .container-lg, .container-md, .container-sm {
@@ -153,7 +151,7 @@ margin-top: 10px
 }
 
 /* Ensure background colour fills screen */
-    .container-home {
+.container-home {
     height: auto;
 }
 
@@ -198,12 +196,19 @@ img {
 }
 }
 
+@media (min-width: 768px){
+/* Consistent image size */
+#aircraftImage {
+    height: 300px;
+}
+}
+
 /* Mobile */
 @media (max-width: 992px) and (min-width: 576px) {
 /* centre startImage */   
-    #startImage {
-        margin-left: 25%
-    }
+#startImage {
+    margin-left: 25%
+}
 }
 
 @media (max-width: 992px){
@@ -213,11 +218,14 @@ width: 100%
 }
 }
 
-
 @media (max-width: 768px){
 /* Improve size for image, button text and layout */  
 .row {
     font-size: 0.9rem;
+}
+
+#aircraftImage {
+    height: 250px;
 }
 }
 
@@ -232,7 +240,7 @@ width: 100%
 }
 
 .row-desktop {
-justify-content: center;
+    justify-content: center;
 }
 
 .row-mobile {
@@ -275,7 +283,7 @@ justify-content: center;
 
 /* iPhone 5 - Improve sizes for image, button text and layout */
 @media (max-width: 350px){
-    .answer {
+.answer {
     font-size: 11px;
 }
 
@@ -289,14 +297,14 @@ justify-content: center;
 }
 
 @media (max-height: 500px){
-   #container-contact {
+#container-contact {
     height: auto; 
 }
 }
 
 /*iPhone5 landscape - ensure background colour fills screen */
 @media (max-height: 375px){
-    .container-home {
+.container-home {
     height: auto;
     padding: 30px 20px 85px 20px;
 }

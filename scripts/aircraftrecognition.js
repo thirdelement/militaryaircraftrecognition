@@ -329,7 +329,7 @@ $("#next").click(function () {
 )
 
 //Hide answer button check, cross marks & startImage; show progress bar and answer buttons
-function initRound(){
+function initRound() {
     $(".hide, #startImage, #welcome, .resultComment").hide();
     $(".answer, .progress").show();
 }
