@@ -145,6 +145,13 @@ padding: .175rem .75rem;
 
 /*-------------------------------------------------Media queries--*/
 /* Desktop */
+@media (min-width: 768px){
+/* Consistent image size */
+#aircraftImage {
+    height: 300px;
+}
+}
+
 @media (min-width: 992px){
 .container, .container-lg, .container-md, .container-sm {
     max-width: 768px;
@@ -196,12 +203,6 @@ img {
 }
 }
 
-@media (min-width: 768px){
-/* Consistent image size */
-#aircraftImage {
-    height: 300px;
-}
-}
 
 /* Mobile */
 @media (max-width: 992px) and (min-width: 576px) {

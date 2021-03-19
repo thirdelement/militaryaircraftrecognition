@@ -137,17 +137,17 @@ $("#next").click(function () {
     aircraftAvailable.splice(aircraftToUse4, 1);
 
     // Add names to buttons
-    $("#answer1-span").text(aircraftChosen1[0])
-    $("#answer2-span").text(aircraftChosen2[0])
-    $("#answer3-span").text(aircraftChosen3[0])
-    $("#answer4-span").text(aircraftChosen4[0])
+    $("#answer1-span").text(aircraftChosen1[0]);
+    $("#answer2-span").text(aircraftChosen2[0]);
+    $("#answer3-span").text(aircraftChosen3[0]);
+    $("#answer4-span").text(aircraftChosen4[0]);
 
     //Rename the Next button to Start over if count is 11
     if (count === 11) {
-        $("#next").text("Start over")
+        $("#next").text("Start over");
     }
     else {
-        $("#next").text("Next")
+        $("#next").text("Next");
     }
 
     //Select random image from images array for display in HTML
@@ -236,7 +236,7 @@ $("#next").click(function () {
             $(".incorrect1").show();
         }
         else {
-            (aircraftChosen4[0] === imageChosen[0])
+            (aircraftChosen4[0] === imageChosen[0]);
             $(".correct4").show();
             $(".incorrect1").show();
         }
@@ -258,7 +258,7 @@ $("#next").click(function () {
             $(".incorrect2").show();
         }
         else {
-            (aircraftChosen4[0] === imageChosen[0])
+            (aircraftChosen4[0] === imageChosen[0]);
             $(".correct4").show();
             $(".incorrect2").show();
         }
@@ -279,7 +279,7 @@ $("#next").click(function () {
             $(".incorrect3").show();
         }
         else {
-            (aircraftChosen4[0] === imageChosen[0])
+            (aircraftChosen4[0] === imageChosen[0]);
             $(".correct4").show();
             $(".incorrect3").show();
         }
@@ -300,7 +300,7 @@ $("#next").click(function () {
             $(".incorrect4").show();
         }
         else {
-            (aircraftChosen3[0] === imageChosen[0])
+            (aircraftChosen3[0] === imageChosen[0]);
             $(".correct3").show();
             $(".incorrect4").show();
         }
@@ -322,11 +322,11 @@ $("#next").click(function () {
         let aircraftSession1 = sessionStorage.getItem('aircraftSession1');
         let aircraftSession = sessionStorage.getItem('aircraftSession');
 
-        aircraftSession = JSON.parse(aircraftSession1).concat(JSON.parse(aircraftSession))
+        aircraftSession = JSON.parse(aircraftSession1).concat(JSON.parse(aircraftSession));
         sessionStorage.setItem('aircraftSession', JSON.stringify(aircraftSession));
     }
 }
-)
+);
 
 //Hide answer button check, cross marks & startImage; show progress bar and answer buttons
 function initRound() {
