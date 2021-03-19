@@ -12,7 +12,7 @@ The website has been created for military aircraft enthusiasts and those looking
 
 The quiz currently includes a question bank of twenty aircraft across a variety of types such as fighter, bomber and transport.  This can be further developed with separate quizzes for specific aircraft types and an increase in the number of aircraft or answer options in each quiz.  These options would increase the difficulty, likelihood of return visits by participants and enable configuration of beginner, intermediate and expert levels.  
 
-Further development could include provision of aircraft specification and visual description details on revealing an answer.  There is also scope to provide details on aircraft recognition history, methods and links to additional resources.  Please see the wireframe links for how this might be done.
+Further development could include provision of aircraft specification and visual description details on revealing an answer.  There is also scope to provide details on aircraft recognition history, methods and links to additional resources.  Please see the wireframes for how this might be done.
 
 -   ### User stories
 
