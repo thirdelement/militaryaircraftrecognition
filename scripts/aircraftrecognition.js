@@ -1,3 +1,4 @@
+//Function to initiate, progress and start over quiz
 $("#next").click(function () {
 
     //Array for holding images presented at end of quiz with score
@@ -16,7 +17,6 @@ $("#next").click(function () {
 
     //Declare count variable for Next button clicks
     let count = document.getElementById("sr-only").innerText
-    console.log("count before prog bar:", count)
 
     //Clear sessionStorage from previous rounds
     if (count === 0) {
@@ -34,20 +34,14 @@ $("#next").click(function () {
         $("#sr-only").text(10);
     }
 
-    //Hide answer button check, cross marks & startImage
-    $(".hide, #startImage, #welcome, .resultComment").hide();
-    //$("#startImage").hide();
+    //Hide answer button check, cross marks & startImage; show progress bar and answer buttons
+    initRound();
 
-    //Show progress bar and answer buttons
-    $(".answer, .progress").show();
-
-    console.log("aircraftSession Before VAR", aircraftSession)
     //Declare variable for array for answer from first question round
     let aircraftUsed = [];
 
     //Declare variable for sessionStorage array for answers from subsequent rounds
     var aircraftSession = JSON.parse(sessionStorage.getItem('aircraftSession'));
-    console.log("aircraftSession After VAR", aircraftSession)
 
     //Function to compare aircraft and usedAircraft arrays and return to difference to aircraftAvailable array.  Code from https://stackoverflow.com/questions/46998798/comparing-2d-arrays-finding-unique-items
     function getKey(array) {
@@ -82,9 +76,8 @@ $("#next").click(function () {
     hash = Object.create(null),
 
         aircraftAvailable = [];
-    console.log("aircraftAvailable", aircraftAvailable)
-    console.log("aircraftUsed Next:", aircraftUsed)
 
+    //Generate key from aircraftUsed array
     if (count === 1) {
         aircraftUsed.forEach(function (a) {
             hash[getKey(a)] = true;
@@ -93,9 +86,9 @@ $("#next").click(function () {
         aircraftSession.forEach(function (a) {
             hash[getKey(a)] = true;
         });
-        console.log("aircraftSession COMPARE FNCTIN:", aircraftSession)
     }
 
+    //Filter aircraft array by checking hash table and add items to aircraftAvailable
     aircraftAvailable = aircraft.filter(function (a) {
         return !hash[getKey(a)];
     });
@@ -162,48 +155,8 @@ $("#next").click(function () {
     let imageChosen = images[imageToUse];
 
     //Change answer button colour on hover 
-    //Code from Code Institute - Interactive Frontend module, JQuery Library, JQuery Events, Method Chaining - Challenge 1   
-    $("#answer1").mouseenter(function () {
-        $("#answer1").addClass("change-color").addClass("make-border");
-    });
+    buttonColor();
 
-    $("#answer1").mouseleave(function () {
-        $("#answer1").removeClass("add-border").removeClass("change-color");
-    });
-
-    $("#answer2").mouseenter(function () {
-        $("#answer2").addClass("change-color").addClass("add-border");
-    });
-
-    $("#answer2").mouseleave(function () {
-        $("#answer2").removeClass("add-border").removeClass("change-color");
-    });
-
-    $("#answer3").mouseenter(function () {
-        $("#answer3").addClass("change-color").addClass("add-border");
-    });
-
-    $("#answer3").mouseleave(function () {
-        $("#answer3").removeClass("add-border").removeClass("change-color");
-    });
-
-    $("#answer4").mouseenter(function () {
-        $("#answer4").addClass("change-color").addClass("add-border");
-    });
-
-    $("#answer4").mouseleave(function () {
-        $("#answer4").removeClass("add-border").removeClass("change-color");
-    });
-
-    $("#next").mouseenter(function () {
-        $("#next").addClass("next-change-color").addClass("add-border");
-    });
-
-    $("#next").mouseleave(function () {
-        $("#next").removeClass("add-border").removeClass("next-change-color");
-    });
-
-    //console.log("score check JQ:", $("#score").text(), "score check JS:", document.getElementById("score").innerText)
     //If count is 11 display results images & text
     if (count === 11 && $("#score").text() === "1") {
         $("#aircraftImage").attr('alt', resultImages[0][0]).attr('src', 'assets/images/' + resultImages[0][1]).show();
@@ -292,7 +245,6 @@ $("#next").click(function () {
     });
 
     $("#answer2").off("click").one("click", function () {
-
         if (aircraftChosen2[0] === imageChosen[0]) {
             $(".correct2").show();
             document.getElementById("score").innerText++
@@ -334,7 +286,6 @@ $("#next").click(function () {
         $('#next').attr('disabled', null);
     });
 
-
     $("#answer4").off("click").one("click", function () {
         if (aircraftChosen4[0] === imageChosen[0]) {
             $(".correct4").show();
@@ -359,32 +310,78 @@ $("#next").click(function () {
     //Push answer to aircraftUsed so it cannot be used again in current quiz
     aircraftUsed.push(imageChosen);
 
-    console.log("count:", count)
-
     //If count is 1 store aircraftUsed array in sessionStorage
     if (count === 1) {
         sessionStorage.setItem('aircraftSession', JSON.stringify(aircraftUsed));
         let aircraftSession = sessionStorage.getItem('aircraftSession');
-        console.log("aircraftSession IF", JSON.parse(aircraftSession))
     }
     //Else concat aircraftUsed arrays to add to aircraft in sessionStorage
     else {
         sessionStorage.setItem('aircraftSession1', JSON.stringify(aircraftUsed));
+
         let aircraftSession1 = sessionStorage.getItem('aircraftSession1');
         let aircraftSession = sessionStorage.getItem('aircraftSession');
-        console.log("aircraftSession1 Else", aircraftSession1)
+
         aircraftSession = JSON.parse(aircraftSession1).concat(JSON.parse(aircraftSession))
-        console.log("aircraftSession Else:", aircraftSession)
         sessionStorage.setItem('aircraftSession', JSON.stringify(aircraftSession));
     }
-    console.log("aircraftSession After Else:", aircraftSession)
 }
 )
 
-//Hide items for score page, disable Next button, reset count and score
+//Hide answer button check, cross marks & startImage; show progress bar and answer buttons
+function initRound(){
+    $(".hide, #startImage, #welcome, .resultComment").hide();
+    $(".answer, .progress").show();
+}
+
+//On score page, hide answer buttons and progress bar, disable Next button, reset count and score
 function scorePage() {
-    $(".answer, #question, .progress").hide();
+    $(".answer, .progress").hide();
     $('#next').attr('disabled', null);
     $("#sr-only").text(0);
     $("#score").text(0);
+}
+
+//Change answer button colour on hover 
+//Code from Code Institute - Interactive Frontend module, JQuery Library, JQuery Events, Method Chaining - Challenge 1  
+function buttonColor() {
+    $("#answer1").mouseenter(function () {
+        $("#answer1").addClass("change-color").addClass("make-border");
+    });
+
+    $("#answer1").mouseleave(function () {
+        $("#answer1").removeClass("add-border").removeClass("change-color");
+    });
+
+    $("#answer2").mouseenter(function () {
+        $("#answer2").addClass("change-color").addClass("add-border");
+    });
+
+    $("#answer2").mouseleave(function () {
+        $("#answer2").removeClass("add-border").removeClass("change-color");
+    });
+
+    $("#answer3").mouseenter(function () {
+        $("#answer3").addClass("change-color").addClass("add-border");
+    });
+
+    $("#answer3").mouseleave(function () {
+        $("#answer3").removeClass("add-border").removeClass("change-color");
+    });
+
+    $("#answer4").mouseenter(function () {
+        $("#answer4").addClass("change-color").addClass("add-border");
+    });
+
+    $("#answer4").mouseleave(function () {
+        $("#answer4").removeClass("add-border").removeClass("change-color");
+    });
+
+    $("#next").mouseenter(function () {
+        $("#next").addClass("next-change-color").addClass("add-border");
+    });
+
+    $("#next").mouseleave(function () {
+        $("#next").removeClass("add-border").removeClass("next-change-color");
+    });
 }

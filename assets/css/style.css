@@ -1,4 +1,4 @@
-/*----Nav bar --*/
+/*-------------------------------------------------Nav Bar--*/
 .navbar-dark .navbar-brand {
   color: yellow;
 }
@@ -18,9 +18,9 @@
     background-color: #085394!important;
 }
 
-/*-- Progress bar --*/
+/*-------------------------------------------------Progress Bar--*/
 
-/*-- Hide progress bar on landing page --*/
+/* Hide progress bar on landing page */
 .progress {
     display: none;
 }
@@ -39,24 +39,11 @@
   height: 100vh;
 }
 
-/*--.row>* {
-    width: auto; 
-}
---*/
-
-
 /*-------------------------------------------------Quiz--*/
 .container-sm {
     padding-right: 0;
     padding-left: 0;
 }
-
-/*.container-quiz {*/
-  /*--padding: 20px 20px 20px 20px;--*/
-  /*background-color: rgb(94, 96, 97);*/
-  /*--display: flex;--*/
-  /*--height: 100vh;--*/
-/*}*/
 
 .container-quiz {
     background-color: rgb(94, 96, 97);
@@ -70,21 +57,11 @@
     margin-top: 1rem;
 }
 
-
-/*.col-12 {
-    width: 100%!important;
-}*/
-
 /* All aircraft image settings */
 img {
   width: 100%;
-  /*height: 300px;*/
   object-fit: fill;
 }
-
-/*.row-progress {
-    width: 100%!important;
-}*/
 
 /* Quiz aircraft image additional setting */
 #aircraftImage {
@@ -113,21 +90,15 @@ display: none;
     border: 2px solid black;
 }
 
+/* Next button */
 #next {
-     width: 50%;
+    width: 50%;
     margin-top: 10px;
-    /*margin-left: 35%;*/
     margin-bottom: 10px;
-   /* background-color: #990000;*/
 }
-
- /* #next-span {
-  /*   color: white;
-}*/
 
 .fa-check-circle {
     display: none; 
-    /*visibility:hidden;*/
     color: green;
 }
 
@@ -140,9 +111,7 @@ display: none;
     display: none;
     color: yellow;
 }
-/*-- #answers {
-  display: flex;
-}--*/
+
 #row-score {
     display: none;
 }
@@ -153,21 +122,13 @@ display: none;
 }
 
 /*-------------------------------------------------Contact page--*/
-/*#container-contact {
-    height: auto;
-}*/
 
 #contact-form {
   color: whitesmoke;
- /* background-color: rgba(60, 60, 60, 0.9);*/
   max-width: 400px;
-  /*flex: 400px;
-  min-width: 0;*/
   margin-left: auto;
   margin-right: auto;
   padding: 0px 20px 20px 20px;
-  /*margin-top: 10px;
-  margin-bottom: 10px;*/
 }
 
 #sub-title {
@@ -183,53 +144,42 @@ padding: .175rem .75rem;
 margin-top: 10px 
 }
 
-/*.toast {
- margin-left: auto;
-  margin-right: auto;
-  display: none;
-}*/
 /*-------------------------------------------------Media queries--*/
 
+/* Desktop */
 @media (min-width: 992px){
 .container, .container-lg, .container-md, .container-sm {
     max-width: 768px;
 }
 
-/*-- Desktop - Ensure background colour fills screen --*/
+/* Ensure background colour fills screen */
     .container-home {
     height: auto;
 }
 
-/*-- Desktop - Ensure background color fills screen --*/
+/* Ensure background color fills screen */
 #container-contact {
     height: 100vh;
 }
 
-/*-- Desktop - Keep aircraft image a consistent height --*/
+/* Desktop - Keep aircraft image a consistent height */
 #aircraftImage {
     height: 500px;
 }
 
-/*-- Desktop - Hide mobile rows for answer buttons --*/
+/* Hide mobile rows for answer buttons */
 .row-mobile {
-    /*display: hidden!important;--*/
     width: 50%;
 }
 
 #row-score {
-    /*display: hidden!important;--*/
     width: 50%;
 }
 
 #row-next {
-    /*display: hidden!important;--*/
     width: 50%;
     padding-right: 68px;
 }
-
-/*.row>* {
-    width: 50%;
-}*/
 
 .row-desktop {
     justify-content: center;
@@ -238,7 +188,6 @@ margin-top: 10px
 .row-mobile {
     justify-content: center;
 }
-
 
 img {
     object-fit: cover;
@@ -249,67 +198,36 @@ img {
 }
 }
 
-/*@media (min-width: 768px){
-    #row-next {
-   justify-content: flex-end;
-   
-}
-}
-
-/*.answer {
-width: 100%
-}*/
-
-/*@media (min-width: 576px){
-img {
-    height: 400px
-}   
-}*/
-
-/*@media (min-width: 768px){
-img {
-    height: 500px
-}   
-}*/
-
-/* To centre startImage for mobile devices */
+/* Mobile */
 @media (max-width: 992px) and (min-width: 576px) {
+/* centre startImage */   
     #startImage {
         margin-left: 25%
     }
 }
 
-/*-- Mobile - Hide rows for answer buttons --*/
 @media (max-width: 992px){
-/*--.row-desktop {
-  /*--  display: hidden!important;
-} --*/
+/* Hide rows for answer buttons */
 .answer {
 width: 100%
 }
 }
 
 
-/*-- Mobile - Width below 768px Improve sizes for image, button text and layout --*/
 @media (max-width: 768px){
+/* Improve size for image, button text and layout */  
 .row {
     font-size: 0.9rem;
 }
-
-/*#aircraftImage {
-    height: 400px;
-}*/
 }
 
-
 @media (max-width: 576px){
-
-/*-- Desktop - Keep aircraft image a consistent height --*/
+/* Keep aircraft image a consistent height */
 #aircraftImage {
     height: 250px;
 }
 
-       .row {
+.row {
     font-size: 0.8rem;
 }
 
@@ -330,7 +248,6 @@ justify-content: center;
 #row-next {
     justify-content: flex-end;
     width: 50%;
-    /*margin-left: 0;*/
 }
 
 #row-last {
@@ -348,33 +265,15 @@ justify-content: center;
 }
 }
 
-
-/*-- iPhone X, iPhone 6/7/8 Plus, iPhone 6/7/8 - Improve sizes for image, button text and layout --*/
+/* iPhone X, iPhone 6/7/8 Plus, iPhone 6/7/8 - Improve sizes for image, button text and layout */
 @media (max-width: 450px){
   
-/*-- @media (max-width: 576px){  --*/
 .container-home {
     padding: 50px 0px 85px 0px;
 }
 }
 
-/*--   .row {
-    font-size: 0.8rem;
-}
-
-.answer {
-    width: 100%;
-    font-size: small;
-}
-
-#next {
-    width: 100%;
-    font-size: small;
-}
---*/
-
-
-/*-- iPhone 5 - Improve sizes for image, button text and layout --*/
+/* iPhone 5 - Improve sizes for image, button text and layout */
 @media (max-width: 350px){
     .answer {
     font-size: 11px;
@@ -394,6 +293,7 @@ justify-content: center;
     height: auto; 
 }
 }
+
 /*iPhone5 landscape - ensure background colour fills screen */
 @media (max-height: 375px){
     .container-home {
