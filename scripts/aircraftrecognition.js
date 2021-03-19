@@ -1,7 +1,7 @@
 $("#next").click(function () {
 
     //Array for holding images presented at end of quiz with score
-    var resultImages = [["single-aerobatic-aircraft", "1point.png"],
+    let resultImages = [["single-aerobatic-aircraft", "1point.png"],
     ["Patrouille Swiss - Two F5e Tiger II", "2points.png"],
     ["Nellis AFB - Three classic Sabers", "3points.png"],
     ["SanFrancisco - Four Blue Angel F/A-18 Hornets", "4points.png"],
@@ -11,7 +11,7 @@ $("#next").click(function () {
     ["Patrouille De France Eight Alpha Jets", "8points.png"],
     ["Nine Red Arrow Hawks", "9points.png"],
     ["Ten Frecce Tricolori Aermacchi MB-339-A", "10points.png"],
-    ["empty-sky", ".png"]
+    ["empty-sky", "0points.png"]
     ];
 
     //Declare count variable for Next button clicks
@@ -41,12 +41,9 @@ $("#next").click(function () {
     //Show progress bar and answer buttons
     $(".answer, .progress").show();
 
-    //Set Next button to white
-    //$("#next").css("background-color", "white");
-
     console.log("aircraftSession Before VAR", aircraftSession)
     //Declare variable for array for answer from first question round
-    var aircraftUsed = [];
+    let aircraftUsed = [];
 
     //Declare variable for sessionStorage array for answers from subsequent rounds
     var aircraftSession = JSON.parse(sessionStorage.getItem('aircraftSession'));
@@ -60,7 +57,7 @@ $("#next").click(function () {
     }
 
     //Array code format from https://stackoverflow.com/questions/66413208/how-can-i-stop-an-if-condition-comparing-two-array-items-from-being-met-by-pre?noredirect=1#comment117411539_66413208
-    var aircraft = [["F-35 Lightning II", "f35.png"],
+    let aircraft = [["F-35 Lightning II", "f35.png"],
     ["F-22 Raptor", "f22.png"],
     ["F/A-18 Hornet", "fa18.png"],
     ["Chengdu J-10", "j10.png"],
@@ -162,7 +159,7 @@ $("#next").click(function () {
 
     //Select random image from images array for display in HTML
     let imageToUse = Math.floor(Math.random() * images.length);
-    var imageChosen = images[imageToUse];
+    let imageChosen = images[imageToUse];
 
     //Change answer button colour on hover 
     //Code from Code Institute - Interactive Frontend module, JQuery Library, JQuery Events, Method Chaining - Challenge 1   
@@ -208,98 +205,61 @@ $("#next").click(function () {
 
     //console.log("score check JQ:", $("#score").text(), "score check JS:", document.getElementById("score").innerText)
     //If count is 11 display results images & text
-    if (count === 11 && $("#score").text() === 1) {
+    if (count === 11 && $("#score").text() === "1") {
         $("#aircraftImage").attr('alt', resultImages[0][0]).attr('src', 'assets/images/' + resultImages[0][1]).show();
-        $(".answer, #question, .progress").hide();
         $("#onePoint").show();
-        $('#next').attr('disabled', null);
-        $("#sr-only").text(0);
-        $("#score").text(0);
+        //Hide items for score page, disable Next button, reset count and score
+        scorePage();
     }
     else if (count === 11 && $("#score").text() === "2") {
         $("#aircraftImage").attr('alt', resultImages[1][0]).attr('src', 'assets/images/' + resultImages[1][1]).show();
-        $(".answer, #question, .progress").hide();
         $("#twoPoints").show();
-        $('#next').attr('disabled', null);
-        $("#sr-only").text(0);
-        $("#score").text(0);
+        scorePage();
     }
     else if (count === 11 && $("#score").text() === "3") {
         $("#aircraftImage").attr('alt', resultImages[2][0]).attr('src', 'assets/images/' + resultImages[2][1]).show();
-        $(".answer, #question, .progress").hide();
         $("#threePoints").show();
-        $('#next').attr('disabled', null);
-        $("#sr-only").text(0);
-        $("#score").text(0);
+        scorePage();
     }
     else if (count === 11 && $("#score").text() === "4") {
         $("#aircraftImage").attr('alt', resultImages[3][0]).attr('src', 'assets/images/' + resultImages[3][1]).show();
-        $(".answer, #question, .progress").hide();
         $("#fourPoints").show();
-        $('#next').attr('disabled', null);
-        $("#sr-only").text(0);
-        $("#score").text(0);
+        scorePage();
     }
     else if (count === 11 && $("#score").text() === "5") {
         $("#aircraftImage").attr('alt', resultImages[4][0]).attr('src', 'assets/images/' + resultImages[4][1]).show();
-        $(".answer, #question, .progress").hide();
         $("#fivePoints").show();
-        $('#next').attr('disabled', null);
-        $("#sr-only").text(0);
-        $("#score").text(0);
+        scorePage();
     }
     else if (count === 11 && $("#score").text() === "6") {
         $("#aircraftImage").attr('alt', resultImages[5][0]).attr('src', 'assets/images/' + resultImages[5][1]).show();
-        $(".answer, #question, .progress").hide();
         $("#sixPoints").show();
-        $('#next').attr('disabled', null);
-        $("#sr-only").text(0);
-        $("#score").text(0);
+        scorePage();
     }
     else if (count === 11 && $("#score").text() === "7") {
         $("#aircraftImage").attr('alt', resultImages[6][0]).attr('src', 'assets/images/' + resultImages[6][1]).show();
-        $(".answer, #question, .progress").hide();
         $("#sevenPoints").show();
-        $('#next').attr('disabled', null);
-        $("#sr-only").text(0);
-        $("#score").text(0);
+        scorePage();
     }
     else if (count === 11 && $("#score").text() === "8") {
         $("#aircraftImage").attr('alt', resultImages[7][0]).attr('src', 'assets/images/' + resultImages[7][1]).show();
-        $(".answer, #question, .progress").hide();
         $("#eightPoints").show();
-        $('#next').attr('disabled', null);
-        $("#sr-only").text(0);
-        $("#score").text(0);
+        scorePage();
     }
     else if (count === 11 && $("#score").text() === "9") {
         $("#aircraftImage").attr('alt', resultImages[8][0]).attr('src', 'assets/images/' + resultImages[8][1]).show();
-        $(".answer, #question, .progress").hide();
         $("#ninePoints").show();
-        $('#next').attr('disabled', null);
-        $("#sr-only").text(0);
-        $("#score").text(0);
-
+        scorePage();
     }
     else if (count === 11 && $("#score").text() === "10") {
         $("#aircraftImage").attr('alt', resultImages[9][0]).attr('src', 'assets/images/' + resultImages[9][1]).show();
-        $(".answer, #question, .progress").hide();
         $("#tenPoints").show();
-        $('#next').attr('disabled', null);
-        $("#sr-only").text(0);
-        $("#score").text(0);
-        //document.getElementById("score").innerText=0
-        console.log("count-results:", count)
+        scorePage();
     }
     else if (count === 11 && $("#score").text() === "0") {
         $("#aircraftImage").attr('alt', resultImages[10][0]).attr('src', 'assets/images/' + resultImages[10][1]).show();
-        $(".answer, #question, .progress").hide();
         $("#zeroPoints").show();
-        $('#next').attr('disabled', null);
-        $("#sr-only").text(0);
-        $("#score").text(0);
-        //document.getElementById("score").innerText=0
-        console.log("count-results:", count)
+        scorePage();
     }
     else {
         //Display imageChosen
@@ -404,14 +364,14 @@ $("#next").click(function () {
     //If count is 1 store aircraftUsed array in sessionStorage
     if (count === 1) {
         sessionStorage.setItem('aircraftSession', JSON.stringify(aircraftUsed));
-        var aircraftSession = sessionStorage.getItem('aircraftSession');
+        let aircraftSession = sessionStorage.getItem('aircraftSession');
         console.log("aircraftSession IF", JSON.parse(aircraftSession))
     }
     //Else concat aircraftUsed arrays to add to aircraft in sessionStorage
     else {
         sessionStorage.setItem('aircraftSession1', JSON.stringify(aircraftUsed));
-        var aircraftSession1 = sessionStorage.getItem('aircraftSession1');
-        var aircraftSession = sessionStorage.getItem('aircraftSession');
+        let aircraftSession1 = sessionStorage.getItem('aircraftSession1');
+        let aircraftSession = sessionStorage.getItem('aircraftSession');
         console.log("aircraftSession1 Else", aircraftSession1)
         aircraftSession = JSON.parse(aircraftSession1).concat(JSON.parse(aircraftSession))
         console.log("aircraftSession Else:", aircraftSession)
@@ -421,4 +381,10 @@ $("#next").click(function () {
 }
 )
 
-
+//Hide items for score page, disable Next button, reset count and score
+function scorePage() {
+    $(".answer, #question, .progress").hide();
+    $('#next').attr('disabled', null);
+    $("#sr-only").text(0);
+    $("#score").text(0);
+}
